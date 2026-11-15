@@ -40,6 +40,7 @@ The content documents this specific release. Servers, addons and other pack vers
 
 | What you need | Open | What you'll find |
 | --- | --- | --- |
+| Read or proofread everything | [Read all](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#read-all?lang=en) | **31 continuous sections** with guides and complete catalogue references; the active section follows your scrolling. |
 | Start a world | [First steps](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#guide?id=first-steps&lang=en) | Progression help, alongside **19 bilingual guides**. |
 | Craft an item | [Recipe index](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#recipes?lang=en) | **1,262 recipes**, accepted alternatives, quantities and workstations. |
 | Look up an item | [Item index](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&view=list&sort=az) | **1,405 entries**, A–Z browsing, crafting recipes and uses. |
@@ -49,6 +50,19 @@ The content documents this specific release. Servers, addons and other pack vers
 | Find a trade | [Villager offers](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#trades?lang=en) | **268 offers**, costs, professions and biome conditions. |
 | Follow progression | [Interactive advancements](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#advancements?lang=en) | **69 public advancements**, **279 completion criteria**, genuine pack icons, rewards and a local checklist. |
 | Check rarity | [Rarity and stars](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#guide?id=rarities&lang=en) | Star ratings for **47 fish** and documented item-name rarities. |
+
+### Read all the text without opening every page
+
+Open **[Read all](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#read-all?lang=en)** and keep scrolling. The section name, contents and address update as you read. Use the section selector to jump ahead, or your browser's Find command to search the whole document. English/French switching and reloading preserve the current section.
+
+For proofreading or sharing corrections, open the complete **[English text](https://tsumundev.github.io/Matcha-Flavoured-Wiki/wiki-text-en.txt)** or **[French text](https://tsumundev.github.io/Matcha-Flavoured-Wiki/wiki-text-fr.txt)**. These are ordinary UTF-8 text files: no code, editor setup or account is needed. The same downloads work from the offline wiki.
+
+<details>
+<summary>Preview continuous reading</summary>
+
+[![Read all with chapter navigation and English/French text downloads](preview/wiki-read-all.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#read-all?lang=en)
+
+</details>
 
 ### Follow a goal, then open its recipe
 
@@ -97,7 +111,7 @@ Published snapshots are kept in [Releases](https://github.com/TsumunDev/Matcha-F
 - [SNAPSHOT.json](SNAPSHOT.json) lists the documented version and distributed file checksums.
 - The [Git history](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/commits/main/) preserves successive file versions.
 
-The 15 November 2026 review parsed all **6,570 JSON files** in the two pinned archives, compared **1,262 published recipes** with their sources and checked the public advancement criteria. The metallurgy review traced **65 alloy smithing recipes** and 105 source files. **55 browser checks and five default-language checks passed**, including every public item, recipe, effect and advancement detail, search, local checklists, mobile layouts and offline use. These are static and browser checks; no in-game testing is claimed.
+The 15 November 2026 review parsed all **6,570 JSON files** in the two pinned archives, compared **1,262 published recipes** with their sources and checked the public advancement criteria. The metallurgy review traced **65 alloy smithing recipes** and 105 source files. **65 browser checks and five default-language checks passed**, including every public item, recipe, effect and advancement detail, search, local checklists, mobile layouts, continuous reading, text downloads and offline use. These are static and browser checks; no in-game testing is claimed.
 
 ## What's next
 

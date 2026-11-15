@@ -2,6 +2,14 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 15 November 2026 — continuous reading and plain text
+
+- Add Read all: 31 continuous sections containing the guides, public item and recipe entries, and reference text.
+- Update the active chapter, contents, document title and address while scrolling, without reloading the page or adding history entries.
+- Add a section selector and previous/next controls; preserve the chapter on reload and language changes.
+- Provide complete English and French UTF-8 text files, including offline downloads and both files in the site ZIP.
+- Verify guide paragraphs and advancement conditions, text-download equality, mobile touch scrolling, deep links and navigation after leaving reading mode.
+
 ## 15 November 2026 — metallurgy and interactive advancements
 
 - Add a dedicated advancement page with all 69 public entries, original Matcha icons and frame sprites, 279 exact completion criteria, rewards and related recipes.
