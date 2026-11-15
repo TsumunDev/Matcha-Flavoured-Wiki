@@ -2,7 +2,15 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
-## 15 November 2026 — continuous reading and plain text
+## 15 November 2026 — scrolling between normal sections
+
+- Remove the separate Read all page, its menu and home links, and the text-file exports.
+- Continue to the next existing wiki section by scrolling past the current one; update the normal sidebar and address.
+- Return to the previous section by scrolling upward from the start. Keep catalogue filters when revisiting a section.
+- Continue between individual guide articles using the same behaviour.
+- Keep search, saved recipes, detail dialogs and nested controls working normally.
+
+## 15 November 2026 — withdrawn continuous reading experiment
 
 - Add Read all: 31 continuous sections containing the guides, public item and recipe entries, and reference text.
 - Update the active chapter, contents, document title and address while scrolling, without reloading the page or adding history entries.
