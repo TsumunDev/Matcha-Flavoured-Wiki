@@ -6,6 +6,8 @@
 
 **New wiki created by Tsumun.** An independent community wiki to look up recipes, understand items and explore the gameplay changes in Matcha Flavoured. The wiki itself is available in **English and French**.
 
+**Prototype:** this wiki is actively being built and improved.
+
 **[Read the wiki](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en)** · **[Download the offline ZIP](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/releases/latest/download/matcha-wiki-site.zip)** · **[Dated snapshots](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/releases)**
 
 If you find the wiki useful, please leave a **⭐ on this repository**. Thank you for supporting the project!
@@ -13,6 +15,14 @@ If you find the wiki useful, please leave a **⭐ on this repository**. Thank yo
 [![Matcha wiki search, showing original pack textures and English results](preview/wiki-search.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en)
 
 This repository preserves browsable wiki snapshots and a record of their development. It includes the standalone HTML, its images and an offline download. Separate development sources, tools and full pack archives are kept outside this repository.
+
+## Prototype and contributions
+
+**This project is currently a prototype.** Everyone is welcome to help improve the wiki's appearance and navigation.
+
+Please work on your **own branch** and submit a **pull request** for review. If you do not have write access, fork the repository first, then create a branch in your fork. Basic knowledge of GitHub, branches and pull requests is expected. Keep changes focused and explain what you changed; screenshots are helpful for visual improvements.
+
+This repository contains the published wiki snapshots rather than the separate development sources. You can still suggest improvements, report issues and propose changes to the files provided here. Please keep pack credits and licensing information intact.
 
 [Browse the wiki](#browse-the-wiki) · [Read offline](#download-and-read-offline) · [Updates](#whats-next) · [Credits](#credits-and-reuse)
 
@@ -62,7 +72,7 @@ The [metallurgy guide](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#metall
 
 ### Finding something faster
 
-- **Continue by scrolling.** At the end of a normal section, keep scrolling to enter the next one; the address and sidebar follow. Scroll upward from the beginning to return to the previous section. Individual guides also continue into the next article.
+- **Scroll naturally between sections.** Normal sections and guide articles follow each other in the same document. Scroll down or back up; the sidebar and address follow what you are reading. Forms, filters and article controls stay in place, including during a phone swipe.
 - **Search in either language.** Names, accents, technical identifiers and aliases work. Try [Steel Alloy](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&item=minecraft%3Aresin_brick) to open an item directly.
 - **Browse by letter.** The item index has an A–Z navigator. Available letters and category counts update for your filters.
 - **Choose your view.** Switch between the item grid and a compact list, or sort names A–Z / Z–A. Recommended order puts exact search matches first.
@@ -98,7 +108,7 @@ Published snapshots are kept in [Releases](https://github.com/TsumunDev/Matcha-F
 - [SNAPSHOT.json](SNAPSHOT.json) lists the documented version and distributed file checksums.
 - The [Git history](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/commits/main/) preserves successive file versions.
 
-The 15 November 2026 review parsed all **6,570 JSON files** in the two pinned archives, compared **1,262 published recipes** with their sources and checked the public advancement criteria. The metallurgy review traced **65 alloy smithing recipes** and 105 source files. **65 browser checks and five default-language checks passed**, including every public item, recipe, effect and advancement detail, search, local checklists, mobile layouts, scrolling between normal sections and offline use. These are static and browser checks; no in-game testing is claimed.
+The 15 November 2026 review parsed all **6,570 JSON files** in the two pinned archives, compared **1,262 published recipes** with their sources and checked the public advancement criteria. The metallurgy review traced **65 alloy smithing recipes** and 105 source files. **67 browser checks and five default-language checks passed**, including every public item, recipe, effect and advancement detail, search, local checklists, mobile layouts, continuous scrolling and offline use. The scroll checks verify that a section boundary causes no forced scrolling or content replacement, including with an emulated mobile swipe. These are static and browser checks; no in-game testing is claimed.
 
 ## What's next
 

@@ -2,6 +2,16 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 15 November 2026 — continuous sections and prototype contributions
+
+- Keep the complete normal sections and guide articles in the document, preserving their controls and native scrolling in both directions.
+- Remove the boundary-triggered page replacement and return-to-top behaviour. The sidebar and address follow the visible section.
+- Keep form IDs and labels distinct, catalogue filters intact and dialog links functional across sections.
+- Use a stable compact phone header, with a search button, so changing sections does not shift the document.
+- Preserve the active paragraph and query when switching language.
+- Mark the project as a prototype on the overview and in the English README. Invite design/navigation improvements through contributors' own branches and pull requests; basic GitHub knowledge is expected.
+- Verify continuous wheel, keyboard and emulated touch scrolling, including zero forced scroll writes and no content replacement at section boundaries.
+
 ## 15 November 2026 — scrolling between normal sections
 
 - Remove the separate Read all page, its menu and home links, and the text-file exports.

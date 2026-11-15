@@ -25,12 +25,13 @@
     "alloyFamilies": 5,
     "oreProcessingRoutes": 10,
     "comparedPickaxes": 8,
-    "advancementCriteria": 279
+    "advancementCriteria": 279,
+    "normalSections": 31
   },
   "verification": {
-    "browserChecks": 65,
+    "browserChecks": 67,
     "inGameValidation": false,
-    "snapshotRecheck": "Normal wiki sections continue on wheel/touch scrolling, with the sidebar and address following. The separate reading page and text exports were removed. 65 browser checks and five language checks pass; four-file ZIP CRC/equality checked. No in-game validation.",
+    "snapshotRecheck": "The normal sections stay mounted in one document. Wheel and emulated touch boundary tests record zero forced scroll writes and zero main-content replacements, with stable controls and header height. 67 browser checks and five default-language checks pass; four-file ZIP CRC/equality checked. No in-game validation.",
     "defaultLanguageChecks": 5,
     "indexUsabilityChecks": 15,
     "progressionChecks": 10,
@@ -38,16 +39,16 @@
     "advancementCriteria": 279,
     "metallurgySourceFiles": 105,
     "alloySmithingRecipes": 65,
-    "sectionScrollChecks": 10
+    "sectionScrollChecks": 12
   },
   "files": {
     "index.html": {
-      "bytes": 7225350,
-      "sha256": "e6239cb43dc0455701fcb954e071bb6edfb4ff51b83927f504a8848ba510d28d"
+      "bytes": 7229748,
+      "sha256": "9e73a80379f82b68f32140419baa147304f951faeca46b9e0bd38327e49d79b8"
     },
     "matcha-wiki-site.zip": {
-      "bytes": 3402019,
-      "sha256": "452579555189f5dbce1bdc46dd6ee2208c59569ecf54956a157c3bc2796305ab"
+      "bytes": 3403202,
+      "sha256": "d65eb0ea8fc93c54c7a1ebd8183d2a62cf6fbe9a034b0c6f3846605c430a65db"
     },
     "matcha-logo.png": {
       "bytes": 134070,
@@ -58,12 +59,12 @@
       "sha256": "56451c7c9ff7f45c5d07fd093c48919ce9710e4db2e365184685a467d4abc848"
     },
     "README.md": {
-      "bytes": 9632,
-      "sha256": "8d78d822c208b3fea502bb4cb1206a9b57e473d4b7b4949af4def1e54b611684"
+      "bytes": 10594,
+      "sha256": "feeab49ea223ec2b3a640f1b30f02cb00c9209de0fe9bbb603c8e80b20a242cc"
     },
     "CHANGELOG.md": {
-      "bytes": 5210,
-      "sha256": "b51a706d7dcdc68d243a1ef60f97e6e4b065fcd000e1cb9e68d683bb382db979"
+      "bytes": 6193,
+      "sha256": "03c225d17da5a7acb4c107a9328307d0f1b23eaac05cc48dd02215ef2cafa33c"
     },
     "CONTENT-LICENSE.md": {
       "bytes": 1400,
@@ -74,8 +75,8 @@
       "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
     },
     "preview/wiki-search.png": {
-      "bytes": 86880,
-      "sha256": "787f33400bd5a51dbe1e7440ba03ca854fa540d762fd819aeeec95ea37ac9e28"
+      "bytes": 88538,
+      "sha256": "f62e0b71ba04a6d2f09c62ba6a7c5add564ee0745ba745cde84a35506fdea083"
     },
     ".nojekyll": {
       "bytes": 0,
@@ -90,22 +91,23 @@
       "sha256": "5557d6f869f8b61ec3257b0c8e6c47063fbb41ee1cebb6c5d0b68d23f0855144"
     },
     "preview/wiki-index.png": {
-      "bytes": 97352,
-      "sha256": "8354630258b07ce7d4da56bd131f93a33d21ef520da12240764096b45e9be50c"
+      "bytes": 98745,
+      "sha256": "6b72bb319a1c513b736ba8213c2c52e58274c48d6cf47ee5db8940641329d323"
     },
     "preview/wiki-advancements.png": {
-      "bytes": 99794,
-      "sha256": "db1274f77a07b50a56e6d52dfe60f49975ce71eab1ea95ae5c6d0487a5b9a686"
+      "bytes": 99533,
+      "sha256": "7aa000ce650cf82c7f26b8d2fa16b4338d0e3124ade988cd907ca34fe16da2a4"
     }
   },
   "defaultLanguage": "en",
   "entryUrl": "https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en",
-  "releaseTag": "wiki-2026-11-15.4",
+  "releaseTag": "wiki-2026-11-15.5",
   "appearance": {
     "default": "matcha",
     "options": [
       "matcha",
       "light"
     ]
-  }
+  },
+  "prototype": true
 }
