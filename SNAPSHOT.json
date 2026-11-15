@@ -46,8 +46,8 @@
       "sha256": "56451c7c9ff7f45c5d07fd093c48919ce9710e4db2e365184685a467d4abc848"
     },
     "README.md": {
-      "bytes": 6833,
-      "sha256": "3da25650322fadc10ca55ce4b32d37943061cf66d90c1a527ba007263bee8b51"
+      "bytes": 5208,
+      "sha256": "8df38623c05de9b699b8a197f706dcbb3fc9436ecae4d9a84679dc58db5b46d3"
     },
     "CHANGELOG.md": {
       "bytes": 1521,
@@ -62,8 +62,8 @@
       "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
     },
     "preview/wiki-search.png": {
-      "bytes": 90242,
-      "sha256": "61284c91ee30000569e42a510bf6a1fdeb82b5c9b1fb18ca0de247b382ee1a10"
+      "bytes": 83795,
+      "sha256": "bb8b10dcf026345a6f164df54841b75327f46bc18a8f2e66b9be6be0950043e6"
     },
     ".nojekyll": {
       "bytes": 0,

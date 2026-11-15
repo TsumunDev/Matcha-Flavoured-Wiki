@@ -1,92 +1,77 @@
 <p align="center">
-  <img src="matcha-logo.png" width="96" height="96" alt="Logo officiel de Matcha Flavoured">
+  <img src="matcha-logo.png" width="96" height="96" alt="Official Matcha Flavoured logo">
 </p>
 
 # Matcha Flavoured Wiki
 
-**Nouveau wiki réalisé par Tsumun.** Un wiki communautaire en français et en anglais pour retrouver les recettes, comprendre les objets et consulter les règles de Matcha Flavoured.
+**New wiki created by Tsumun.** An independent community wiki to look up recipes, understand items and explore the gameplay changes in Matcha Flavoured. The wiki itself is available in **English and French**.
 
-**[Consulter le wiki](https://tsumundev.github.io/Matcha-Flavoured-Wiki/)** · **[Télécharger le wiki en ZIP](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/raw/refs/heads/main/matcha-wiki-site.zip)** · **[Historique des sauvegardes](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/commits/main/)**
+**[Read the wiki](https://tsumundev.github.io/Matcha-Flavoured-Wiki/)** · **[Download the offline ZIP](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/raw/refs/heads/main/matcha-wiki-site.zip)** · **[Browse saved versions](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/commits/main/)**
 
-[![Recherche du wiki Matcha, avec les textures du pack et les résultats en français](preview/wiki-search.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/)
+If you find the wiki useful, please leave a **⭐ on this repository**. Thank you for supporting the project!
 
-Ce dépôt conserve les versions consultables du wiki et une trace de son évolution. Le fichier HTML, les images nécessaires et le téléchargement hors connexion sont sauvegardés ici. Les sources de travail séparées, outils de développement et archives complètes du pack restent hors du dépôt.
+[![Matcha wiki search, showing original pack textures and English results](preview/wiki-search.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/)
 
-## Le projet original
+This repository preserves browsable wiki snapshots and a record of their development. It includes the standalone HTML, its images and an offline download. Separate development sources, tools and full pack archives are kept outside this repository.
 
-**Matcha Flavoured est créé par Klei Wright et les contributeurs du projet.** Ce wiki est indépendant et ne constitue pas un wiki officiel du pack.
+## The original project
 
-- **[Matcha Flavoured sur Modrinth](https://modrinth.com/datapack/matcha-flavoured)** : télécharger le pack, consulter sa présentation et ses versions.
-- **[GitHub officiel de Matcha Flavoured](https://github.com/kleiwright/matcha-flavoured)** : retrouver les sources et le développement du datapack.
+**Matcha Flavoured is created by Klei Wright and the project's contributors.** This wiki is a separate community project and is not an official Matcha wiki.
 
-Le wiki sert à consulter des informations. Pour installer ou mettre à jour Matcha, utilisez les pages officielles ci-dessus.
+- **[Matcha Flavoured on Modrinth](https://modrinth.com/datapack/matcha-flavoured)** — download the pack, read its description and browse its releases.
+- **[Official Matcha Flavoured GitHub](https://github.com/kleiwright/matcha-flavoured)** — find the datapack's source and development history.
 
-## Version documentée
+To install or update Matcha, use the official project pages above. This repository distributes the wiki, not the pack.
 
-| Référence | Cette sauvegarde |
+## Documented version
+
+| Reference | This snapshot |
 | --- | --- |
 | Matcha Flavoured | **1.12.9** |
 | Minecraft | **Java Edition 26.3** |
-| Langues du wiki | **Français et anglais** |
-| Édition | **15 novembre 2026** |
+| Wiki languages | **English and French** |
+| Edition date | **15 November 2026** |
 
-Le contenu correspond à cette version précise. Un serveur, un addon ou une autre version du pack peut modifier les règles et les recettes.
+The content documents this specific release. Servers, addons and other pack versions may change recipes or gameplay rules.
 
-## Ce qu’on peut consulter
+## What's inside
 
-| Rubrique | Contenu |
+| Section | Content |
 | --- | --- |
-| Recettes | **1 262 recettes**, avec ingrédients, variantes acceptées, quantités, disposition et appareil. |
-| Objets | **1 405 fiches publiques**, avec descriptions, fabrication et utilisations. |
-| Guides | **19 guides bilingues** : débuts, cuisine, équipement, santé, mort, créatures, Nether, End, agriculture et exploration. |
-| Enchantements | **74 effets actifs** et **28 livres**, dont les bénédictions et Ofuda. |
-| Alimentation | **191 aliments et préparations**, avec les effets et les conditions de soin. |
-| Échanges | **268 offres utiles**, avec coûts, métiers et conditions de biome lorsqu’elles existent. |
-| Progrès et raretés | Un arbre de **69 progrès publics**, les étoiles de **47 poissons** et les raretés de noms documentées. |
+| Recipes | **1,262 recipes** with ingredients, accepted alternatives, quantities, arrangements and workstations. |
+| Items | **1,405 public entries** with descriptions, crafting recipes and uses. |
+| Guides | **19 bilingual guides** covering first steps, cooking, equipment, health, death, creatures, the Nether, the End, farming and exploration. |
+| Enchantments | **74 active effects** and **28 books**, including crafted Blessings and traded Ofuda. |
+| Food | **191 foods and preparations**, with effects and conditional healing explained. |
+| Trading | **268 useful offers**, with costs, professions and biome conditions where applicable. |
+| Advancements and rarity | A tree of **69 public advancements**, star ratings for **47 fish** and documented item-name rarities. |
 
-La recherche accepte les noms français et anglais, les accents, les identifiants et les alias. Les catégories et filtres se combinent. Trois apparences sont disponibles : Sombre, Clair et Claude. Les recettes enregistrées restent dans le navigateur de chaque lecteur.
+Search accepts English and French names, accents, technical identifiers and aliases. Categories and filters can be combined. Dark, Light and Claude appearances are available, and saved recipes stay in each reader's browser.
 
-Les secrets explicites et entrées de débogage ne sont pas présentés dans cette édition.
+Explicit secrets and debug entries are excluded from this edition.
 
-## Télécharger et ouvrir hors connexion
+## Download and read offline
 
-1. Téléchargez **[matcha-wiki-site.zip](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/raw/refs/heads/main/matcha-wiki-site.zip)**.
-2. Décompressez l’archive dans un dossier.
-3. Ouvrez **`index.html`** dans votre navigateur.
+1. Download **[matcha-wiki-site.zip](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/raw/refs/heads/main/matcha-wiki-site.zip)**.
+2. Extract the archive into a folder.
+3. Open **`index.html`** in your browser.
 
-Les données, images et recherches sont intégrées au HTML. Aucun serveur ni compte n’est nécessaire pour consulter le wiki ; seuls les liens externes demandent Internet. Les fichiers de crédits accompagnent l’archive.
+Data, images and search are bundled into the HTML. No server or account is needed to browse the wiki; only external reference links require an internet connection. Attribution files are included in the archive.
 
-Le bouton **Code → Download ZIP** de GitHub télécharge quant à lui tout le dépôt, avec le README et l’historique éditorial de cette édition.
+GitHub's **Code → Download ZIP** button downloads the whole repository snapshot instead, including this README and the changelog.
 
-## Suivre les sauvegardes
+## Follow the wiki's progress
 
-- [CHANGELOG.md](CHANGELOG.md) décrit les évolutions du wiki.
-- [SNAPSHOT.json](SNAPSHOT.json) indique la version documentée et les empreintes des fichiers distribués.
-- L’[historique Git](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/commits/main/) conserve les versions successives des fichiers.
+- [CHANGELOG.md](CHANGELOG.md) records changes to the wiki.
+- [SNAPSHOT.json](SNAPSHOT.json) lists the documented version and distributed file checksums.
+- The [Git history](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/commits/main/) preserves successive file versions.
 
-La revue documentaire du 15 novembre 2026 a comparé les **1 262 recettes** aux sources et ouvert toutes les fiches publiques au navigateur. **30 contrôles navigateur** ont été réussis, notamment pour les recherches, filtres, langues, thèmes, mobile et fonctionnement hors connexion. Cela ne remplace pas une validation en jeu ni le contrôle de chaque configuration serveur.
+The 15 November 2026 documentation review compared all **1,262 recipes** with their release sources and opened every public item, recipe and effect entry in a browser. **30 browser checks passed**, covering search, filters, languages, themes, mobile layouts and offline use. These checks do not replace in-game testing or validation of individual server configurations.
 
-## Crédits et conditions de réutilisation
+## Credits and reuse
 
-Le wiki est réalisé par **Tsumun**. Matcha Flavoured, ses textures et ses contenus appartiennent à **Klei Wright et aux contributeurs crédités**. Le catalogue communautaire d’[Evansch0](https://github.com/Evansch0/MatchaFlavouredWiki) a également servi de référence.
+The wiki is created by **Tsumun**. Matcha Flavoured and its content and textures belong to **Klei Wright and the credited contributors**. [Evansch0's community catalogue](https://github.com/Evansch0/MatchaFlavouredWiki) was also used as a reference.
 
-Les contenus Matcha et les adaptations documentaires conservent leurs conditions **CC BY-NC-SA 4.0**. Les noms et ressources Minecraft appartiennent à Mojang Studios et Microsoft. Le fichier de licence GPLv3 choisi à l’initialisation du dépôt ne remplace pas les conditions des éléments tiers.
+Matcha content and documentary adaptations retain their **CC BY-NC-SA 4.0** terms. Minecraft names and vanilla assets belong to Mojang Studios and Microsoft. The GPLv3 file selected when this repository was created does not replace the terms of third-party content.
 
-Voir [ATTRIBUTIONS.md](ATTRIBUTIONS.md), [CONTENT-LICENSE.md](CONTENT-LICENSE.md) et [LICENSE](LICENSE). Ce projet n’est pas affilié à Mojang ou Microsoft.
-
----
-
-<details>
-<summary><strong>English</strong></summary>
-
-**New wiki created by Tsumun.** This independent community wiki documents Matcha Flavoured **1.12.9** for Minecraft Java **26.3**, in English and French.
-
-**[Read the wiki](https://tsumundev.github.io/Matcha-Flavoured-Wiki/)** or **[download the offline ZIP](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/raw/refs/heads/main/matcha-wiki-site.zip)**, extract it and open `index.html`. Search, images and data work offline. External links require an internet connection.
-
-This repository preserves browsable snapshots and their history. It contains 1,262 recipes, 1,405 public item entries, 19 guides, 74 active effects, 28 books, 191 foods, 268 trade offers and 69 public advancements. Development files and full pack archives are kept outside this repository.
-
-Matcha Flavoured is created by **Klei Wright and contributors**. Please use **[the official Modrinth project](https://modrinth.com/datapack/matcha-flavoured)** to download the pack and **[the official Matcha GitHub repository](https://github.com/kleiwright/matcha-flavoured)** for its development. This wiki is unofficial.
-
-See [ATTRIBUTIONS.md](ATTRIBUTIONS.md) and [CONTENT-LICENSE.md](CONTENT-LICENSE.md) for the original creators and reuse conditions. Source-file and browser verification do not constitute an in-game test.
-
-</details>
+See [ATTRIBUTIONS.md](ATTRIBUTIONS.md), [CONTENT-LICENSE.md](CONTENT-LICENSE.md) and [LICENSE](LICENSE). This project is not affiliated with Mojang or Microsoft.
