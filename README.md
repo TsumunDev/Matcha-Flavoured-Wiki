@@ -6,11 +6,11 @@
 
 **New wiki created by Tsumun.** An independent community wiki to look up recipes, understand items and explore the gameplay changes in Matcha Flavoured. The wiki itself is available in **English and French**.
 
-**[Read the wiki](https://tsumundev.github.io/Matcha-Flavoured-Wiki/)** · **[Download the offline ZIP](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/raw/refs/heads/main/matcha-wiki-site.zip)** · **[Browse saved versions](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/commits/main/)**
+**[Read the wiki](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en)** · **[Download the offline ZIP](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/raw/refs/heads/main/matcha-wiki-site.zip)** · **[Browse saved versions](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/commits/main/)**
 
 If you find the wiki useful, please leave a **⭐ on this repository**. Thank you for supporting the project!
 
-[![Matcha wiki search, showing original pack textures and English results](preview/wiki-search.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/)
+[![Matcha wiki search, showing original pack textures and English results](preview/wiki-search.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en)
 
 This repository preserves browsable wiki snapshots and a record of their development. It includes the standalone HTML, its images and an offline download. Separate development sources, tools and full pack archives are kept outside this repository.
 
@@ -46,7 +46,7 @@ The content documents this specific release. Servers, addons and other pack vers
 | Trading | **268 useful offers**, with costs, professions and biome conditions where applicable. |
 | Advancements and rarity | A tree of **69 public advancements**, star ratings for **47 fish** and documented item-name rarities. |
 
-Search accepts English and French names, accents, technical identifiers and aliases. Categories and filters can be combined. Dark, Light and Claude appearances are available, and saved recipes stay in each reader's browser.
+The wiki opens in English by default; use **FR** to switch to French. Search accepts English and French names, accents, technical identifiers and aliases. Categories and filters can be combined. Dark, Light and Claude appearances are available, and saved recipes stay in each reader's browser.
 
 Explicit secrets and debug entries are excluded from this edition.
 

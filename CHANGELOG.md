@@ -7,6 +7,7 @@ Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumu
 Version documentée : **Matcha Flavoured 1.12.9 / Minecraft Java 26.3**.
 
 - Sauvegarde du wiki bilingue, de ses images et de son archive hors connexion.
+- Ouverture en anglais par défaut, avec des liens d’entrée explicites en anglais et le bouton FR toujours disponible.
 - Recherche commune aux objets, recettes, enchantements, guides et échanges, avec noms français/anglais, alias et résultats paginés.
 - Présentation conservant les bruns du GUI Matcha, les textures d’origine et les thèmes Sombre, Clair et Claude.
 - Intitulés de navigation agrandis et petits objets ajoutés aux catégories et premières étapes.

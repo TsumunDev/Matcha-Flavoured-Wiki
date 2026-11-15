@@ -26,16 +26,17 @@
   "verification": {
     "browserChecks": 30,
     "inGameValidation": false,
-    "snapshotRecheck": "Rebuilt from the reviewed edition; only site-origin metadata changed. ZIP CRC and file equality checked."
+    "snapshotRecheck": "Reviewed wiki snapshot with GitHub Pages URLs and English as the default language. ZIP CRC and file equality checked.",
+    "defaultLanguageChecks": 5
   },
   "files": {
     "index.html": {
-      "bytes": 6973074,
-      "sha256": "5cc9bf0872556fb0fabedfa964df8a1e532bb63146d1f3f565d4de9341d8f353"
+      "bytes": 6973032,
+      "sha256": "97288bc34603ed61c40f97aea751ac732a0267934b8b7adb44c375d0f07dfefb"
     },
     "matcha-wiki-site.zip": {
-      "bytes": 3356992,
-      "sha256": "accde2e9d4f8379d6099dec64db42ecda4eba8cdd55141e1096c36723123cb9b"
+      "bytes": 3356972,
+      "sha256": "517d5740db0a8b67d024db91b5a9116a994881d8afff332952387d4709d58d98"
     },
     "matcha-logo.png": {
       "bytes": 134070,
@@ -46,12 +47,12 @@
       "sha256": "56451c7c9ff7f45c5d07fd093c48919ce9710e4db2e365184685a467d4abc848"
     },
     "README.md": {
-      "bytes": 5340,
-      "sha256": "c7437b6769606ddfbfd889055c62f8a275ce0a86bb889d81e994865b1d5a88ce"
+      "bytes": 5436,
+      "sha256": "980b1c6b79a1f4bcefae01cdf4c2f604e9bb1f81cd8d5c640946993ebba3a791"
     },
     "CHANGELOG.md": {
-      "bytes": 1521,
-      "sha256": "938d7b2608486254f4b984794d992ede2704af2926d856d11ea762b51e77e0af"
+      "bytes": 1643,
+      "sha256": "788fd76bdbb001036d9c3e276a6ac27b0368275bfd5dbc32dd37e4d0e2f0fc3c"
     },
     "CONTENT-LICENSE.md": {
       "bytes": 1400,
@@ -77,5 +78,7 @@
       "bytes": 59,
       "sha256": "5557d6f869f8b61ec3257b0c8e6c47063fbb41ee1cebb6c5d0b68d23f0855144"
     }
-  }
+  },
+  "defaultLanguage": "en",
+  "entryUrl": "https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en"
 }
