@@ -41,10 +41,16 @@
     "alloySmithingRecipes": 65,
     "sectionScrollChecks": 12,
     "visualReview": {
-      "screenshots": 24,
+      "screenshots": 64,
       "routes": [
         "home",
-        "items"
+        "items",
+        "enchantments",
+        "trades",
+        "advancements",
+        "search",
+        "saved",
+        "guide (first steps)"
       ],
       "languages": [
         "en",
@@ -55,20 +61,29 @@
         "light"
       ],
       "viewports": [
-        "1440x960",
-        "390x844 (emulated touch)",
-        "320x844 (emulated touch)"
-      ]
+        "320x844",
+        "390x844",
+        "768x960",
+        "1280x960",
+        "1440x960"
+      ],
+      "engines": [
+        "Chromium",
+        "WebKit"
+      ],
+      "routeChecks": 816,
+      "searchJourneysPerEngine": 10,
+      "mobileDialogChecks": 10964
     }
   },
   "files": {
     "index.html": {
-      "bytes": 7243452,
-      "sha256": "e3dffffc09a571b8e9227bdea77dd132f7bf70e29232fafe2674b1d3f26eac7b"
+      "bytes": 7249650,
+      "sha256": "6e3cca180b451cf6fd788b35f4f31a23583d5e3b183890b027f20bc6c6b1a637"
     },
     "matcha-wiki-site.zip": {
-      "bytes": 3408156,
-      "sha256": "da2fdeed4621ed54cce4ebd2fad409ff6e9e6311270271614b2deb46f73c5057"
+      "bytes": 3409367,
+      "sha256": "e512139e7ddd6e4533dade31a92711b2454d1e28afef00f03312e25fc1d842e8"
     },
     "matcha-logo.png": {
       "bytes": 134070,
@@ -79,12 +94,12 @@
       "sha256": "ae8f780befbefa63c73dc682f48df9c49817920c6696a66d9cf1075e6e26ab61"
     },
     "README.md": {
-      "bytes": 11287,
-      "sha256": "8cee8c5fe1468ce88dd55efec4bee7d30bc29747e806e3fd1e73357b1e6e522d"
+      "bytes": 11775,
+      "sha256": "21451f477749ff084b4e3e1d4e16f1a47fbb5cb1e3f86f955135c37dfee8f6e2"
     },
     "CHANGELOG.md": {
-      "bytes": 8639,
-      "sha256": "84eec7ad2696a4cb00f6f305f20e753d0694d3842191fb2484269c6e1959aff8"
+      "bytes": 9312,
+      "sha256": "7a915c9f9d7280b8f7de1ae60dcc07bab833957a0b0094c659b6d4b5d6711f75"
     },
     "CONTENT-LICENSE.md": {
       "bytes": 1400,
@@ -95,8 +110,8 @@
       "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
     },
     "preview/wiki-search.png": {
-      "bytes": 82752,
-      "sha256": "627b60598f6c2ed97273ee2072a4328052c80cb9939d6a408d9002e4a24892ac"
+      "bytes": 82958,
+      "sha256": "15af160df05130597aee601fe23373b98cead46b1c197ba484fc93d6fdf1c113"
     },
     ".nojekyll": {
       "bytes": 0,
@@ -111,21 +126,21 @@
       "sha256": "5557d6f869f8b61ec3257b0c8e6c47063fbb41ee1cebb6c5d0b68d23f0855144"
     },
     "preview/wiki-index.png": {
-      "bytes": 101825,
-      "sha256": "b62afcbe60762c6875bc26ccba45970881923e0fc895c534c4f10f1e11a72d8f"
+      "bytes": 101588,
+      "sha256": "a14d610cfe360e52a5bc9b0ecbc230e05372524e764e7a81b34f40f659afc9f5"
     },
     "preview/wiki-advancements.png": {
-      "bytes": 112363,
-      "sha256": "70f2265458659e9f226cd4fcb7ce18812ec9462526f9cab212004b22761f7989"
+      "bytes": 112504,
+      "sha256": "c414d87b0335af74c25bbe477d24b039108390d4c6ea173886b4356f7bfc4fda"
     },
     "preview/wiki-home.png": {
-      "bytes": 143008,
-      "sha256": "be874255e6dca458912c115ca7542ae7d9111498800e208b935dabe0c6f750f4"
+      "bytes": 142992,
+      "sha256": "ecfb8940b3a686fe065fc659824bc643e155e3bd75c46dbbd0915cd350c55411"
     }
   },
   "defaultLanguage": "en",
   "entryUrl": "https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en",
-  "releaseTag": "wiki-2026-11-15.9",
+  "releaseTag": "wiki-2026-11-15.10",
   "appearance": {
     "default": "matcha",
     "options": [

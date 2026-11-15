@@ -2,6 +2,14 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 15 November 2026 — site audit and search fixes
+
+- Keep typed terms, result counts and addresses in sync when clearing filters, reopening an index, switching between Books and Effects, or changing languages.
+- Focus the search field when the mobile magnifier or keyboard shortcut opens it. Provide a labelled clear button inside filled fields.
+- Reuse indexed text when searching the wiki. Display results immediately while preserving bilingual matching and ranking.
+- Show book sources, enchantment levels and both sides of a villager offer within a phone's width.
+- Keep skip navigation in the active article and protect explicit links from a pending scroll update.
+
 ## 15 November 2026 — recipe lookup from the overview and item index
 
 - Search by item or ingredient directly from the overview. Open the Mud Kiln recipe by selecting its crafting pattern, drawn from the documented pack.

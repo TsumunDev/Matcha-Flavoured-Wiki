@@ -425,6 +425,36 @@ select:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
   .equipment-stats ul { grid-template-columns: 1fr; }
 }
 
+.mobile-column { display:none; }
+@media (max-width:680px) {
+ .reference-tabs { flex-wrap:wrap; overflow:visible; margin:14px 0 10px; }
+ .reference-tabs a { white-space:normal; }
+ .table-scroll:has(> :is(.books-table,.trades-table,.enchantments-table)) { overflow:visible; border:0; }
+ :is(.books-table,.trades-table,.enchantments-table) {
+  display:block; min-width:0; width:100%; border:0;
+ }
+ :is(.books-table,.trades-table,.enchantments-table) thead {
+  position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%);
+ }
+ :is(.books-table,.trades-table,.enchantments-table) tbody { display:block; }
+ :is(.books-table,.trades-table,.enchantments-table) tbody tr {
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:3px 16px;
+  padding:10px 0; border-top:1px solid var(--line);
+ }
+ :is(.books-table,.trades-table,.enchantments-table) tbody td {
+  display:block; border:0; width:auto; min-width:0; padding:0; overflow-wrap:anywhere;
+ }
+ .books-table td:first-child,.trades-table td:first-child,.enchantments-table td:last-child { grid-column:1/-1; }
+ .books-table td:first-child,.trades-table td:first-child,.enchantments-table td:first-child { font-weight:600; }
+ .trades-table td:first-child { width:auto; }
+ .trades-table td:first-child small { display:inline; margin-inline-start:7px; font-weight:400; }
+ .books-table .enchantment-list,.trades-table .trade-costs { align-items:flex-start; }
+ .wiki-table .mobile-column { display:block; color:var(--muted); font:12px/1.5 var(--sans); margin-top:3px; }
+ .enchantments-table td:nth-child(2) { align-self:center; text-align:end; }
+ .enchantments-table .mobile-column { display:inline; margin-inline-end:5px; }
+ .wiki-table .trade-item { max-width:100%; min-width:0; }
+ .wiki-table .trade-item span { min-width:0; }
+}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
@@ -450,9 +480,20 @@ select:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
 .has-local-search .brand { margin-right:auto; }
 .search-control { display:flex; flex:1 1 300px; flex-direction:column; align-items:stretch; gap:6px; min-width:0; padding:0; border:0; background:transparent; cursor:text; }
 .search-label { font-size:13px; line-height:1.5; color:var(--body); }
-.search-control > .search-field { border:1px solid var(--border-strong); outline:0; border-radius:0; background:var(--sidebar); color:var(--ink); min-width:0; width:100%; height:40px; flex:none; padding:6px 10px; font:16px var(--sans); }
+.search-entry > .search-field { border:1px solid var(--border-strong); outline:0; border-radius:0; background:var(--sidebar); color:var(--ink); min-width:0; width:100%; height:40px; flex:none; padding:6px 10px; font:16px var(--sans); }
+.search-entry { position:relative; min-width:0; }
+.search-entry input[type="search"],.header-search input[type="search"] { appearance:none; }
+.search-entry input::-webkit-search-cancel-button,.header-search input::-webkit-search-cancel-button { display:none; }
+.search-entry:has(.search-clear:not([hidden])) input { padding-inline-end:44px; }
+.search-entry .search-clear {
+ position:absolute; inset-inline-end:1px; top:50%; transform:translateY(-50%);
+ width:42px; height:100%; border:0; background:transparent; color:var(--muted); font:22px/1 var(--sans);
+}
+.header-search .search-clear { font:22px/1 var(--sans); color:var(--muted); }
+.search-entry .search-clear:hover,.header-search .search-clear:hover { color:var(--ink); background:var(--hover); }
+.search-clear[hidden],.header-search .search-clear[hidden],.header-search:has(.search-clear:not([hidden])) kbd { display:none; }
 .search-control:focus-within { outline:0; }
-.search-control > .search-field:focus-visible { outline:2px solid var(--green); outline-offset:3px; }
+.search-entry > .search-field:focus-visible { outline:2px solid var(--green); outline-offset:3px; }
 .filters { gap:12px; }
 .filters select { min-height:42px; border-radius:2px; font-size:13px; }
 .wiki-search-form { max-width:760px; align-items:flex-end; gap:12px; margin:0 0 22px; }
@@ -494,7 +535,7 @@ html { scroll-padding-top:calc(var(--header-height,81px) + 16px); }
   .header-search input { font-size:16px; }
   .header-search button { width:44px; flex-basis:44px; }
   .search-control { flex-basis:100%; min-height:44px; }
-  .search-control > .search-field { height:44px; font-size:16px; }
+  .search-entry > .search-field { height:44px; font-size:16px; }
   .filters select { min-height:44px; font-size:12px; }
   .category-tabs { gap:18px; flex-wrap:nowrap; min-width:max-content; }
   .category-tabs > button { min-height:48px; font-size:12px; }
@@ -722,12 +763,12 @@ body.flow-document .site-header{position:fixed;top:0;left:0;width:100%}
 .sidebar{overscroll-behavior:contain}
 @media(max-width:680px){
  .flow-page+.flow-page { margin-top:36px; padding-top:16px; }
- body.flow-document .site-header{height:67px;min-height:67px;flex-wrap:nowrap;row-gap:0;padding-top:8px;padding-bottom:8px}
- body.flow-document .header-search{display:none!important}
- body.flow-document .mobile-search-link{display:flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 44px;color:var(--ink)}
+ .site-header{height:67px;min-height:67px;flex-wrap:nowrap;row-gap:0;padding-top:8px;padding-bottom:8px}
+ .site-header .header-search{display:none!important}
+ .site-header .mobile-search-link{display:flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 44px;color:var(--ink)}
  .mobile-search-link svg{fill:none;stroke:currentColor;stroke-width:1.5}
 }
-@media(max-width:380px){body.flow-document .brand>span{display:none}body.flow-document .brand{flex:1}}
+@media(max-width:380px){.site-header .brand>span{display:none}.site-header .brand{flex:1}}
 
 .adv-board[data-branch="tutorial"] { --tile: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABV0lEQVQokV2SPW7DMAyFWdUQRVixHcOBkS1zT9Ar9P5LR29pkCC/dilp6vAAwqgmUXr8+Ejp7evzo5Yg7C/3Zy2BiE7XRxQeukZzISIiWjTVEk7XBxG5oWu2m6i5zJqJSNhHYSKCWtgLe1CQXNFqCfvgPREheeia4P3tNSMEyAXvUymIbY8chIumKHzY74BwqZTpeIbLVMrl/pw1A5ZK0VzQGJbmUmkuURhFF02mxjVAGABm44R9LQEiqIGMwqfro5aw3cTL/Qmc5uKAQYWxb4eusR4whttrNkuLJmfg9ZSQNvYtRIaYNTsMYdZszQl7NIaNVcNytQRIcY2h4bHg1qSH/W7sW4ejw34HM9PxHIXtU8DG2LdAEFFVSzCMsB/7FqHZ+DflCqkQCftF09A10/FsNr6nn/UXdOsvSUTWuj1I4HertmiqzI9Jgce7AheFF02X+y8R/QEKSvbNcse/BgAAAABJRU5ErkJggg=="); }
 .adv-board[data-branch="hell"] { --tile: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAWdJREFUOE9tk1GrgkAQhWdJM4sIUgh88MEXn/r/fyoEi9Ks8PINHNniLog6u3PmzDmzoSiKebfb2f1+tyzLbLPZ2DiOtt/vjfV6vfzddZ0dj0f/TtPU4+/320Jd13OSJL5BgOfxeNh2u3UwDt9uN3s+n/b5fBYQihALbdvOoMWo1+vVVqvVwkjAJBwOB2co8HA+n+dpmpySQDgAqzzPlzgMh2HwVmMQZ7Ber00gMTpxFkmAs2gHfRYNELEsyyXAYf6VDLDEFHgsZAAAShILAU+n0xd1qkk0nRVrb0G9oXKsPol93zsDsRQLrGeFpmnmuG9VY1Oqi7JaAVRMQlVVsyyJxWRwftlIyMvl4tUZPB+kX7tgIQAUF7BcQCcWBZYWCMgeCSZNFIe6YsyJj3LsgvqPE6ApPSSkBg7Af1sQZXoVABV5SI73v0SkEpsMk8ZZl4ubqMp6u424wIeckFD6Z0a4XLEjspP3H4jjVtcpVnP1AAAAAElFTkSuQmCC"); }
@@ -745,6 +786,7 @@ body.flow-document .site-header{position:fixed;top:0;left:0;width:100%}
       <form class="header-search" id="global-search-form" role="search">
         <label class="visually-hidden" for="global-search">Search the wiki / Rechercher dans le wiki</label>
         <input id="global-search" type="search" autocomplete="off" aria-label="Search the wiki" placeholder="Search the wiki…">
+        <button class="search-clear" type="button" aria-label="Clear search" hidden>×</button>
         <kbd aria-hidden="true">/</kbd>
         <button type="submit" id="global-search-submit" aria-label="Search"><svg class="lookup-icon" viewBox="0 0 20 20" aria-hidden="true"><use href="#lookup-glass"/></svg></button>
       </form>
@@ -966,9 +1008,15 @@ function shell(){
  $('global-search-submit').setAttribute('aria-label',t('searchAction'));
  const localSearch=['search','items','recipes','enchantments','trades','advancements'].includes(current.page);
  $('global-search-form').hidden=localSearch;
+ $('global-search-form').setAttribute('aria-label',t('searchStart'));
  document.body.classList.toggle('has-local-search',localSearch);
  document.body.classList.toggle('search-page',current.page==='search');
  if(current.page==='search')$('global-search').value=current.params.get('q')||'';
+ const clearGlobal=$('global-search-form').querySelector('.search-clear');
+ clearGlobal.setAttribute('aria-label',t('clearSearch'));clearGlobal.title=t('clearSearch');
+ syncSearchClear($('global-search'));
+ document.querySelector('.skip').textContent=lang==='fr'?'Aller au contenu':'Skip to content';
+ document.querySelector('.brand').setAttribute('aria-label','Matcha Flavoured — '+t('home'));
  $('menu-button').setAttribute('aria-label',t('menu'));$('close-dialog').setAttribute('aria-label',t('close'));$('dialog-back').textContent='‹ '+t('back');
  ['en','fr'].forEach(l=>$('lang-'+l).setAttribute('aria-pressed',String(lang===l)));
  updateTheme();
@@ -1031,7 +1079,7 @@ function catalogue(kind){
 }
 function filteredEntries(){return catalogueEntries()}
 function fillResults(){renderIndexResults()}
-function updateFilter(key,value){if(value)current.params.set(key,value);else current.params.delete(key);if(!['page','view'].includes(key))current.params.delete('page');if(key==='q')current.params.delete('letter');history.replaceState(null,'',href(current.page,Object.fromEntries(current.params)));fillResults()}
+function updateFilter(key,value){if(value)current.params.set(key,value);else current.params.delete(key);if(!['page','view'].includes(key))current.params.delete('page');if(key==='q')current.params.delete('letter');replaceWikiAddress(href(current.page,Object.fromEntries(current.params)));fillResults()}
 function guides(){return breadcrumb(t('guides'))+intro(t('guidesTitle'),t('guidesIntro'))+groupedGuideIndex()}
 function guide(){
  const g=DATA.guides.find(g=>g.id===(current.page==='metallurgy'?'alloys':current.params.get('id')));if(!g)return guides();
@@ -1101,7 +1149,7 @@ document.addEventListener('click',async e=>{
  const saver=e.target.closest('[data-save]');if(saver){const id=saver.dataset.save;const removing=saved.has(id);removing?saved.delete(id):saved.add(id);const ok=storage.set('saved',[...saved]);refreshModal();if(current.page==='saved')current.root.innerHTML=savedPage();shell();toast(ok?t(removing?'removedToast':'savedToast'):t('noStorage'));return}
  const pager=e.target.closest('[data-pager]');if(pager){updateFilter('page',pager.dataset.pager);$('results').scrollIntoView({block:'start'});return}
  if(e.target.closest('#reset-filters')){resetIndexFilters();return}
- const lng=e.target.closest('[data-lang]');if(lng){const focus=document.activeElement;lang=lng.dataset.lang;storage.set('language',lang);current.params.set('lang',lang);history.replaceState(null,'',href(current.page,Object.fromEntries(current.params)));render();if($('detail-dialog').open)refreshModal();focus?.focus();return}
+ const lng=e.target.closest('[data-lang]');if(lng){const focus=document.activeElement;lang=lng.dataset.lang;storage.set('language',lang);current.params.set('lang',lang);replaceWikiAddress(href(current.page,Object.fromEntries(current.params)));render();if($('detail-dialog').open)refreshModal();focus?.focus();return}
  const copy=e.target.closest('[data-copy-recipe]');if(copy){await copyEntryLink('recipe',copy.dataset.copyRecipe);return}
  if(e.target.closest('[data-close-link]'))closeModal();
  if(e.target.closest('.nav-link,.browse-card,.guide-card,.brand,.footer-links a')){if($('detail-dialog').open)closeModal()}
@@ -1113,12 +1161,12 @@ $('dialog-back').addEventListener('click',()=>{const entry=modalHistory.pop();if
 $('menu-button').addEventListener('click',()=>{const open=$('sidebar').classList.toggle('open');$('menu-button').setAttribute('aria-expanded',String(open))});
 document.addEventListener('keydown',e=>{
  if(e.key==='Tab'&&$('detail-dialog').open){const focusable=[...$('detail-dialog').querySelectorAll('button:not([disabled]),a[href],input,select,summary,[tabindex="0"]')].filter(el=>el.getClientRects().length&&!el.hidden);const first=focusable[0],last=focusable.at(-1),active=document.activeElement;if(e.shiftKey&&(active===first||!$('detail-dialog').contains(active))){e.preventDefault();last?.focus()}else if(!e.shiftKey&&(active===last||!$('detail-dialog').contains(active))){e.preventDefault();first?.focus()}}
- if(e.key==='/'&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)&&!$('detail-dialog').open){e.preventDefault();focusWikiSearch()}
+ if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)&&!$('detail-dialog').open){e.preventDefault();focusWikiSearch()}
  if(e.key==='Escape'){$('sidebar').classList.remove('open');$('menu-button').setAttribute('aria-expanded','false');if(!$('theme-menu').hidden){$('theme-menu').hidden=true;$('theme-toggle').setAttribute('aria-expanded','false');$('theme-toggle').focus()}}
 });
 $('theme-toggle').addEventListener('click',()=>{const open=$('theme-menu').hidden;$('theme-menu').hidden=!open;$('theme-toggle').setAttribute('aria-expanded',String(open));if(open)$('theme-menu').querySelector('[aria-pressed="true"]').focus()});
-$('global-search-form').addEventListener('submit',e=>{e.preventDefault();const q=$('global-search').value.trim();go('search',{q})});
-window.addEventListener('hashchange',()=>{const destination=location.hash;sectionRestoring=true;if($('detail-dialog').open)closeModal(false);if(location.hash!==destination)history.replaceState(null,'',destination);render()});
+$('global-search-form').addEventListener('submit',e=>{e.preventDefault();const q=$('global-search').value.trim();openWikiSearch(q)});
+window.addEventListener('hashchange',()=>{const destination=location.hash;sectionRestoring=true;if($('detail-dialog').open)closeModal(false);if(location.hash!==destination)replaceWikiAddress(destination);render()});
 
 /* Catalogue categories, rarity reference and source-derived advancement diagrams. */
 function fishingStars(stars){
@@ -1216,6 +1264,8 @@ function mobReferenceTable(g){
 }
 
 /* Source-backed item profiles, enchantment books and villager offers. */
+Object.assign(T.en,{booksTab:'Books',effectsTab:'Effects'});
+Object.assign(T.fr,{booksTab:'Livres',effectsTab:'Effets'});
 function visibleItemKeys(){return Object.keys(items).filter(key=>!items[key].hiddenAlias)}
 function itemProfile(key){return DATA.reference.items[DATA.reference.aliases[key]||key]||null}
 function itemSummary(key){return L(itemProfile(key)?.summary)||''}
@@ -1252,7 +1302,8 @@ function foodItemDetails(key){
  const food=DATA.food?.items?.[key];if(!food)return '';
  return `<section class="food-details"><h3>${t('foodDetails')}</h3>${food.healing&&L(food.healing)!==itemSummary(key)?`<p><strong>${t('healing')} :</strong> ${esc(L(food.healing))}</p>`:''}${food.effects?.length?`<ul>${food.effects.map(effect=>`<li>${esc(L(effect))}</li>`).join('')}</ul>`:''}${food.notes?.length?`<ul>${food.notes.map(note=>`<li>${esc(L(note))}</li>`).join('')}</ul>`:''}<a href="${href('guide',{id:'cooking'})}" data-close-link>${t('cookingGuide')}</a></section>`;
 }
-function referenceTabs(selected){return `<nav class="reference-tabs" aria-label="${t('enchantments')}">${[['books',t('blessingsBooks')+' ('+DATA.enchantments.books.length+')'],['effects',t('enchantmentEffects')+' ('+DATA.enchantments.entries.length+')']].map(([value,label])=>`<a href="${href('enchantments',{view:value,...(current.params.get('q')?{q:current.params.get('q')}:{})})}" ${selected===value?'aria-current="page"':''}>${esc(label)}</a>`).join('')}</nav>`}
+function columnLabel(title){return `<span class="mobile-column" aria-hidden="true">${esc(t(title))}</span>`}
+function referenceTabs(selected){return `<nav class="reference-tabs" aria-label="${t('enchantments')}">${[['books',t('booksTab')+' ('+DATA.enchantments.books.length+')'],['effects',t('effectsTab')+' ('+DATA.enchantments.entries.length+')']].map(([value,label])=>`<a data-reference-view="${value}" href="${href('enchantments',{view:value,...(current.params.get('q')?{q:current.params.get('q')}:{})})}" ${selected===value?'aria-current="page"':''}>${esc(label)}</a>`).join('')}</nav>`}
 function enchantmentsPage(){
  const view=current.params.get('view')==='effects'?'effects':'books';
  return breadcrumb(t('enchantments'))+intro(t('enchantmentsTitle'),t('enchantmentsIntro'))+`<p class="reference-guide-link"><a href="${href('guide',{id:'xp-enchantments-and-trades'})}">${t('enchantingGuide')}</a></p>`+referenceTabs(view)+`<div class="filters">${searchField('reference-search',t('referenceSearch'),current.params.get('q')||'')}<select id="reference-kind" aria-label="${t('referenceKind')}">${selectOptions(view==='books'?[['',t('allBooks')],['crafted',t('craftedBooks')],['traded',t('tradedBooks')]]:[['',t('allEnchantments')],['custom',t('customEnchantments')],['vanilla-id-overridden',t('changedEnchantments')]],current.params.get('kind')||'')}</select></div><div id="reference-results" aria-live="polite">${enchantmentResults()}</div>`;
@@ -1262,11 +1313,11 @@ function enchantmentResults(){
  if(view==='books'){
   const list=DATA.enchantments.books.filter(book=>(!kind||book.kind===kind)&&matches(itemSearchText(book.key),query));
   if(!list.length)return searchEmpty();
-  return `<p class="reference-result-count">${fmt(list.length)} ${t('booksFound')}</p><div class="table-scroll"><table class="wiki-table books-table"><thead><tr><th scope="col">${t('itemName')}</th><th scope="col">${t('bookEnchantments')}</th><th scope="col">${t('obtaining')}</th></tr></thead><tbody>${list.map(book=>`<tr><td>${tradeItem(book.key)}</td><td><div class="enchantment-list">${enchantmentLinks(book.enchantments)}</div></td><td>${book.kind==='crafted'?`<button class="link-button" data-recipe="${esc(book.recipeId)}">${t('craftingRecipe')}</button>`:`<a href="${href('trades',{q:name(book.key)})}">${esc(professionName(book.profession))} · ${t('level')} ${book.tier}</a>`}</td></tr>`).join('')}</tbody></table></div>`;
+  return `<p class="reference-result-count">${fmt(list.length)} ${t('booksFound')}</p><div class="table-scroll"><table role="table" class="wiki-table books-table"><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">${t('itemName')}</th><th role="columnheader" scope="col">${t('bookEnchantments')}</th><th role="columnheader" scope="col">${t('obtaining')}</th></tr></thead><tbody role="rowgroup">${list.map(book=>`<tr role="row"><td role="cell">${tradeItem(book.key)}</td><td role="cell">${columnLabel('bookEnchantments')}<div class="enchantment-list">${enchantmentLinks(book.enchantments)}</div></td><td role="cell">${columnLabel('obtaining')}${book.kind==='crafted'?`<button class="link-button" data-recipe="${esc(book.recipeId)}">${t('craftingRecipe')}</button>`:`<a href="${href('trades',{q:name(book.key)})}">${esc(professionName(book.profession))} · ${t('level')} ${book.tier}</a>`}</td></tr>`).join('')}</tbody></table></div>`;
  }
- const list=DATA.enchantments.entries.filter(entry=>(!kind||entry.classification===kind)&&matches(effectSearchText(entry),query)).sort((a,b)=>labelRelevance(Object.values(a.name),query)-labelRelevance(Object.values(b.name),query)||L(a.name).localeCompare(L(b.name),lang));
+ const list=DATA.enchantments.entries.filter(entry=>(!kind||entry.classification===kind)&&matches(effectSearchMap.get(entry.id),query)).sort((a,b)=>labelRelevance(Object.values(a.name),query)-labelRelevance(Object.values(b.name),query)||L(a.name).localeCompare(L(b.name),lang));
  if(!list.length)return searchEmpty();
- return `<p class="reference-result-count">${fmt(list.length)} ${t('effectsFound')}</p><div class="table-scroll"><table class="wiki-table enchantments-table"><thead><tr><th scope="col">${t('enchantment')}</th><th scope="col">${t('maximumLevel')}</th><th scope="col">${t('whatItDoes')}</th></tr></thead><tbody>${list.map(entry=>`<tr><td><button class="link-button" data-enchantment="${esc(entry.id)}">${esc(L(entry.name))}</button></td><td>${romanLevel(entry.maxLevel)}</td><td>${esc(L(entry.description))}</td></tr>`).join('')}</tbody></table></div>`;
+ return `<p class="reference-result-count">${fmt(list.length)} ${t('effectsFound')}</p><div class="table-scroll"><table role="table" class="wiki-table enchantments-table"><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">${t('enchantment')}</th><th role="columnheader" scope="col">${t('maximumLevel')}</th><th role="columnheader" scope="col">${t('whatItDoes')}</th></tr></thead><tbody role="rowgroup">${list.map(entry=>`<tr role="row"><td role="cell"><button class="link-button" data-enchantment="${esc(entry.id)}">${esc(L(entry.name))}</button></td><td role="cell">${columnLabel('maximumLevel')}${romanLevel(entry.maxLevel)}</td><td role="cell">${esc(L(entry.description))}</td></tr>`).join('')}</tbody></table></div>`;
 }
 function openEnchantment(id,push=false){
  const entry=enchantmentEntry(id);if(!entry)return;
@@ -1280,10 +1331,10 @@ function tradesPage(){return breadcrumb(t('trades'))+intro(t('tradesTitle'),t('t
 function tradeResults(){
  const query=current.params.get('q')||'',profession=current.params.get('profession')||'';
  const offer=current.params.get('offer');
- const list=DATA.reference.trades.filter(trade=>(!offer||trade.id===offer)&&(!profession||trade.profession===profession)&&matches(tradeSearchText(trade),query));
+ const list=DATA.reference.trades.filter(trade=>(!offer||trade.id===offer)&&(!profession||trade.profession===profession)&&matches(tradeSearchMap.get(trade.id),query));
  if(!list.length)return searchEmpty();
  const pages=Math.max(1,Math.ceil(list.length/40)),page=Math.max(1,Math.min(pages,Number(current.params.get('page'))||1));
- return `<p class="reference-result-count">${fmt(list.length)} ${t('offersFound')}${offer?` · <a href="${href('trades')}">${t('allTradeOffers')}</a>`:''}</p><div class="table-scroll"><table class="wiki-table trades-table"><thead><tr><th scope="col">${t('profession')}</th><th scope="col">${t('tradeCost')}</th><th scope="col">${t('result')}</th></tr></thead><tbody>${list.slice((page-1)*40,page*40).map(trade=>`<tr><td>${esc(professionName(trade.profession))}${trade.tier?`<small>${t('level')} ${trade.tier}</small>`:''}${tradeConditionLabel(trade)?`<small class="trade-condition">${esc(tradeConditionLabel(trade))}</small>`:''}</td><td><div class="trade-costs">${trade.costs.map(cost=>tradeItem(cost.key,cost.count)).join('<span class="trade-plus">+</span>')}</div></td><td>${tradeItem(trade.result,trade.count)}</td></tr>`).join('')}</tbody></table></div><div class="pagination"><button class="button" data-reference-page="${page-1}" ${page===1?'disabled':''}>${t('previous')}</button><span>${page} / ${pages}</span><button class="button" data-reference-page="${page+1}" ${page===pages?'disabled':''}>${t('next')}</button></div>`;
+ return `<p class="reference-result-count">${fmt(list.length)} ${t('offersFound')}${offer?` · <a href="${href('trades')}">${t('allTradeOffers')}</a>`:''}</p><div class="table-scroll"><table role="table" class="wiki-table trades-table"><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">${t('profession')}</th><th role="columnheader" scope="col">${t('tradeCost')}</th><th role="columnheader" scope="col">${t('result')}</th></tr></thead><tbody role="rowgroup">${list.slice((page-1)*40,page*40).map(trade=>`<tr role="row"><td role="cell">${esc(professionName(trade.profession))}${trade.tier?`<small>${t('level')} ${trade.tier}</small>`:''}${tradeConditionLabel(trade)?`<small class="trade-condition">${esc(tradeConditionLabel(trade))}</small>`:''}</td><td role="cell">${columnLabel('tradeCost')}<div class="trade-costs">${trade.costs.map(cost=>tradeItem(cost.key,cost.count)).join('<span class="trade-plus">+</span>')}</div></td><td role="cell">${columnLabel('result')}${tradeItem(trade.result,trade.count)}</td></tr>`).join('')}</tbody></table></div><div class="pagination"><button class="button" data-reference-page="${page-1}" ${page===1?'disabled':''}>${t('previous')}</button><span>${page} / ${pages}</span><button class="button" data-reference-page="${page+1}" ${page===pages?'disabled':''}>${t('next')}</button></div>`;
 }
 function bindReferencePage(){
  $('reference-search')?.addEventListener('input',event=>updateReferenceFilter('q',event.target.value));
@@ -1294,7 +1345,12 @@ function updateReferenceFilter(key,value){
  if(value)current.params.set(key,value);else current.params.delete(key);
  current.params.delete('offer');
  if(key!=='page')current.params.delete('page');
- history.replaceState(null,'',href(current.page,Object.fromEntries(current.params)));
+ replaceWikiAddress(href(current.page,Object.fromEntries(current.params)));
+ if(current.page==='enchantments'&&key==='q'){
+  for(const link of pageNodes('[data-reference-view]')){
+   link.href=href('enchantments',{view:link.dataset.referenceView,...(value?{q:value}:{})});
+  }
+ }
  $('reference-results').innerHTML=current.page==='trades'?tradeResults():enchantmentResults();
 }
 function foodReference(){
@@ -1339,23 +1395,51 @@ function labelRelevance(labels,query){
  return values.some(value=>value===q)?0:values.some(value=>value.startsWith(q))?1:values.some(value=>value.includes(q))?2:3;
 }
 function itemRelevance(key,query){const item=items[key];return labelRelevance([key,...Object.values(item.name),...Object.values(item.gameName||{})],query)}
-function recipeRelevance(recipe,query){return itemRelevance(recipe.result,query)}
 function searchField(id,label,value='',example=''){
  const title=id==='reference-search'?t(current.page==='trades'?'findTrade':current.params.get('view')==='effects'?'findEffect':'findBook'):label;
- return `<label class="search-control" for="${esc(id)}"><span class="search-label">${esc(title)}</span><input class="search-field" id="${esc(id)}" type="search" autocomplete="off" ${example?`placeholder="${esc(example)}"`:''} value="${esc(value)}" aria-label="${esc(title)}"></label>`;
+ return `<div class="search-control"><label for="${esc(id)}"><span class="search-label">${esc(title)}</span></label>
+  <div class="search-entry"><input class="search-field" id="${esc(id)}" type="search" autocomplete="off" enterkeyhint="search" ${example?`placeholder="${esc(example)}"`:''} value="${esc(value)}">
+  <button type="button" class="search-clear" aria-label="${esc(t('clearSearch'))}" title="${esc(t('clearSearch'))}" ${value?'':'hidden'}>×</button></div></div>`;
 }
+function syncSearchClear(input){
+ const button=input.parentElement.querySelector('.search-clear');
+ if(button)button.hidden=!input.value;
+}
+document.addEventListener('input',event=>{
+ if(event.target.matches('input[type="search"]'))syncSearchClear(event.target);
+});
+document.addEventListener('click',event=>{
+ const button=event.target.closest('.search-clear');
+ if(!button)return;
+ const input=button.parentElement.querySelector('input[type="search"]');
+ input.value='';
+ input.focus({preventScroll:true});
+ input.dispatchEvent(new Event('input',{bubbles:true}));
+});
 function searchEmpty(){return `<div class="empty search-empty"><h2>${t('noResults')}</h2><p>${t('searchEmptyHint')}</p></div>`}
 function searchScope(){const scope=current.params.get('scope')||'all';return ['all','items','recipes','enchantments','guides','trades','advancements'].includes(scope)?scope:'all'}
+const effectSearchMap=new Map(DATA.enchantments.entries.map(entry=>[entry.id,effectSearchText(entry)]));
+const tradeSearchMap=new Map(DATA.reference.trades.map(trade=>[trade.id,tradeSearchText(trade)]));
+const searchAdvancements=DATA.advancements.tabs.flatMap(tab=>tab.nodes);
+const advancementSearchMap=new Map(searchAdvancements.map(node=>[node.id,searchNorm(node.id+' '+bilingualText([node.title,node.description,node.criteria?.map(c=>c.instruction)]))]));
+
 function searchGroups(query){
- if(!searchWords(query).length)return [];
+ const words=searchWords(query);
+ if(!words.length)return [];
+ const matching=text=>words.every(word=>text.includes(word));
+ const ranks=new Map();
+ function rank(key){
+  if(!ranks.has(key))ranks.set(key,itemRelevance(key,query));
+  return ranks.get(key);
+ }
  const byName=(a,b)=>name(a).localeCompare(name(b),lang);
  return [
-  {id:'items',icon:'minecraft:chest',entries:visibleItemKeys().filter(key=>matches(itemSearchText(key),query)).sort((a,b)=>itemRelevance(a,query)-itemRelevance(b,query)||byName(a,b))},
-  {id:'recipes',icon:'minecraft:crafting_table',entries:recipes.filter(recipe=>matches(recipeSearchMap.get(recipe.id),query)).sort((a,b)=>recipeRelevance(a,query)-recipeRelevance(b,query)||sortRecipes(a,b))},
-  {id:'enchantments',icon:'minecraft:enchanted_book',entries:DATA.enchantments.entries.filter(entry=>matches(effectSearchText(entry),query)).sort((a,b)=>labelRelevance(Object.values(a.name),query)-labelRelevance(Object.values(b.name),query)||L(a.name).localeCompare(L(b.name),lang))},
-  {id:'guides',icon:'minecraft:book',entries:DATA.guides.filter(guide=>matches(guideSearchMap.get(guide.id),query)).sort((a,b)=>labelRelevance(Object.values(a.title),query)-labelRelevance(Object.values(b.title),query)||L(a.title).localeCompare(L(b.title),lang))},
-  {id:'advancements',icon:'matcha:heart',entries:DATA.advancements.tabs.flatMap(tab=>tab.nodes).filter(node=>matches(node.id+' '+bilingualText([node.title,node.description,node.criteria?.map(c=>c.instruction)]),query)).sort((a,b)=>labelRelevance(Object.values(a.title),query)-labelRelevance(Object.values(b.title),query)||L(a.title).localeCompare(L(b.title),lang))},
-  {id:'trades',icon:'minecraft:emerald',entries:DATA.reference.trades.filter(trade=>matches(tradeSearchText(trade),query)).sort((a,b)=>itemRelevance(a.result,query)-itemRelevance(b.result,query)||byName(a.result,b.result))}
+  {id:'items',icon:'minecraft:chest',entries:visibleItemKeys().filter(key=>matching(itemSearchText(key))).sort((a,b)=>rank(a)-rank(b)||byName(a,b))},
+  {id:'recipes',icon:'minecraft:crafting_table',entries:recipes.filter(recipe=>matching(recipeSearchMap.get(recipe.id))).sort((a,b)=>rank(a.result)-rank(b.result)||sortRecipes(a,b))},
+  {id:'enchantments',icon:'minecraft:enchanted_book',entries:DATA.enchantments.entries.filter(entry=>matching(effectSearchMap.get(entry.id))).sort((a,b)=>labelRelevance(Object.values(a.name),query)-labelRelevance(Object.values(b.name),query)||L(a.name).localeCompare(L(b.name),lang))},
+  {id:'guides',icon:'minecraft:book',entries:DATA.guides.filter(guide=>matching(guideSearchMap.get(guide.id))).sort((a,b)=>labelRelevance(Object.values(a.title),query)-labelRelevance(Object.values(b.title),query)||L(a.title).localeCompare(L(b.title),lang))},
+  {id:'advancements',icon:'matcha:heart',entries:searchAdvancements.filter(node=>matching(advancementSearchMap.get(node.id))).sort((a,b)=>labelRelevance(Object.values(a.title),query)-labelRelevance(Object.values(b.title),query)||L(a.title).localeCompare(L(b.title),lang))},
+  {id:'trades',icon:'minecraft:emerald',entries:DATA.reference.trades.filter(trade=>matching(tradeSearchMap.get(trade.id))).sort((a,b)=>rank(a.result)-rank(b.result)||byName(a.result,b.result))}
  ];
 }
 function excerpt(value,limit=195){const text=String(value||'');if(text.length<=limit)return text;const end=text.lastIndexOf(' ',limit);return text.slice(0,end>limit/2?end:limit)+'…'}
@@ -1378,7 +1462,7 @@ function searchSubmit(){
 }
 function wikiSearchPage(){
  const query=current.params.get('q')||'';
- return breadcrumb(t('search'))+intro(t('searchStart'),t('searchHelp'))+`<form class="wiki-search-form" id="wiki-search-form" role="search">${searchField('wiki-search-input',t('searchTerm'),query)}${searchSubmit()}</form><div id="wiki-search-results">${wikiSearchResults()}</div>`;
+ return breadcrumb(t('search'))+intro(t('searchStart'),t('searchHelp'))+`<form class="wiki-search-form" id="wiki-search-form" role="search" aria-label="${t('searchStart')}">${searchField('wiki-search-input',t('searchTerm'),query)}${searchSubmit()}</form><div id="wiki-search-results">${wikiSearchResults()}</div>`;
 }
 function wikiSearchResults(){
  const query=current.params.get('q')||'',scope=searchScope(),groups=searchGroups(query);
@@ -1393,24 +1477,25 @@ function wikiSearchResults(){
   return `<section class="search-group" id="search-${group.id}"><div class="search-group-heading"><h2>${img(group.icon,'heading-item')}${t(group.id)} <small>${fmt(group.entries.length)}</small></h2>${scope==='all'&&group.entries.length>size?`<a href="${href('search',{q:query,scope:group.id})}">${t('searchMore')}</a>`:''}</div><ul class="search-result-list">${group.entries.slice((page-1)*size,page*size).map(entry=>searchRow(group.id,entry,query)).join('')}</ul>${scope!=='all'&&pages>1?`<div class="pagination"><button class="button" data-search-page="${page-1}" ${page===1?'disabled':''}>${t('previous')}</button><span>${page} / ${pages}</span><button class="button" data-search-page="${page+1}" ${page===pages?'disabled':''}>${t('next')}</button></div>`:''}</section>`;
  }).join(''):searchEmpty());
 }
-let wikiSearchTimer;
 function updateWikiQuery(){
  if(current.page!=='search')return;
  const query=$('wiki-search-input').value;
  if(query.trim())current.params.set('q',query);else current.params.delete('q');
  current.params.delete('page');
- history.replaceState(null,'',href('search',Object.fromEntries(current.params)));
+ replaceWikiAddress(href('search',Object.fromEntries(current.params)));
  $('global-search').value=query;
+ syncSearchClear($('global-search'));
  $('wiki-search-results').innerHTML=wikiSearchResults();
 }
 function bindWikiSearch(){
- $('wiki-search-input').addEventListener('input',event=>{if(event.isComposing)return;clearTimeout(wikiSearchTimer);wikiSearchTimer=setTimeout(updateWikiQuery,120)});
- $('wiki-search-input').addEventListener('compositionend',()=>{clearTimeout(wikiSearchTimer);wikiSearchTimer=setTimeout(updateWikiQuery,120)});
- $('wiki-search-form').addEventListener('submit',event=>{event.preventDefault();clearTimeout(wikiSearchTimer);updateWikiQuery()});
+ const input=$('wiki-search-input');
+ input.addEventListener('input',event=>{if(!event.isComposing)updateWikiQuery()});
+ input.addEventListener('compositionend',updateWikiQuery);
+ $('wiki-search-form').addEventListener('submit',event=>{event.preventDefault();updateWikiQuery()});
 }
 document.addEventListener('click',event=>{
  const pager=event.target.closest('[data-search-page]');if(!pager)return;
- current.params.set('page',pager.dataset.searchPage);history.replaceState(null,'',href('search',Object.fromEntries(current.params)));
+ current.params.set('page',pager.dataset.searchPage);replaceWikiAddress(href('search',Object.fromEntries(current.params)));
  $('wiki-search-results').innerHTML=wikiSearchResults();$('wiki-search-results').scrollIntoView({block:'start'});
 });
 new ResizeObserver(entries=>{document.documentElement.style.setProperty('--header-height',entries[0].target.getBoundingClientRect().height+'px')}).observe(document.querySelector('.site-header'));
@@ -1521,11 +1606,12 @@ function refreshIndexControls(){
   recipeLink.hidden=!query;
   if(query)recipeLink.href=href('recipes',{q:query});else recipeLink.removeAttribute('href');
  }
- const queryOnly=recipeLink && filters.length===1 && filters[0].key==='q';
+ syncSearchClear($('catalogue-search'));
+ const queryOnly=filters.length===1 && filters[0].key==='q';
  node.hidden=!filters.length||queryOnly;
  const reset=$('reset-filters');
- reset.hidden=!filters.length;
- reset.textContent=t(queryOnly?'clearSearch':'reset');
+ reset.hidden=!filters.length||queryOnly;
+ reset.textContent=t('reset');
  node.innerHTML=(queryOnly?[]:filters).map(({key,label})=>`<button type="button" data-remove-index-filter="${key}" aria-label="${esc(t('removeFilter')+': '+label)}">${esc(label)} <span aria-hidden="true">×</span></button>`).join('');
 }
 function itemListRow(key){return `<button class="item-card item-list-row" data-item="${esc(key)}">${img(key)}<span class="item-list-name"><strong>${esc(name(key))}</strong>${lang==='fr'&&items[key].name.fr!==items[key].name.en?`<small lang="en">${esc(items[key].name.en)}</small>`:''}${rarityBadge(key)}</span><span class="item-list-description">${esc(itemSummary(key))}</span></button>`}
@@ -1561,7 +1647,7 @@ function canonicalItemKey(raw){const key=Object.hasOwn(DATA.reference.aliases,ra
 function clearEntryLink(){
  if(!current.params?.has('item')&&!current.params?.has('recipe'))return;
  current.params.delete('item');current.params.delete('recipe');
- history.replaceState(null,'',href(current.page,Object.fromEntries(current.params)));
+ replaceWikiAddress(href(current.page,Object.fromEntries(current.params)));
 }
 async function copyEntryLink(kind,id){
  if(kind==='item'&&!canonicalItemKey(id)||kind==='recipe'&&!recipeMap.has(id))return;
@@ -1570,7 +1656,7 @@ async function copyEntryLink(kind,id){
  delete params.item;delete params.recipe;params[kind]=id;
  const hash=href(page,params),url=new URL(DATA.meta.siteUrl?DATA.meta.siteUrl.replace(/\/$/,'')+'/':location.href);url.hash=hash;
  // Keep preview/file navigation on its own origin; the clipboard uses the public URL.
- if(current.page===page){current.params=new URLSearchParams({...params,lang});history.replaceState(null,'',hash)}
+ if(current.page===page){current.params=new URLSearchParams({...params,lang});replaceWikiAddress(hash)}
  try{await navigator.clipboard.writeText(url.href);toast(t('copied'))}
  catch{
   let field=$('copy-link-fallback');
@@ -1701,7 +1787,7 @@ function selectAdvancement(id,jump=false){
  const tab=DATA.advancements.tabs.find(tab=>tab.nodes.some(n=>n.id===id));
  current.params.set('adv',id);current.params.set('branch',tab.id);
  if(jump)current.params.set('advView','all');
- history.replaceState(null,'',href(current.page,Object.fromEntries(current.params)));
+ replaceWikiAddress(href(current.page,Object.fromEntries(current.params)));
  if(jump){
   const directory=$('adv-directory-panel');
   if(directory)directory.open=false;
@@ -1717,7 +1803,7 @@ function selectAdvancement(id,jump=false){
 document.addEventListener('input',e=>{
  if(e.target.id!=='adv-search')return;
  $('adv-directory-panel').open=Boolean(e.target.value);
- if(e.target.value)current.params.set('q',e.target.value);else current.params.delete('q');history.replaceState(null,'',href(current.page,Object.fromEntries(current.params)));$('adv-search-results').innerHTML=advancementList(e.target.value);
+ if(e.target.value)current.params.set('q',e.target.value);else current.params.delete('q');replaceWikiAddress(href(current.page,Object.fromEntries(current.params)));$('adv-search-results').innerHTML=advancementList(e.target.value);
 });
 document.addEventListener('click',e=>{
  const categoryButton=e.target.closest('[data-category]');if(categoryButton){updateFilter('category',categoryButton.dataset.category);return}
@@ -1735,7 +1821,7 @@ document.addEventListener('change',e=>{
  }
  if(!['adv-branch','adv-view'].includes(e.target.id))return;
  current.params.set(e.target.id==='adv-branch'?'branch':'advView',e.target.value);current.params.delete('adv');
- history.replaceState(null,'',href(current.page,Object.fromEntries(current.params)));const changedId=e.target.id;
+ replaceWikiAddress(href(current.page,Object.fromEntries(current.params)));const changedId=e.target.id;
  $('adv-explorer').innerHTML=advancementExplorerContent();centerAdvancementSelection();$(changedId)?.focus({preventScroll:true});
 });
 document.addEventListener('keydown',e=>{
@@ -1764,6 +1850,11 @@ const sectionOrder=['home','recipes','items','stations','metallurgy','advancemen
 const sectionParameters=new Map();
 let sectionDocument=null,sectionRecords=[],sectionActive=null,sectionLanguage=null,sectionFrame=0,sectionUtility=null,sectionRestoring=false,sectionRestoreFrame=0;
 history.scrollRestoration='manual';
+let renderedHash=location.hash;
+function replaceWikiAddress(hash){
+ history.replaceState(null,'',hash);
+ renderedHash=location.hash;
+}
 function sectionKey(entry){return entry.page+(entry.page==='guide'?':'+entry.params.get('id'):'')}
 function sectionEntries(){return sectionOrder.flatMap(page=>page==='guides'?[{page,params:new URLSearchParams()},...DATA.guides.map(g=>({page:'guide',params:new URLSearchParams({id:g.id})}))]:[{page,params:new URLSearchParams()}])}
 function sectionRoute(){
@@ -1804,8 +1895,8 @@ function normaliseSection(record){
 function mountSection(record){
  const previous=current;current=record;
  record.observer?.disconnect();record.root.innerHTML=pageMarkup();normaliseSection(record);bindPageControls();normaliseSection(record);
- record.signature=sectionSignature(record.params);
- record.observer=new MutationObserver(()=>normaliseSection(record));record.observer.observe(record.root,{childList:true,subtree:true});current=previous;
+ record.observer??=new MutationObserver(()=>normaliseSection(record));
+ record.observer.observe(record.root,{childList:true,subtree:true});current=previous;
 }
 function createSection(entry,index){
  const key=sectionKey(entry),params=new URLSearchParams(sectionParameters.get(key)||entry.params);if(entry.page==='guide')params.set('id',entry.params.get('id'));params.set('lang',lang);
@@ -1825,7 +1916,7 @@ function activateSection(record,address=true){
  const progress=record.root.querySelector('[data-wiki-id="adv-progress"]');if(progress){const label=t('advProgress')+' : '+completedAdvancements.size+' / '+publicAdvancements.length;if(progress.textContent!==label)progress.textContent=label}
  shell();document.title=(sectionHeading(record)?.textContent||t('home'))+' — Matcha Flavoured Wiki';
  $('mobile-search-link').href=href('search');$('mobile-search-link').setAttribute('aria-label',t('searchAction'));
- if(address){for(const key of ['section','item','recipe'])record.params.delete(key);history.replaceState(null,'',href(record.page,Object.fromEntries(record.params)))}
+ if(address){for(const key of ['section','item','recipe'])record.params.delete(key);replaceWikiAddress(href(record.page,Object.fromEntries(record.params)))}
 }
 function buildSectionDocument(){
  for(const record of sectionRecords){sectionRemember(record);record.observer?.disconnect()}
@@ -1843,6 +1934,7 @@ function restoreSectionPosition(record,position){
  window.scrollTo({top:scrollY+anchor.getBoundingClientRect().top-position.offset,behavior:'instant'});
 }
 function renderSectionDocument(){
+ renderedHash=location.hash;
  cancelAnimationFrame(sectionFrame);cancelAnimationFrame(sectionRestoreFrame);sectionFrame=0;sectionRestoring=true;
  const route=sectionRoute(),key=sectionKey(route),normal=sectionEntries().some(entry=>sectionKey(entry)===key);
  const translating=sectionLanguage!==null&&sectionLanguage!==lang;
@@ -1854,9 +1946,10 @@ function renderSectionDocument(){
   mountSection(sectionUtility);$('main').replaceChildren(sectionUtility.root);activateSection(sectionUtility,false);window.scrollTo({top:0,behavior:'instant'});
  }else{
   if(!sectionDocument||sectionLanguage!==lang)buildSectionDocument();
-  const record=sectionRecords.find(record=>sectionKey(record)===key),signature=sectionSignature(route.params);
+  const record=sectionRecords.find(record=>sectionKey(record)===key);
+  const filtersChanged=sectionSignature(record.params)!==sectionSignature(route.params);
   record.params=new URLSearchParams(route.params);record.params.set('lang',lang);
-  if(signature!==record.signature)mountSection(record);
+  if(filtersChanged)mountSection(record);
   if(sectionDocument.parentElement!==$('main'))$('main').replaceChildren(sectionDocument);
   activateSection(record,false);
   if(position?.key===key)restoreSectionPosition(record,position);
@@ -1875,7 +1968,7 @@ function renderSectionDocument(){
  })});
 }
 function followSectionScroll(){
- sectionFrame=0;if(sectionRestoring||!sectionDocument?.isConnected||$('detail-dialog').open||$('sidebar').classList.contains('open'))return;
+ sectionFrame=0;if(location.hash!==renderedHash||sectionRestoring||!sectionDocument?.isConnected||$('detail-dialog').open||$('sidebar').classList.contains('open'))return;
  const line=document.querySelector('.site-header').getBoundingClientRect().bottom+Math.min(150,innerHeight*.18);let selected=sectionRecords[0];
  for(const record of sectionRecords){if(record.root.getBoundingClientRect().top<=line)selected=record;else break}
  if(scrollY+innerHeight>=document.documentElement.scrollHeight-3)selected=sectionRecords.at(-1);
@@ -1889,7 +1982,8 @@ function sectionEventContext(event){
  if(sectionRestoring&&event.type==='focusin')return;
  const root=event.target instanceof Element?event.target.closest('[data-flow-index]'):null;
  if(!root)return;const record=sectionRecords[Number(root.dataset.flowIndex)];
- if(record&&record!==sectionActive)activateSection(record);
+ // Removing a focused input can emit change while its section is being rebuilt.
+ if(record&&record!==current)activateSection(record);
 }
 for(const event of ['pointerdown','click','focusin','input','change','submit','keydown'])document.addEventListener(event,sectionEventContext,true);
 document.addEventListener('click',event=>{
@@ -1898,9 +1992,28 @@ document.addEventListener('click',event=>{
  event.preventDefault();event.stopImmediatePropagation();const destination=link.getAttribute('href');sectionRestoring=true;closeModal(false);
  if(location.hash===destination)render();else location.hash=destination;
 },true);
+function openWikiSearch(query=''){
+ const destination=href('search',query?{q:query}:{});
+ if(location.hash!==destination)history.pushState(null,'',destination);
+ render();
+ $('wiki-search-input').focus({preventScroll:true});
+}
+$('mobile-search-link').addEventListener('click',event=>{
+ if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+ event.preventDefault();
+ if(current.page==='search')$('wiki-search-input').focus();
+ else openWikiSearch();
+});
+document.querySelector('.skip').addEventListener('click',event=>{
+ event.preventDefault();
+ const title=sectionHeading(current);
+ title.tabIndex=-1;
+ title.focus({preventScroll:true});
+ title.scrollIntoView({block:'start',behavior:'instant'});
+});
 function focusWikiSearch(){
  const field=$('catalogue-search')||$('reference-search')||$('wiki-search-input')||$('adv-search')||$('global-search');
- if(field?.getClientRects().length)field.focus();else{go('search');requestAnimationFrame(()=>$('wiki-search-input')?.focus())}
+ if(field?.getClientRects().length)field.focus();else openWikiSearch();
 }
 
 render();
