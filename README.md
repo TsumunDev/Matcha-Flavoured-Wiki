@@ -68,6 +68,10 @@ GitHub's **Code → Download ZIP** button downloads the whole repository snapsho
 
 The 15 November 2026 documentation review compared all **1,262 recipes** with their release sources and opened every public item, recipe and effect entry in a browser. **30 browser checks passed**, covering search, filters, languages, themes, mobile layouts and offline use. These checks do not replace in-game testing or validation of individual server configurations.
 
+## What's next
+
+I'll keep updating the wiki over the next few days to improve the index and make navigation as smooth as possible.
+
 ## Credits and reuse
 
 The wiki is created by **Tsumun**. Matcha Flavoured and its content and textures belong to **Klei Wright and the credited contributors**. [Evansch0's community catalogue](https://github.com/Evansch0/MatchaFlavouredWiki) was also used as a reference.
