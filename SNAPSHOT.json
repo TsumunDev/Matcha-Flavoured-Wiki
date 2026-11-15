@@ -21,23 +21,32 @@
     "books": 28,
     "foods": 191,
     "tradeOffers": 268,
-    "publicAdvancements": 69
+    "publicAdvancements": 69,
+    "alloyFamilies": 5,
+    "oreProcessingRoutes": 10,
+    "comparedPickaxes": 8,
+    "advancementCriteria": 279
   },
   "verification": {
-    "browserChecks": 45,
+    "browserChecks": 55,
     "inGameValidation": false,
-    "snapshotRecheck": "Matcha default and Light appearances; Claude removed. Existing catalogue and index checks pass. No in-game validation.",
+    "snapshotRecheck": "Source-backed metallurgy and all 69 public advancement criteria, original frame sprites, local completion checklist, recipe links and gameplay clarifications. 55 browser checks and five language checks pass. ZIP CRC and file equality checked; no in-game validation.",
     "defaultLanguageChecks": 5,
-    "indexUsabilityChecks": 15
+    "indexUsabilityChecks": 15,
+    "progressionChecks": 10,
+    "parsedJsonFiles": 6570,
+    "advancementCriteria": 279,
+    "metallurgySourceFiles": 105,
+    "alloySmithingRecipes": 65
   },
   "files": {
     "index.html": {
-      "bytes": 6988254,
-      "sha256": "6bc75a7de325badc6b3ddeba45314c369914629159e468cfcc39d3f494ad063a"
+      "bytes": 7216162,
+      "sha256": "00fe6ed6363eca65b90661ee9b2ca747148420f1c4028cdd9d9023d814ec0d49"
     },
     "matcha-wiki-site.zip": {
-      "bytes": 3360737,
-      "sha256": "37d6ba85d3727b96481da1516ddca99aebd1ecfb2280790e78752afef13c5cf8"
+      "bytes": 3399487,
+      "sha256": "f228257eba71504b452cc0eb68dbbc008973632f2fd9903ddb63f2541abfcb5e"
     },
     "matcha-logo.png": {
       "bytes": 134070,
@@ -48,12 +57,12 @@
       "sha256": "56451c7c9ff7f45c5d07fd093c48919ce9710e4db2e365184685a467d4abc848"
     },
     "README.md": {
-      "bytes": 7655,
-      "sha256": "26193c8d50ada11df289c3c8ae0113797d10185705eb067356543bc9e2ae7b1e"
+      "bytes": 9343,
+      "sha256": "3397133b1c751f93aa117a708dc81cc10bb8e42cbd8550168eb317987b99d84a"
     },
     "CHANGELOG.md": {
-      "bytes": 2775,
-      "sha256": "8d9041cca3d9eec2764d6297ef0b55b060392928c9f2f214aa88b46da3230c3c"
+      "bytes": 3974,
+      "sha256": "987c48dca9abc581fe1b36a2fe88ab6419cd8a8284f36c24b6d7390e5fa06a7b"
     },
     "CONTENT-LICENSE.md": {
       "bytes": 1400,
@@ -64,8 +73,8 @@
       "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
     },
     "preview/wiki-search.png": {
-      "bytes": 83873,
-      "sha256": "42e58131af0a66d8c76fe66aa418194ae2a9770e0f400969cc36ea39fc20cda7"
+      "bytes": 86880,
+      "sha256": "787f33400bd5a51dbe1e7440ba03ca854fa540d762fd819aeeec95ea37ac9e28"
     },
     ".nojekyll": {
       "bytes": 0,
@@ -80,13 +89,17 @@
       "sha256": "5557d6f869f8b61ec3257b0c8e6c47063fbb41ee1cebb6c5d0b68d23f0855144"
     },
     "preview/wiki-index.png": {
-      "bytes": 90229,
-      "sha256": "839eb8567f5483c69932d118237269ee64c535540f3fb80848bd410f8e154e04"
+      "bytes": 97352,
+      "sha256": "8354630258b07ce7d4da56bd131f93a33d21ef520da12240764096b45e9be50c"
+    },
+    "preview/wiki-advancements.png": {
+      "bytes": 99794,
+      "sha256": "db1274f77a07b50a56e6d52dfe60f49975ce71eab1ea95ae5c6d0487a5b9a686"
     }
   },
   "defaultLanguage": "en",
   "entryUrl": "https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en",
-  "releaseTag": "wiki-2026-11-15",
+  "releaseTag": "wiki-2026-11-15.2",
   "appearance": {
     "default": "matcha",
     "options": [

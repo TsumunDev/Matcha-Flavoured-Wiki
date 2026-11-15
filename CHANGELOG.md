@@ -2,6 +2,17 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 15 November 2026 — metallurgy and interactive advancements
+
+- Add a dedicated advancement page with all 69 public entries, original Matcha icons and frame sprites, 279 exact completion criteria, rewards and related recipes.
+- Keep a personal browser checklist, searchable entries, keyboard tree navigation and links between displayed steps. Check marks do not connect to the game.
+- Expand metallurgy into eight bilingual chapters, five alloy families, ten processing routes and eight pickaxe comparisons, with direct recipe links.
+- Explain steel's intermediate material, specialized smithing templates, repair materials, silver, raw diamonds and Pith.
+- Clarify the complete Eye of Ender chain, fishing habitats, favorite-food trade quantities, Beacon Kindling cooldown, archaeology finds and starting crops.
+- Correct the French Raw Diamond name and explain plain Elytra repairs.
+- Keep English as the initial language, with Matcha and Light appearances only. Refresh the README and actual wiki screenshots.
+- Validate 1,262 recipes and all public advancement conditions against the pinned release; 55 browser checks and five default-language checks pass. No in-game validation is claimed.
+
 ## 15 November 2026 — appearance
 
 - Keep Matcha as the default appearance, with Light as the second choice.

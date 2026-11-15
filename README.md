@@ -43,11 +43,22 @@ The content documents this specific release. Servers, addons and other pack vers
 | Start a world | [First steps](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#guide?id=first-steps&lang=en) | Progression help, alongside **19 bilingual guides**. |
 | Craft an item | [Recipe index](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#recipes?lang=en) | **1,262 recipes**, accepted alternatives, quantities and workstations. |
 | Look up an item | [Item index](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&view=list&sort=az) | **1,405 entries**, A–Z browsing, crafting recipes and uses. |
+| Work with metals | [Metallurgy](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#metallurgy?lang=en) | Ore processing, **five alloy families**, smithing, repairs and **eight pickaxes** compared. |
 | Understand healing | [Cooking and food](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#guide?id=cooking&lang=en) | **191 foods and preparations**, effects and healing conditions. |
 | Check an enchantment | [Books and effects](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#enchantments?lang=en) | **74 active effects** and **28 books**, including Blessings and Ofuda. |
 | Find a trade | [Villager offers](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#trades?lang=en) | **268 offers**, costs, professions and biome conditions. |
-| Follow progression | [Advancement tree](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#guide?id=advancements&lang=en) | **69 public advancements** and their original descriptions. |
+| Follow progression | [Interactive advancements](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#advancements?lang=en) | **69 public advancements**, **279 completion criteria**, genuine pack icons, rewards and a local checklist. |
 | Check rarity | [Rarity and stars](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#guide?id=rarities&lang=en) | Star ratings for **47 fish** and documented item-name rarities. |
+
+### Follow a goal, then open its recipe
+
+The [advancement page](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#advancements?lang=en) reproduces all three public branches with the original Matcha icons and frame textures. Select a node to see what actually completes it: crafting, inventory, fishing, trading or another trigger. Conditions distinguish **any one** alternative from **every** required step. Tree connections describe the layout, not automatic prerequisites.
+
+You can search all 69 advancements, open related recipes and mark completed goals. The checklist stays in your browser; it does not connect to your Minecraft world.
+
+[![The interactive advancement tree with original Matcha frames, exact conditions and a personal checklist](preview/wiki-advancements.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#advancements?lang=en&adv=matcha:tutorial/obtain_steel_tool)
+
+The [metallurgy guide](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#metallurgy?lang=en) explains the route from raw materials to compatible equipment. It covers Hepatizon, Shakudo, steel, Electrum and Adamant, including the intermediate step for steel and the templates required by specialized tools. Processing times, ingredients and comparison tables link to the actual recipes.
 
 ### Finding something faster
 
@@ -86,7 +97,7 @@ Published snapshots are kept in [Releases](https://github.com/TsumunDev/Matcha-F
 - [SNAPSHOT.json](SNAPSHOT.json) lists the documented version and distributed file checksums.
 - The [Git history](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/commits/main/) preserves successive file versions.
 
-The 15 November 2026 documentation review compared all **1,262 recipes** with their release sources and opened every public item, recipe and effect entry in a browser. **30 browser checks passed**, covering search, filters, languages, themes, mobile layouts and offline use. These checks do not replace in-game testing or validation of individual server configurations.
+The 15 November 2026 review parsed all **6,570 JSON files** in the two pinned archives, compared **1,262 published recipes** with their sources and checked the public advancement criteria. The metallurgy review traced **65 alloy smithing recipes** and 105 source files. **55 browser checks and five default-language checks passed**, including every public item, recipe, effect and advancement detail, search, local checklists, mobile layouts and offline use. These are static and browser checks; no in-game testing is claimed.
 
 ## What's next
 
