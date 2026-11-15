@@ -2,6 +2,13 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 15 November 2026 — item and recipe indexes
+
+- Place the search field beside the catalogue title on wide screens. Keep the result count next to the title as filters change.
+- Group categories and refinements in a keyboard-operated disclosure. Categories wrap on small screens. Open Browse A–Z to pick a letter.
+- Organise alphabetical item results by initial. The grid shows sprites, names and rarity. The list includes full descriptions. Relevance-ranked searches keep their original order.
+- Keep keyboard focus on the selected letter while its count updates. Expose the result count as a status message.
+
 ## 15 November 2026 — reading layout and catalogue navigation
 
 - Put the original Matcha logo, the documented version and the recipe, item and gameplay links at the top of the overview.

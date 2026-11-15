@@ -74,9 +74,9 @@ The [metallurgy guide](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#metall
 
 - **Scroll naturally between sections.** Normal sections and guide articles follow each other in the same document. Scroll down or back up; the sidebar and address follow what you are reading. Forms, filters and article controls stay in place, including during a phone swipe.
 - **Search in either language.** Names, accents, technical identifiers and aliases work. Try [Steel Alloy](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&item=minecraft%3Aresin_brick) to open an item directly.
-- **Browse by letter.** The item index has an A–Z navigator. Available letters and category counts update for your filters.
-- **Choose your view.** Switch between the item grid and a compact list, or sort names A–Z / Z–A. Recommended order puts exact search matches first.
-- **Keep useful filters.** Open **More filters** for workstations, item types or rarity. Remove one active filter at a time, or reset the filters while keeping your display choice.
+- **Browse by letter.** Open **Browse A–Z** to pick an initial. Available letters and category counts update for your filters.
+- **Choose your view.** Use the grid for names and sprites, or the list for full descriptions. An empty item search starts in alphabetical order. Best match puts exact search matches first.
+- **Keep useful filters.** Open **Categories & filters** for workstations, item types or rarity. Remove one active filter at a time, or reset the filters while keeping your display choice.
 - **Share the right entry.** Item and recipe details include a copy-link button. Item links can keep the current index filters and view.
 
 <details>

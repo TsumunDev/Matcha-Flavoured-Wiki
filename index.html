@@ -466,33 +466,45 @@ html { scroll-padding-top:calc(var(--header-height,81px) + 16px); }
 }
 @media print { .header-search,.wiki-search-form,.search-scopes { display:none; } }
 
-/* Primary lookup, optional refinements, then the categories and their counts. */
-.index-query { max-width:800px; margin:12px 0 6px; }
-.category-tabs { column-gap:16px; }
+/* Lookup and result controls share the same compact layout on both catalogues. */
+.catalogue-heading {
+ display:grid; grid-template-columns:minmax(0,1fr) minmax(260px,420px);
+ gap:12px 32px; align-items:end; margin:12px 0 18px;
+}
+.catalogue-heading p { margin:0; color:var(--muted); font-size:14px; font-variant-numeric:tabular-nums; }
 .index-search-form,.wiki-search-form { display:flex; align-items:flex-end; gap:0; max-width:560px; }
 .index-search-form .search-control { flex-basis:auto; }
-.index-search-submit,.wiki-search-form .button { min-height:40px; padding:6px 16px; border:1px solid var(--border-strong); border-left:0; border-radius:0; color:var(--ink); background:var(--panel-strong); font:600 14px var(--sans); }
+.index-search-submit,.wiki-search-form .button {
+ min-height:40px; padding:6px 16px; border:1px solid var(--border-strong); border-left:0;
+ border-radius:0; color:var(--ink); background:var(--panel-strong); font:600 14px var(--sans);
+}
 .index-search-submit:hover,.wiki-search-form .button:hover { background:var(--active); }
-.index-refine { margin:4px 0; }
-.index-refine > summary { width:max-content; max-width:100%; padding:7px 0; color:var(--green); cursor:pointer; font-size:13px; }
-.index-refinements { border:0; padding:6px 0 10px; margin:0; gap:14px 24px; }
-.index-select-label { display:flex; flex:1 1 180px; flex-direction:column; gap:5px; min-width:0; max-width:300px; font-size:12px; color:var(--muted); }
-.index-refinements .index-select-label select { flex:none; width:100%; max-width:100%; }
-.index-toolbar { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px 18px; margin:10px 0 0; padding:0 0 10px; border-bottom:1px solid var(--line); }
-.index-toolbar > strong { font-size:13px; }
-.index-tools { display:flex; align-items:center; flex-wrap:wrap; gap:8px 18px; }
-.index-sort-label { display:flex; align-items:center; gap:10px; color:var(--muted); font-size:13px; }
-.index-sort-label select { min-height:36px; border:0; border-radius:0; background-color:transparent; padding:6px 24px 6px 0; font-size:13px; color:var(--ink); }
-.index-view { display:flex; gap:12px; }
-.index-view button { padding:7px 0; min-height:36px; font-size:13px; border-bottom:2px solid transparent; color:var(--muted); }
-.index-view button[aria-pressed=true] { border-color:var(--green); color:var(--ink); font-weight:600; }
-.index-alphabet { margin:0 0 8px; padding:0; }
-.index-alphabet summary { cursor:pointer; font-size:13px; color:var(--muted); padding:7px 0; }
-.alphabet-links { display:flex; flex-wrap:wrap; gap:3px; margin-top:5px; }
-.alphabet-links button { min-width:30px; min-height:34px; padding:3px 7px; font-size:13px; border-bottom:2px solid transparent; }
-.alphabet-links button[aria-pressed=true] { border-color:var(--green); font-weight:700; color:var(--ink); }
-.alphabet-links button:disabled,.category-tabs button:disabled { opacity:.45; cursor:default; }
-.index-active-filters { display:flex; align-items:center; flex-wrap:wrap; gap:5px 18px; margin:3px 0 15px; }
+.catalogue-options { display:flex; align-items:baseline; flex-wrap:wrap; gap:0 24px; border-block:1px solid var(--line); padding:4px 0; }
+.catalogue-options details[open] { flex:1 0 100%; }
+.catalogue-options summary { width:fit-content; cursor:pointer; min-height:36px; padding:8px 0; font-size:14px; color:var(--ink); }
+.catalogue-options summary::marker { color:var(--muted); }
+.index-categories { border:0; padding:0; margin:5px 0 12px; min-width:0; }
+.index-categories legend,.index-select-label { color:var(--muted); font-size:13px; }
+.index-categories>div { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(160px,100%),1fr)); gap:4px 14px; }
+.index-categories button { display:flex; gap:6px; align-items:center; padding:6px 8px; text-align:left; font-size:14px; min-height:36px; }
+.index-categories button small { margin-left:auto; color:var(--muted); font-variant-numeric:tabular-nums; }
+.index-categories button[aria-pressed=true],.alphabet-links button[aria-pressed=true] { background:var(--active); box-shadow:inset 3px 0 var(--leaf); font-weight:600; }
+.index-categories button:hover:not(:disabled),.alphabet-links button:hover:not(:disabled) { background:var(--hover); }
+.index-categories .category-icon { width:20px; height:20px; image-rendering:pixelated; }
+.index-refinements { border:0; margin:0; padding:0 0 12px; gap:10px 18px; }
+.index-select-label { display:flex; flex:1 1 160px; flex-direction:column; gap:4px; min-width:0; max-width:260px; }
+.index-refinements .index-select-label select { flex:none; width:100%; }
+.index-tools,.index-sort-label,.index-view { display:flex; align-items:center; flex-wrap:wrap; }
+.index-tools { margin-left:auto; gap:0 20px; }
+.index-sort-label { gap:6px; color:var(--muted); font-size:13px; }
+.index-sort-label select { height:36px; max-width:100%; border:0; border-radius:0; background-color:var(--paper); color:var(--ink); font-size:13px; padding:4px; }
+.index-view { gap:4px; }
+.index-view button { min-height:36px; padding:4px 6px; font-size:13px; color:var(--muted); }
+.index-view button[aria-pressed=true] { color:var(--ink); text-decoration:underline; text-underline-offset:5px; font-weight:600; }
+.alphabet-links { display:flex; flex-wrap:wrap; gap:3px; padding-bottom:10px; }
+.alphabet-links button { min-width:30px; min-height:36px; padding:4px; }
+.index-applied,.index-active-filters { display:flex; align-items:center; flex-wrap:wrap; gap:5px 18px; }
+.index-applied:has(button:not([hidden])) { padding:5px 0; }
 .index-active-filters[hidden] { display:none; }
 .index-active-filters button { font-size:12px; color:var(--muted); padding:5px 0; text-align:left; overflow-wrap:anywhere; }
 .index-active-filters button:hover { color:var(--ink); text-decoration:underline; }
@@ -505,37 +517,42 @@ html { scroll-padding-top:calc(var(--header-height,81px) + 16px); }
 .item-list-description { font-size:13px; color:var(--muted); line-height:1.65; overflow-wrap:anywhere; }
 .item-list-row .item-rarity,.item-list-row .fishing-stars { margin-top:5px; }
 .copy-link-fallback { display:block; width:100%; min-height:44px; border:1px solid var(--border-strong); background:var(--panel); color:var(--ink); font-size:13px; margin:15px 0 0; padding:9px; }
-/* Inventory rows pair each sprite with its name, aligned across the spread. */
-.item-grid { grid-template-columns:repeat(auto-fill,minmax(min(200px,100%),1fr)); gap:0 20px; }
-.item-grid>.item-card { display:grid; grid-template-columns:44px minmax(0,1fr); align-content:start; align-items:start; gap:3px 10px; text-align:left; padding:15px 2px; }
-.item-grid>.item-card>img { grid-column:1; grid-row:1 / span 5; width:40px; height:40px; margin:0; }
-.item-grid>.item-card>:not(img) { grid-column:2; }
-.item-grid>.item-card strong,.recipe-card strong { font-size:14px; font-weight:600; line-height:1.4; }
-.item-grid>.item-card .item-summary,.recipe-card small { font-size:12px; line-height:1.45; margin:0; }
-.index-toolbar { font-variant-numeric:tabular-nums; }
-.index-sort-label select { max-width:100%; background-color:var(--paper); }
-@media(max-width:680px) {
- .wiki-search-form .button,.index-search-submit { min-height:44px; }
- .item-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 14px; }
- .item-grid>.item-card { display:flex; flex-direction:column; align-items:flex-start; gap:5px; padding:12px 1px; }
- .item-grid>.item-card>img { width:36px; height:36px; }
- .recipe-grid { grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr)); }
+
+.catalogue-entries { list-style:none; padding:0; margin:0; }
+.catalogue-entries li { margin:0; min-width:0; }
+.index-letter-group { display:grid; grid-template-columns:44px minmax(0,1fr); gap:12px; padding:13px 0; border-bottom:1px solid var(--line); }
+.flow-page .index-letter-group>.flow-h2 { margin:6px 0 0; color:var(--leaf); font:normal 28px/1 Cambria,Georgia,serif; }
+.catalogue-entries.item-grid { grid-template-columns:repeat(auto-fill,minmax(min(210px,100%),1fr)); gap:0 16px; }
+.item-grid .item-card {
+ width:100%; height:100%; display:grid; grid-template-columns:36px minmax(0,1fr); align-content:center; align-items:center;
+ gap:2px 11px; min-height:62px; border:0; border-radius:0; padding:8px 4px; text-align:left;
+}
+.item-grid .item-card img { width:36px; height:36px; margin:0; }
+.item-caption { min-width:0; overflow-wrap:anywhere; }
+.item-caption small { display:block; }
+.item-grid .item-card strong,.recipe-card strong { font-size:14px; font-weight:550; line-height:1.4; }
+.item-grid .item-card small,.recipe-card small { color:var(--muted); font-size:12px; margin:0; }
+.item-grid .item-card:hover strong,.item-grid .item-card:focus-visible strong { text-decoration:underline; text-underline-offset:3px; }
+@media(max-width:900px) {
+ .catalogue-heading { grid-template-columns:1fr; gap:12px; }
+ .catalogue-options { gap:0 16px; }
 }
 @media(max-width:680px) {
-
- .index-search-form .search-control { flex-basis:0; }
- .index-search-submit,.index-refine > summary { min-height:44px; }
- .index-select-label { flex-basis:100%; max-width:none; }
- .index-toolbar { gap:5px; }
- .index-tools { gap:6px 15px; }
- .index-sort-label select,.index-view button { min-height:44px; }
- .index-alphabet summary { min-height:44px; display:list-item; padding-top:10px; }
- .alphabet-links { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:2px; }
- .alphabet-links button { min-width:0; min-height:44px; padding:3px; }
- .index-active-filters button { min-height:44px; }
- .item-list .item-list-row { grid-template-columns:36px minmax(0,1fr); gap:7px 13px; padding:13px 2px; }
- .item-list-row > img { width:32px; height:32px; }
- .item-list-description { grid-column:2; font-size:12px; }
+ .wiki-search-form .button,.index-search-submit,.catalogue-options summary,.index-categories button,
+ .alphabet-links button,.index-sort-label select,.index-view button,.index-active-filters button { min-height:44px; }
+ .catalogue-options summary { padding:11px 0; }
+ .index-tools { margin-left:0; }
+ .index-select-label { max-width:none; }
+ .alphabet-links { display:grid; grid-template-columns:repeat(auto-fit,minmax(42px,1fr)); }
+ .index-letter-group { display:block; padding:8px 0; }
+ .flow-page .index-letter-group>.flow-h2 { margin:4px 0; font-size:22px; }
+ .catalogue-entries.item-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 10px; }
+ .item-grid .item-card { grid-template-columns:28px minmax(0,1fr); gap:2px 7px; padding:8px 0; }
+ .item-grid .item-card img { width:28px; height:28px; }
+ .recipe-grid { grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr)); }
+ .item-list .item-list-row { grid-template-columns:36px minmax(0,1fr); gap:5px 12px; padding:10px 2px; }
+ .item-list-row>img { width:32px; height:32px; }
+ .item-list-description { grid-column:2; }
 }
 
 /* Genuine pack advancement frames; typography and surrounding controls stay wiki-like. */
@@ -888,12 +905,16 @@ const starterRank=new Map(starterIds.map((id,i)=>[id,i]));
 function sortRecipes(a,b){return (starterRank.get(a.id)??1000)-(starterRank.get(b.id)??1000)||name(a.result).localeCompare(name(b.result),lang)||a.id.localeCompare(b.id)}
 function category(k){return DATA.categories.items[k]||'other'}
 function recipeCard(r){return `<button class="recipe-card" data-recipe="${esc(r.id)}">${img(r.result)}<span class="card-text"><strong>${esc(name(r.result))}</strong><small>${esc(stationName(r.station))}${r.count>1?' &nbsp; ×'+r.count:''}</small></span></button>`}
-function itemCard(k){return `<button class="item-card" data-item="${esc(k)}">${img(k)}<strong>${esc(name(k))}</strong>${rarityBadge(k)}<span class="item-summary">${esc(itemSummary(k))}</span>${lang==='fr'&&items[k].name.fr!==items[k].name.en?`<small lang="en">${esc(items[k].name.en)}</small>`:''}</button>`}
+function itemCard(key){
+ const english=items[key].name.en;
+ const alias=lang==='fr' && items[key].name.fr!==english?`<small lang="en">${esc(english)}</small>`:'';
+ return `<button class="item-card" data-item="${esc(key)}">${img(key)}<span class="item-caption"><strong>${esc(name(key))}</strong>${alias}${rarityBadge(key)}</span></button>`;
+}
 function selectOptions(values,selected){return values.map(([value,label])=>`<option value="${esc(value)}" ${value===selected?'selected':''}>${esc(label)}</option>`).join('')}
 function catalogue(kind){
  const isRecipe=kind==='recipes',q=current.params.get('q')||'',st=current.params.get('station')||'',type=current.params.get('type')||'',cat=current.params.get('category')||'';
  const filters=isRecipe?`<select id="station-filter" aria-label="${t('station')}">${selectOptions([['',t('allStationsOpt')],...Object.keys(ST).map(k=>[k,stationName(k)])],st)}</select><select id="type-filter" aria-label="${t('allTypes')}">${selectOptions([['',t('allTypes')],['crafting_shaped',t('shaped')],['crafting_shapeless',t('shapeless')],['heat',t('heat')],['stonecutting',t('cutting')],['smithing_transform',t('smithing')]],type)}</select>`:`<select id="availability-filter" aria-label="${t('availability')}">${selectOptions([['',t('allItems')],['craftable',t('craftable')]],current.params.get('availability')||'')}</select>${rarityFilter()}${itemKindFilter()}`;
- return breadcrumb(t(kind))+intro(t(kind+'Title'),t(kind+'Intro'))+catalogueSearchControls(kind,q,filters)+categoryNavigation(kind)+indexToolbar(kind)+`<div id="results" aria-live="polite" aria-atomic="false"></div>`;
+ return breadcrumb(t(kind))+catalogueControls(kind,q,filters)+`<div id="results"></div>`;
 }
 function filteredEntries(){return catalogueEntries()}
 function fillResults(){renderIndexResults()}
@@ -1036,11 +1057,10 @@ function matchesCategory(key,selected){
  if(selected==='food')return ['meals','ingredients'].includes(category(key));
  return category(key)===selected;
 }
-function categoryNavigation(kind){
- const entries=kind==='recipes'?recipes.map(r=>r.result):visibleItemKeys();
- const counts=new Map();for(const key of entries){const id=category(key);counts.set(id,(counts.get(id)||0)+1)}
- const definitions=[{id:'',name:{en:t('allCategories'),fr:t('allCategories')}},...DATA.categories.definitions];
- return `<nav class="category-navigation" aria-label="${t('categories')}"><div class="category-tabs">${definitions.map(c=>`<button type="button" data-category="${esc(c.id)}" aria-pressed="false">${c.iconKey?img(c.iconKey,'category-icon'):''}<span>${esc(L(c.name))}</span><small aria-hidden="true">${fmt(c.id?counts.get(c.id)||0:entries.length)}</small></button>`).join('')}</div></nav>`;
+function categoryNavigation(){
+ const all={id:'',name:{en:t('allCategories'),fr:t('allCategories')}};
+ const buttons=[all,...DATA.categories.definitions].map(c=>`<button type="button" data-category="${esc(c.id)}" aria-pressed="false">${c.iconKey?img(c.iconKey,'category-icon'):''}<span>${esc(L(c.name))}</span><small></small></button>`);
+ return `<fieldset class="index-categories"><legend>${t('categories')}</legend><div>${buttons.join('')}</div></fieldset>`;
 }
 function refreshCategoryNavigation(){
  const selected=current.params.get('category')||'',entries=catalogueEntries({ignoreCategory:true,ordered:false});
@@ -1270,20 +1290,42 @@ T.en.methodBody=`${DATA.meta.packRecipeCount.toLocaleString('en')} public pack r
 T.fr.methodBody=`${DATA.meta.packRecipeCount.toLocaleString('fr')} recettes publiques du pack et ${DATA.meta.vanillaReferenceCount} références vanilla utiles, ainsi que ${DATA.enchantments.books.length} livres, ${DATA.enchantments.entries.length} définitions actives d’enchantements, ${Object.keys(DATA.food.items).length} aliments et ${DATA.reference.trades.length} offres de villageois. Les secrets explicites, entrées de débogage et offres de remplissage supprimées par le pack sont exclus. Cet instantané ne couvre pas toutes les façons d’obtenir un objet.`;
 
 /* Browsing controls for the source-backed recipe and item indexes. */
-Object.assign(T.en,{sortIndex:'Sort',recommendedOrder:'Recommended',nameAscending:'Name A–Z',nameDescending:'Name Z–A',indexView:'Display',gridView:'Grid',listView:'List',browseAlphabet:'Browse A–Z',allLetters:'All letters',activeFilters:'Active filters',removeFilter:'Remove filter',startsWith:'Starts with',copyFail:'Select and copy the link shown below.'});
-Object.assign(T.fr,{sortIndex:'Trier',recommendedOrder:'Recommandé',nameAscending:'Nom A–Z',nameDescending:'Nom Z–A',indexView:'Affichage',gridView:'Grille',listView:'Liste',browseAlphabet:'Parcourir A–Z',allLetters:'Toutes les lettres',activeFilters:'Filtres actifs',removeFilter:'Retirer le filtre',startsWith:'Commence par',copyFail:'Sélectionnez et copiez le lien affiché ci-dessous.'});
-Object.assign(T.en,{findItem:'Item name or ID',findRecipe:'Item or ingredient',findTrade:'Find a trade',findEffect:'Find an effect',findBook:'Find a book',refineIndex:'More filters',indexRarity:'Rarity',indexItemType:'Item type',indexRecipeType:'Recipe type'});
-Object.assign(T.fr,{findItem:'Nom ou identifiant',findRecipe:'Objet ou ingrédient',findTrade:'Rechercher un échange',findEffect:'Rechercher un effet',findBook:'Rechercher un livre',refineIndex:'Plus de filtres',indexRarity:'Rareté',indexItemType:'Type d’objet',indexRecipeType:'Type de recette'});
+Object.assign(T.en,{sortIndex:'Sort',bestMatch:'Best match',starterOrder:'Starter recipes first',defaultNameOrder:'Alphabetical',nameAscending:'Name A–Z',nameDescending:'Name Z–A',indexView:'Display',gridView:'Grid',listView:'List',browseAlphabet:'Browse A–Z',allLetters:'All letters',activeFilters:'Active filters',removeFilter:'Remove filter',startsWith:'Starts with',copyFail:'Select and copy the link shown below.'});
+Object.assign(T.fr,{sortIndex:'Trier',bestMatch:'Pertinence',starterOrder:'Recettes de départ',defaultNameOrder:'Alphabétique',nameAscending:'Nom A–Z',nameDescending:'Nom Z–A',indexView:'Affichage',gridView:'Grille',listView:'Liste',browseAlphabet:'Parcourir A–Z',allLetters:'Toutes les lettres',activeFilters:'Filtres actifs',removeFilter:'Retirer le filtre',startsWith:'Commence par',copyFail:'Sélectionnez et copiez le lien affiché ci-dessous.'});
+Object.assign(T.en,{findItem:'Item name or ID (EN / FR)',findRecipe:'Item or ingredient',findTrade:'Find a trade',findEffect:'Find an effect',findBook:'Find a book',refineIndex:'Categories & filters',indexRarity:'Rarity',indexItemType:'Item type',indexRecipeType:'Recipe type'});
+Object.assign(T.fr,{findItem:'Nom ou identifiant (FR / EN)',findRecipe:'Objet ou ingrédient',findTrade:'Rechercher un échange',findEffect:'Rechercher un effet',findBook:'Rechercher un livre',refineIndex:'Catégories et filtres',indexRarity:'Rareté',indexItemType:'Type d’objet',indexRecipeType:'Type de recette'});
 
 function indexView(){return current.params.get('view')==='list'?'list':'grid'}
 function indexSort(){return ['az','za'].includes(current.params.get('sort'))?current.params.get('sort'):''}
+function defaultSortLabel(){
+ if(current.params.get('q'))return t('bestMatch');
+ return t(current.page==='recipes'?'starterOrder':'defaultNameOrder');
+}
 function indexLetter(key){const first=searchNorm(name(key)).charAt(0).toUpperCase();return /^[A-Z]$/.test(first)?first:'#'}
 function selectedIndexLetter(){const value=current.params.get('letter')||'';return /^[A-Z#]$/.test(value)?value:''}
-function catalogueSearchControls(kind,query,filters){
- const selected=['station','type','availability','rarity','kind'].some(key=>current.params.has(key));
- return `<div class="index-query"><form id="index-search-form" class="index-search-form" role="search">${searchField('catalogue-search',t(kind==='items'?'findItem':'findRecipe'),query)}<button class="index-search-submit" type="submit">${t('searchAction')}</button></form><details class="index-refine" id="index-refine" ${selected?'open':''}><summary>${t('refineIndex')}</summary><div class="filters index-refinements">${filters}</div></details></div>`;
+function catalogueControls(kind,query,filters){
+ const itemIndex=kind==='items';
+ const selected=['category','station','type','availability','rarity','kind'].some(key=>current.params.has(key));
+ const sortOptions=[['',defaultSortLabel()],['az',t('nameAscending')],['za',t('nameDescending')]];
+ const views=itemIndex?`<div class="index-view" role="group" aria-label="${t('indexView')}">${['grid','list'].map(view=>`<button type="button" data-index-view="${view}" aria-pressed="${indexView()===view}">${t(view+'View')}</button>`).join('')}</div>`:'';
+ return `<header class="catalogue-heading">
+   <div><h1>${t(kind+'Title')}</h1><p id="index-result-count" role="status" aria-atomic="true"></p></div>
+   <form id="index-search-form" class="index-search-form" role="search" aria-label="${t(kind)}">
+     ${searchField('catalogue-search',t(itemIndex?'findItem':'findRecipe'),query)}
+     <button class="index-search-submit" type="submit">${t('searchAction')}</button>
+   </form>
+ </header>
+ <div class="catalogue-options">
+   <details class="index-refine" id="index-refine" ${selected?'open':''}>
+     <summary>${t('refineIndex')}</summary>
+     ${categoryNavigation()}
+     <div class="filters index-refinements">${filters}</div>
+   </details>
+   ${itemIndex?indexAlphabet():''}
+   <div class="index-tools"><label class="index-sort-label" for="index-sort">${t('sortIndex')}<select id="index-sort">${selectOptions(sortOptions,indexSort())}</select></label>${views}</div>
+ </div>
+ <div class="index-applied"><div id="index-active-filters" class="index-active-filters" role="group" aria-label="${t('activeFilters')}" hidden></div><button class="text-button" id="reset-filters" hidden>${t('reset')}</button></div>`;
 }
-function indexToolbar(kind){return `${kind==='items'?'<div id="index-alphabet"></div>':''}<nav id="index-active-filters" class="index-active-filters" aria-label="${t('activeFilters')}" hidden></nav><div class="result-line index-toolbar"><strong id="index-result-count" role="status"></strong><div class="index-tools"><label class="index-sort-label" for="index-sort">${t('sortIndex')}<select id="index-sort">${selectOptions([['',t('recommendedOrder')],['az',t('nameAscending')],['za',t('nameDescending')]],indexSort())}</select></label>${kind==='items'?`<div class="index-view" role="group" aria-label="${t('indexView')}">${['grid','list'].map(view=>`<button type="button" data-index-view="${view}" aria-pressed="${indexView()===view}">${t(view+'View')}</button>`).join('')}</div>`:''}<button class="text-button" id="reset-filters">${t('reset')}</button></div></div>`}
 
 function catalogueEntries({ignoreCategory=false,ignoreLetter=false,ignoreQuery=false,ordered=true}={}){
  const q=ignoreQuery?'':current.params.get('q')||'',station=current.params.get('station')||'',type=current.params.get('type')||'',cat=ignoreCategory?'':current.params.get('category')||'';
@@ -1303,11 +1345,19 @@ function catalogueEntries({ignoreCategory=false,ignoreLetter=false,ignoreQuery=f
 }
 
 function indexAlphabet(){
+ const buttons=['',...'ABCDEFGHIJKLMNOPQRSTUVWXYZ','#'].map(letter=>`<button type="button" data-index-letter="${letter}">${letter||t('allCategories')}</button>`).join('');
+ return `<details class="index-alphabet" ${selectedIndexLetter()?'open':''}><summary>${t('browseAlphabet')}</summary><div class="alphabet-links" role="group" aria-label="${t('browseAlphabet')}">${buttons}</div></details>`;
+}
+
+function refreshIndexAlphabet(){
  const entries=catalogueEntries({ignoreLetter:true,ordered:false}),counts=new Map(),selected=selectedIndexLetter();
  for(const key of entries){const letter=indexLetter(key);counts.set(letter,(counts.get(letter)||0)+1)}
- const wasOpen=$('index-alphabet')?.querySelector('details')?.open;
- const open=wasOpen===undefined?!matchMedia('(max-width:680px)').matches:wasOpen;
- return `<details class="index-alphabet" ${open?'open':''}><summary>${t('browseAlphabet')}${selected?` <strong>(${esc(selected)})</strong>`:''}</summary><nav class="alphabet-links" aria-label="${t('browseAlphabet')}"><button type="button" data-index-letter="" aria-pressed="${!selected}" aria-label="${t('allLetters')}">${t('allCategories')}</button>${[...'ABCDEFGHIJKLMNOPQRSTUVWXYZ','#'].map(letter=>`<button type="button" data-index-letter="${letter}" aria-pressed="${selected===letter}" aria-label="${letter}: ${fmt(counts.get(letter)||0)} ${t('results')}" ${!counts.has(letter)&&selected!==letter?'disabled':''}>${letter}</button>`).join('')}</nav></details>`;
+ for(const button of pageNodes('[data-index-letter]')){
+  const letter=button.dataset.indexLetter,count=letter?(counts.get(letter)||0):entries.length;
+  button.disabled=Boolean(letter && !count && letter!==selected);
+  button.setAttribute('aria-pressed',String(letter===selected));
+  button.setAttribute('aria-label',letter?letter+' · '+fmt(count)+' '+t('results'):t('allLetters'));
+ }
 }
 
 function indexFilterLabels(){
@@ -1328,21 +1378,36 @@ function indexFilterLabels(){
  return filters;
 }
 function refreshIndexControls(){
- if($('index-alphabet'))$('index-alphabet').innerHTML=indexAlphabet();
+ if(current.page==='items')refreshIndexAlphabet();
  pageNodes('[data-index-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.indexView===indexView())));
- if($('index-sort'))$('index-sort').value=indexSort();
+ const sort=$('index-sort');
+ sort.options[0].textContent=defaultSortLabel();
+ sort.value=indexSort();
  const filters=indexFilterLabels(),node=$('index-active-filters');
  node.hidden=!filters.length;
  $('reset-filters').hidden=!filters.length;
  node.innerHTML=filters.map(({key,label})=>`<button type="button" data-remove-index-filter="${key}" aria-label="${esc(t('removeFilter')+': '+label)}">${esc(label)} <span aria-hidden="true">×</span></button>`).join('');
 }
 function itemListRow(key){return `<button class="item-card item-list-row" data-item="${esc(key)}">${img(key)}<span class="item-list-name"><strong>${esc(name(key))}</strong>${lang==='fr'&&items[key].name.fr!==items[key].name.en?`<small lang="en">${esc(items[key].name.en)}</small>`:''}${rarityBadge(key)}</span><span class="item-list-description">${esc(itemSummary(key))}</span></button>`}
+function indexEntriesMarkup(slice,recipeIndex,list){
+ const className=recipeIndex?'recipe-grid':list?'item-list':'item-grid';
+ const renderEntry=recipeIndex?recipeCard:list?itemListRow:itemCard;
+ const listMarkup=entries=>`<ul class="catalogue-entries ${className}" role="list">${entries.map(entry=>`<li>${renderEntry(entry)}</li>`).join('')}</ul>`;
+ if(recipeIndex || (!indexSort() && current.params.get('q')))return listMarkup(slice);
+ const groups=[];
+ for(const key of slice){
+  const letter=indexLetter(key);
+  if(groups.at(-1)?.letter!==letter)groups.push({letter,entries:[]});
+  groups.at(-1).entries.push(key);
+ }
+ return groups.map(group=>`<section class="index-letter-group"><h2>${esc(group.letter)}</h2>${listMarkup(group.entries)}</section>`).join('');
+}
 function renderIndexResults(){
  const entries=catalogueEntries(),recipeIndex=current.page==='recipes',list=!recipeIndex&&indexView()==='list',size=recipeIndex?36:50,pages=Math.max(1,Math.ceil(entries.length/size));
  const page=Math.max(1,Math.min(pages,parseInt(current.params.get('page'),10)||1)),slice=entries.slice((page-1)*size,page*size);
  refreshCategoryNavigation();refreshIndexControls();
  $('index-result-count').textContent=fmt(entries.length)+' '+t('results');
- $('results').innerHTML=entries.length?`<div class="${recipeIndex?'recipe-grid':list?'item-list':'item-grid'}">${slice.map(entry=>recipeIndex?recipeCard(entry):list?itemListRow(entry):itemCard(entry)).join('')}</div><div class="pagination"><button class="button" data-pager="${page-1}" ${page===1?'disabled':''}>${t('previous')}</button><span>${t('showing')} ${fmt((page-1)*size+1)}–${fmt(Math.min(page*size,entries.length))} ${t('of')} ${fmt(entries.length)}</span><button class="button" data-pager="${page+1}" ${page===pages?'disabled':''}>${t('next')}</button></div>`:`<div class="empty"><h2>${t('noResults')}</h2><p>${t('noResultsHint')}</p></div>`;
+ $('results').innerHTML=entries.length?`${indexEntriesMarkup(slice,recipeIndex,list)}<div class="pagination"><button class="button" data-pager="${page-1}" ${page===1?'disabled':''}>${t('previous')}</button><span>${t('showing')} ${fmt((page-1)*size+1)}–${fmt(Math.min(page*size,entries.length))} ${t('of')} ${fmt(entries.length)}</span><button class="button" data-pager="${page+1}" ${page===pages?'disabled':''}>${t('next')}</button></div>`:`<div class="empty"><h2>${t('noResults')}</h2><p>${t('noResultsHint')}</p></div>`;
 }
 function resetIndexFilters(){go(current.page,{...(indexView()==='list'&&current.page==='items'?{view:'list'}:{}),...(indexSort()?{sort:indexSort()}:{})})}
 function bindIndexControls(){
@@ -1375,7 +1440,7 @@ async function copyEntryLink(kind,id){
 }
 document.addEventListener('click',event=>{
  const letter=event.target.closest('[data-index-letter]');
- if(letter){const value=letter.dataset.indexLetter;updateFilter('letter',value);[...pageNodes('[data-index-letter]')].find(button=>button.dataset.indexLetter===value)?.focus({preventScroll:true});return}
+ if(letter){updateFilter('letter',letter.dataset.indexLetter);return}
  const view=event.target.closest('[data-index-view]');if(view){updateFilter('view',view.dataset.indexView==='list'?'list':'');return}
  const remove=event.target.closest('[data-remove-index-filter]');if(remove){const key=remove.dataset.removeIndexFilter;const selector={q:'catalogue-search',station:'station-filter',type:'type-filter',availability:'availability-filter',rarity:'rarity-filter',kind:'item-kind-filter'}[key];if($(selector))$(selector).value='';updateFilter(key,'');$('catalogue-search').focus();return}
  const copy=event.target.closest('[data-copy-item]');if(copy)void copyEntryLink('item',copy.dataset.copyItem);
