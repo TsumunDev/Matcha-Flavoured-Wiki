@@ -64,7 +64,7 @@ The content documents this specific release. Servers, addons and other pack vers
 
 The [advancement page](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#advancements?lang=en) reproduces all three public branches with the original Matcha icons and frame textures. Select a node to see what actually completes it: crafting, inventory, fishing, trading or another trigger. Conditions distinguish **any one** alternative from **every** required step. Tree connections describe the layout, not automatic prerequisites.
 
-You can search all 69 advancements, open related recipes and mark completed goals. The checklist stays in your browser; it does not connect to your Minecraft world.
+Search above the tree to find a goal across all three branches. Each icon has a name. With the tree in focus, use the arrow keys to move between goals. On a phone, choosing a search result takes you straight to its conditions. Follow a linked recipe or mark the goal complete. Checkmarks are saved in this browser, independently of your Minecraft world.
 
 [![The interactive advancement tree with original Matcha frames, exact conditions and a personal checklist](preview/wiki-advancements.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#advancements?lang=en&adv=matcha:tutorial/obtain_steel_tool)
 

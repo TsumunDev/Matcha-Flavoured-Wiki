@@ -2,6 +2,13 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 15 November 2026 — advancement maps and search controls
+
+- Name each goal on the three branch maps and use the background tiles specified in the datapack. Keep conditions and rewards beside the map on wide screens.
+- Search across branches above the map. Selecting a result opens its conditions on a phone. Direct links select the corresponding branch and goal.
+- Move between goals with the arrow keys. Use one Tab stop for the map and keep keyboard focus visible.
+- Use one labelled search action for the catalogue and the site search. Give scrollbars the colours of the selected appearance while respecting system contrast settings.
+
 ## 15 November 2026 — item and recipe indexes
 
 - Place the search field beside the catalogue title on wide screens. Keep the result count next to the title as filters change.

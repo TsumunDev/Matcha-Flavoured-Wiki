@@ -80,5 +80,10 @@ subject to its original terms and is not relicensed under this repository's
 Creative Commons license. This project is not an official Minecraft product or
 service.
 
+The advancement maps use the background blocks named by the public
+Matcha root advancements: dirt (From Earth), netherrack (Hell), and
+black concrete (End). The tiles follow the documented 26.3 client and
+1.12.9 resource pack.
+
 See the [Minecraft Usage Guidelines](https://www.minecraft.net/usage-guidelines)
 for Mojang's current terms.
