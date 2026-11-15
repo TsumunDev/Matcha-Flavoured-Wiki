@@ -2,6 +2,11 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 15 November 2026 — appearance
+
+- Keep Matcha as the default appearance, with Light as the second choice.
+- Remove the Claude appearance; older saved appearances fall back to Matcha.
+
 ## 15 novembre 2026 — index et navigation
 
 - Recherche simplifiée : un seul champ visible par page d’index, un libellé permanent et les filtres secondaires dans « More filters ».

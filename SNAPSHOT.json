@@ -26,18 +26,18 @@
   "verification": {
     "browserChecks": 45,
     "inGameValidation": false,
-    "snapshotRecheck": "Source-backed edition with simplified labelled search, optional filters, A-Z browsing, list/grid views, contextual counts, public item links and English by default. ZIP CRC and file equality checked.",
+    "snapshotRecheck": "Matcha default and Light appearances; Claude removed. Existing catalogue and index checks pass. No in-game validation.",
     "defaultLanguageChecks": 5,
     "indexUsabilityChecks": 15
   },
   "files": {
     "index.html": {
-      "bytes": 6989247,
-      "sha256": "d14d1947e4494ce2a1c6404a02ed49ea24b7521b7da2b2120ab0d75a4e3c567b"
+      "bytes": 6988254,
+      "sha256": "6bc75a7de325badc6b3ddeba45314c369914629159e468cfcc39d3f494ad063a"
     },
     "matcha-wiki-site.zip": {
-      "bytes": 3361053,
-      "sha256": "32f778f3e6016b2ce4fbd305df43570351a18eaf2938e56c8bf71c25b78fa092"
+      "bytes": 3360737,
+      "sha256": "37d6ba85d3727b96481da1516ddca99aebd1ecfb2280790e78752afef13c5cf8"
     },
     "matcha-logo.png": {
       "bytes": 134070,
@@ -48,12 +48,12 @@
       "sha256": "56451c7c9ff7f45c5d07fd093c48919ce9710e4db2e365184685a467d4abc848"
     },
     "README.md": {
-      "bytes": 7647,
-      "sha256": "766b9d49ef890db0cb45761b8059a39d4432c7a55ed3945b939a985f42fa2c5c"
+      "bytes": 7655,
+      "sha256": "26193c8d50ada11df289c3c8ae0113797d10185705eb067356543bc9e2ae7b1e"
     },
     "CHANGELOG.md": {
-      "bytes": 2587,
-      "sha256": "b8739499224f1b48bbc40f485014a311f0292440e60094a27d915ca8b29a4d03"
+      "bytes": 2775,
+      "sha256": "8d9041cca3d9eec2764d6297ef0b55b060392928c9f2f214aa88b46da3230c3c"
     },
     "CONTENT-LICENSE.md": {
       "bytes": 1400,
@@ -86,5 +86,12 @@
   },
   "defaultLanguage": "en",
   "entryUrl": "https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en",
-  "releaseTag": "wiki-2026-11-15"
+  "releaseTag": "wiki-2026-11-15",
+  "appearance": {
+    "default": "matcha",
+    "options": [
+      "matcha",
+      "light"
+    ]
+  }
 }

@@ -64,7 +64,7 @@ The content documents this specific release. Servers, addons and other pack vers
 
 </details>
 
-The wiki opens in English by default; use **FR** to switch to French. Dark, Light and Claude appearances are available, and saved recipes stay in each reader's browser. If a result seems missing, clear the selected letter and filters first.
+The wiki opens in English by default; use **FR** to switch to French. Matcha (the default) and Light appearances are available, and saved recipes stay in each reader's browser. If a result seems missing, clear the selected letter and filters first.
 
 Explicit secrets and debug entries are excluded from this edition.
 
