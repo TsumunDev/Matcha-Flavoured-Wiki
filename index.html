@@ -110,14 +110,31 @@ html[data-theme="matcha"] .rarity-name-uncommon{color:#e6c572}html[data-theme="m
 html[data-theme="matcha"]{--paper:#202122;--canvas:#17191a;--ink:#e4e6e8;--muted:#adb4b8;--green:#afcfb8;--line:#3b3f42;--panel:#272a2c;--panel-strong:#2c3330;--active:#303c35;--body:#cbd0d2;--slot:#303437;--result:#344638;--primary-bg:#afcfb8;--primary-ink:#1c2c21;--hover:#292e2c;--border-strong:#718b77;--sidebar:#1b1d1e;--vignette:#272a2c}
 .brand-logo{width:38px;height:38px;border-radius:3px;object-fit:cover;flex-shrink:0}
 /* The overview opens on the pack itself. The right margin holds reference facts. */
-.wiki-heading { display:flex; align-items:center; gap:clamp(16px,3vw,32px); padding:14px 0 26px; }
+.home-desk {
+ display:grid; grid-template-columns:minmax(0,1.22fr) minmax(240px,.78fr); align-items:center;
+ column-gap:clamp(24px,5vw,84px); padding:12px 0 22px; margin-bottom:24px; border-bottom:1px solid var(--line);
+}
+.home-lookup { min-width:0; }
+.wiki-heading { display:flex; align-items:center; gap:clamp(12px,2vw,24px); padding:0 0 22px; }
 .wiki-heading img { width:clamp(64px,7vw,96px); height:auto; image-rendering:pixelated; }
 .wiki-heading h1 { font:700 clamp(32px,4vw,58px)/1.04 Cambria,Georgia,serif; letter-spacing:-.035em; margin:4px 0 8px; }
 .wiki-heading p { font-size:13px; color:var(--muted); margin:0; }
 .wiki-heading .wiki-byline { color:var(--leaf); font-weight:600; }
-.home-index { display:flex; flex-wrap:wrap; gap:0 clamp(18px,4vw,54px); border-block:1px solid var(--line); margin-bottom:26px; }
-.home-index a { display:inline-flex; align-items:center; gap:9px; min-height:54px; font-weight:600; color:var(--ink); }
-.home-index img { width:26px; height:26px; }
+.home-index { display:flex; flex-wrap:wrap; gap:0 clamp(14px,2vw,28px); }
+.home-index a { display:inline-flex; align-items:center; min-height:44px; color:var(--body); font-size:14px; text-decoration:underline; text-decoration-color:var(--border-strong); text-underline-offset:4px; }
+.home-index a:hover { color:var(--leaf); }
+.home-recipes { margin:0; justify-self:center; }
+.home-recipes figcaption { font:600 14px/1.45 var(--sans); color:var(--muted); margin:0 0 8px; }
+.kiln-recipe { display:flex; align-items:center; gap:clamp(10px,1.5vw,22px); padding:0; text-align:left; color:var(--ink); background:transparent; border:0; }
+.kiln-pattern { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; padding:3px; background:var(--line); }
+.kiln-pattern>span { width:clamp(26px,2.5vw,39px); aspect-ratio:1; display:grid; place-items:center; background:var(--slot); }
+.kiln-pattern img { width:83%; height:83%; image-rendering:pixelated; }
+.kiln-arrow { color:var(--muted); font:24px/1 Georgia,serif; }
+.kiln-output { display:grid; justify-items:start; }
+.kiln-output img { width:48px; height:48px; image-rendering:pixelated; }
+.kiln-output strong { margin-top:3px; font:600 18px/1.2 Cambria,Georgia,serif; }
+.kiln-output>span { color:var(--leaf); text-decoration:underline; text-underline-offset:3px; font-size:13px; }
+.kiln-recipe:hover .kiln-output>span { color:var(--ink); }
 .wiki-overview,.guide-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(200px,24%); grid-template-areas:"reading notes"; gap:clamp(25px,4vw,66px); align-items:start; }
 .wiki-article,.guide-layout>.article-body { grid-area:reading; min-width:0; }
 .overview-notes,.guide-layout>.article-toc { grid-area:notes; }
@@ -181,13 +198,20 @@ footer{font-size:11px}
  .article-toc ol { padding-bottom:12px; }
 }
 @media(max-width:680px) {
- .wiki-heading { padding:6px 0 18px; }
+ .home-desk { display:block; padding:3px 0 16px; margin-bottom:4px; }
+ .wiki-heading { padding:4px 0 15px; }
  .wiki-heading p { font-size:12px; }
  .wiki-heading h1 { font-size:clamp(26px,7vw,38px); }
  .wiki-heading img { width:60px; }
- .home-index { gap:0 20px; margin-bottom:12px; }
- .home-index a { min-height:48px; gap:5px; font-size:14px; }
- .home-index img { width:20px; height:20px; }
+ .home-index { gap:0 18px; }
+ .home-recipes { margin-top:10px; }
+ .kiln-recipe { gap:clamp(8px,2.5vw,15px); }
+ .kiln-output { grid-template-columns:42px minmax(0,1fr); align-items:center; column-gap:10px; }
+ .kiln-output img { grid-row:1/3; width:42px; height:42px; }
+ .kiln-output strong { align-self:end; }
+ .kiln-output>span { align-self:start; }
+ .overview-notes .article-toc { margin:0 0 12px; border:0; padding:0; }
+ .overview-notes .article-toc summary { padding-inline:0; }
  .article-toc summary { min-height:44px; padding-block:11px; }
  .article-toc a { display:inline-block; padding-block:5px; }
  .article-header { gap:10px; }
@@ -495,6 +519,14 @@ html { scroll-padding-top:calc(var(--header-height,81px) + 16px); }
  gap:12px 32px; align-items:end; margin:12px 0 18px;
 }
 .catalogue-heading p { margin:0; color:var(--muted); font-size:14px; font-variant-numeric:tabular-nums; }
+.home-recipe-form .search-label { color:var(--ink); font-weight:600; font-size:16px; }
+[data-page="items"] .index-title { display:flex; flex-wrap:wrap; gap:2px 14px; align-items:baseline; }
+.flow-page[data-page="items"] .index-title .flow-title { font:600 clamp(29px,3vw,42px)/1.1 Cambria,Georgia,serif; letter-spacing:-.035em; margin:0; }
+[data-page="items"] .catalogue-options { border:0; gap:0 22px; padding:0; }
+[data-page="items"] .catalogue-heading { margin-bottom:4px; }
+[data-page="items"] .index-letter-group { border-bottom:0; }
+.index-display .index-tools { justify-content:flex-start; }
+.index-applied a { color:var(--leaf); font-size:13px; text-decoration:underline; text-underline-offset:3px; }
 .index-search-form,.wiki-search-form { display:flex; align-items:flex-end; gap:0; max-width:560px; }
 .index-search-form .search-control { flex-basis:auto; }
 .lookup-submit {
@@ -565,14 +597,20 @@ html { scroll-padding-top:calc(var(--header-height,81px) + 16px); }
  .catalogue-options summary,.index-categories button,
  .alphabet-links button,.index-sort-label select,.index-view button,.index-active-filters button { min-height:44px; }
  .catalogue-options summary { padding:11px 0; }
+ [data-page="items"]>.breadcrumb { display:none; }
+ [data-page="items"] .catalogue-options { gap:0 18px; }
+ [data-page="items"] .catalogue-heading { margin-top:4px; gap:10px; }
+ [data-page="items"] .index-title p { font-size:13px; }
+ [data-page="items"] .index-applied a { display:inline-flex; align-items:center; min-height:44px; }
+ [data-page="items"] .index-applied a[hidden] { display:none; }
  .index-tools { margin-left:0; }
  .index-select-label { max-width:none; }
  .alphabet-links { display:grid; grid-template-columns:repeat(auto-fit,minmax(42px,1fr)); }
  .index-letter-group { display:block; padding:8px 0; }
  .flow-page .index-letter-group>.flow-h2 { margin:4px 0; font-size:22px; }
  .catalogue-entries.item-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 10px; }
- .item-grid .item-card { grid-template-columns:28px minmax(0,1fr); gap:2px 7px; padding:8px 0; }
- .item-grid .item-card img { width:28px; height:28px; }
+ .item-grid .item-card { grid-template-columns:32px minmax(0,1fr); gap:2px 7px; padding:8px 0; }
+ .item-grid .item-card img { width:32px; height:32px; }
  .recipe-grid { grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr)); }
  .item-list .item-list-row { grid-template-columns:36px minmax(0,1fr); gap:5px 12px; padding:10px 2px; }
  .item-list-row>img { width:32px; height:32px; }
@@ -778,6 +816,7 @@ Object.assign(T.fr,{
 Object.assign(T.en,{appearance:'Appearance',matcha:'Matcha',light:'Light',themeHint:'Choose a page appearance',vanillaRecipe:'Vanilla recipe, kept by Matcha'});
 Object.assign(T.fr,{appearance:'Apparence',matcha:'Matcha',light:'Clair',themeHint:'Choisir l’apparence de la page',vanillaRecipe:'Recette vanilla conservée par Matcha'});
 Object.assign(T.en,{
+ findHomeRecipe:'Find a recipe',recipeExample:'e.g. steel, kindling',firstWorkshopRecipe:'Early crafting',openRecipe:'View recipe',sortAndView:'Sort & view',filtersShort:'Filters',recipeSearchLink:'Search recipes instead',
  homeIntro:'In Klei Wright’s Matcha Flavoured, the first workshop starts with kindling and a mud kiln. A vanilla furnace is for cooking.',
  homeFormats:'The datapack changes the game rules; the resource pack provides item names and textures. Matcha is also available as a mod.',
  homeDescription:'Matcha 1.12.9 · Minecraft Java 26.3',
@@ -793,6 +832,7 @@ Object.assign(T.en,{
  savedEmpty:'No saved recipes',savedEmptyHint:'Choose “Save recipe” on a recipe page to add it here.'
 });
 Object.assign(T.fr,{
+ findHomeRecipe:'Trouver une recette',recipeExample:'Ex. : acier, petit bois',firstWorkshopRecipe:'Au début de la partie',openRecipe:'Voir la recette',sortAndView:'Tri et vue',filtersShort:'Filtres',recipeSearchLink:'Chercher dans les recettes',
  homeIntro:'Dans Matcha Flavoured, la refonte de Klei Wright, le premier atelier commence avec du petit bois et un four en terre cuite. Le fourneau vanilla sert à cuisiner.',
  homeFormats:'Le pack de données (datapack) change les règles de jeu ; le pack de ressources (resource pack) fournit les noms et les textures des objets. Matcha existe aussi sous forme de mod.',
  homeDescription:'Matcha 1.12.9 · Minecraft Java 26.3',
@@ -938,15 +978,32 @@ function shell(){
  $('sidebar-meta').className='sidebar-meta';$('sidebar-meta').innerHTML=`<strong>${t('release')}</strong>${t('edition')}<br>${t('offline')}<br><a href="https://modrinth.com/datapack/matcha-flavoured" target="_blank" rel="noopener noreferrer">${t('official')}</a>`;
  $('footer').innerHTML=`<p><strong>${t('wikiAuthorCredit')}</strong><br>${t('footer')}<br>${t('footerVersion')}</p><div class="footer-links"><a href="${href('sources')}">${t('sources')}</a><br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></div>`;
 }
+function homeRecipe() {
+ const recipe = recipeMap.get('matcha:crafting/mudkiln');
+ const cells = recipe.grid.map(ingredient => `<span>${ingredient ? img(ingredient.keys[0]) : ''}</span>`).join('');
+ return `<figure class="home-recipes">
+   <figcaption>${t('firstWorkshopRecipe')}</figcaption>
+   <button class="kiln-recipe" type="button" data-recipe="${esc(recipe.id)}">
+     <span class="kiln-pattern" aria-hidden="true">${cells}</span>
+     <span class="kiln-arrow" aria-hidden="true">→</span>
+     <span class="kiln-output">${img(recipe.result)}<strong>${esc(name(recipe.result))}</strong><span>${t('openRecipe')}</span></span>
+   </button>
+ </figure>`;
+}
 function home(){
  const sections=[['getting-started',t('startTitle')],['progression',t('progressionHeading')],['food-healing',t('foodHeading')],['workstations',t('workshop')]];
- const indexLinks=['recipes','items','gameplay'].map(page=>`<a href="${href(page)}">${navIcon(page)}${t(page)}</a>`).join('');
- return `<header class="wiki-heading"><img src="${DATA.assets.logoLarge}" alt="${t('officialLogo')}" width="96" height="96"><div><p class="wiki-byline">${t('wikiByline')}</p><h1>Matcha Flavoured</h1><p>${t('homeDescription')}</p></div></header>
+ const indexLinks=['recipes','items','gameplay'].map(page=>`<a href="${href(page)}">${t(page)}</a>`).join('');
+ return `<div class="home-desk"><div class="home-lookup"><header class="wiki-heading"><img src="${DATA.assets.logoLarge}" alt="${t('officialLogo')}" width="96" height="96"><div><p class="wiki-byline">${t('wikiByline')}</p><h1>Matcha Flavoured</h1><p>${t('homeDescription')}</p></div></header>
+ <form class="home-recipe-form index-search-form" id="home-recipe-form" role="search" aria-label="${t('findHomeRecipe')}">
+   ${searchField('home-recipe-query',t('findHomeRecipe'),'',t('recipeExample'))}${searchSubmit()}
+ </form>
  <nav class="home-index" aria-label="${t('browseWiki')}">${indexLinks}</nav>
+ </div>${homeRecipe()}</div>
  <div class="wiki-overview"><aside class="overview-notes">${articleContents(sections)}<div class="pack-infobox"><dl class="facts">${[['packVersion','1.12.9'],['gameVersion','Java 26.3'],['languages',t('languageNames')],['scope',fmt(recipes.length)+' '+t('recipes').toLowerCase()]].map(([a,b])=>`<div><dt>${t(a)}</dt><dd>${b}</dd></div>`).join('')}</dl><p class="pack-source"><a href="https://modrinth.com/datapack/matcha-flavoured" target="_blank" rel="noopener noreferrer">Modrinth</a><a href="https://github.com/kleiwright/matcha-flavoured" target="_blank" rel="noopener noreferrer">GitHub</a></p></div></aside>
- <article class="wiki-article"><p class="opening">${t('homeIntro')}</p><p class="formats-explanation">${t('homeFormats')}</p><p class="article-links"><a href="${href('guide',{id:'installation'})}">${t('installationLink')}</a><a href="${href('guide',{id:'troubleshooting'})}">${t('troubleshootingLink')}</a></p>
+ <article class="wiki-article"><p class="opening">${t('homeIntro')}</p>
  <section id="getting-started"><h2>${t('startTitle')}</h2><ol class="start-list">${[1,2,3].map(n=>`<li><strong>${img(['minecraft:campfire','minecraft:smoker','minecraft:copper_pickaxe'][n-1],'step-item')}${t('step'+n)}</strong><p>${t('step'+n+'Body')}</p></li>`).join('')}</ol><p class="article-link"><a href="${href('guide',{id:'first-steps'})}">${t('readGuide')}</a></p></section>
  <section id="progression"><h2>${t('progressionHeading')}</h2><div class="guide-list progression-links"><a class="guide-card" href="${href('metallurgy')}">${img('minecraft:resin_brick')}<div><h3>${t('metallurgy')}</h3><p>${t('metalIntro')}</p></div></a><a class="guide-card" href="${href('advancements')}">${img('matcha:heart')}<div><h3>${t('advancements')}</h3><p>${t('advIntroShort')}</p></div></a></div></section><section id="food-healing"><h2>${t('foodHeading')}</h2><p>${t('foodBody')}</p><p class="article-links"><a href="${href('guide',{id:'cooking'})}">${t('foodLink')}</a><a href="${href('recipes',{category:'meals'})}">${t('mealRecipes')}</a></p></section>
+ <p class="formats-explanation">${t('homeFormats')}</p><p class="article-links"><a href="${href('guide',{id:'installation'})}">${t('installationLink')}</a><a href="${href('guide',{id:'troubleshooting'})}">${t('troubleshootingLink')}</a></p>
  <p class="prototype-note">${t('prototypeNote')} <a href="https://github.com/TsumunDev/Matcha-Flavoured-Wiki#prototype-and-contributions" target="_blank" rel="noopener noreferrer">${t('prototypeContribute')}</a></p></article></div>
  <section class="workshop-section" id="workstations"><div class="section-head"><h2>${t('workshop')}</h2><a href="${href('stations')}">${t('allStations')}</a></div><p>${t('workstationIntro')}</p>${stationTable(['campfire','smoking','furnace','blasting'])}</section>`;
 }
@@ -995,6 +1052,19 @@ function sources(){return breadcrumb(t('sources'))+intro(t('sourcesTitle'),t('so
  ].map(([h,b,u,label])=>`<section class="source-entry"><h2>${t(h)}</h2><p>${t(b)}</p>${u?`<p style="margin-top:9px"><a href="${u}" target="_blank" rel="noopener noreferrer">${esc(label)}</a></p>`:''}</section>`).join('')}<section class="source-entry"><h2>${t('integrity')}</h2>${DATA.meta.archives.map(a=>`<details><summary>${esc(a.file)}</summary><p><code>SHA-512: ${a.sha512}</code></p></details>`).join('')}</section><div class="note"><p>${t('offlineNotice')}</p></div></div>`}
 function pageMarkup(){return current.page==='advancements'?advancementsPage():current.page==='metallurgy'?metallurgyPage():current.page==='home'?home():current.page==='recipes'||current.page==='items'?catalogue(current.page):current.page==='enchantments'?enchantmentsPage():current.page==='trades'?tradesPage():current.page==='search'?wikiSearchPage():current.page==='roadmap'?roadmapPage():current.page==='stations'?stations():current.page==='gameplay'?gameplayPage():current.page==='guides'?guides():current.page==='guide'?guide():current.page==='saved'?savedPage():sources()}
 function bindPageControls(){
+ if(current.page==='home'){
+  $('home-recipe-form').addEventListener('submit',event=>{
+   event.preventDefault();
+   const query=$('home-recipe-query').value.trim();
+   window.addEventListener('hashchange',()=>{
+    if(current.page!=='recipes')return;
+    const title=sectionHeading(current);
+    title.tabIndex=-1;
+    title.focus({preventScroll:true});
+   },{once:true});
+   go('recipes',query?{q:query}:{});
+  });
+ }
  if(['recipes','items'].includes(current.page)){fillResults();bindIndexControls();$('catalogue-search').addEventListener('input',e=>updateFilter('q',e.target.value));for(const [id,k] of [['station-filter','station'],['type-filter','type'],['availability-filter','availability'],['rarity-filter','rarity'],['item-kind-filter','kind']])$(id)?.addEventListener('change',e=>updateFilter(k,e.target.value))}
  if(['enchantments','trades'].includes(current.page))bindReferencePage();
  if(current.page==='search')bindWikiSearch();
@@ -1011,7 +1081,7 @@ function openRecipe(id,push=false){const r=recipeMap.get(id);if(!r)return;const 
 }
 function openItem(k,push=false){k=canonicalItemKey(k);if(!k)return;const it=items[k];const made=(outputIndex.get(k)||[]).slice().sort(sortRecipes),used=(useIndex.get(k)||[]).slice().sort(sortRecipes);
  const block=(list,title,type)=>`<section class="related-section"><h3>${t(title)} <a href="${href('recipes',{[type]:k})}" data-close-link>${t('seeAll')} (${fmt(list.length)})</a></h3>${list.length?`<div class="mini-recipes">${list.slice(0,8).map(recipeCard).join('')}</div>`:`<p class="muted" style="font-size:12px">${t(type==='output'?'noRecipe':'noUse')}</p>${type==='output'?`<p class="muted" style="font-size:11px">${t('noRecipeBody')}</p>`:''}`}</section>`;
- showDialog(`<header class="dialog-heading">${img(k)}<div><h2 id="dialog-title">${esc(name(k))}</h2><p>${t('itemEntry')}${lang==='fr'&&it.name.fr!==it.name.en?` &nbsp; / &nbsp; <span lang="en">${esc(it.name.en)}</span>`:''}</p></div></header>${itemReferenceDetails(k)}${rarityItemDetails(k)}${it.effects.length&&!DATA.food.items[k]?`<h3>${t('effects')}</h3><div class="effect-list">${it.effects.map(e=>`<span class="effect">${esc(L(e.label))} ${e.level} · ${e.seconds} ${t('seconds')}</span>`).join('')}</div>`:''}${it.durability?`<span class="tag">${t('durability')} : ${fmt(it.durability)}</span>`:''}${block(made,'sourceRecipes','output')}${block(used,'uses','use')}<div class="dialog-bottom"><button class="text-button" data-copy-item="${esc(k)}">${t('copyLink')}</button></div>`,{kind:'item',id:k},push);
+ showDialog(`<header class="dialog-heading">${img(k)}<div><h2 id="dialog-title">${esc(name(k))}</h2><p>${t('itemEntry')}${lang==='fr'&&it.name.fr!==it.name.en?` &nbsp; / &nbsp; <span lang="en">${esc(it.name.en)}</span>`:''}</p></div></header>${made.length?block(made,'sourceRecipes','output'):''}${itemReferenceDetails(k)}${rarityItemDetails(k)}${it.effects.length&&!DATA.food.items[k]?`<h3>${t('effects')}</h3><div class="effect-list">${it.effects.map(e=>`<span class="effect">${esc(L(e.label))} ${e.level} · ${e.seconds} ${t('seconds')}</span>`).join('')}</div>`:''}${it.durability?`<span class="tag">${t('durability')} : ${fmt(it.durability)}</span>`:''}${made.length?'':block(made,'sourceRecipes','output')}${block(used,'uses','use')}<div class="dialog-bottom"><button class="text-button" data-copy-item="${esc(k)}">${t('copyLink')}</button></div>`,{kind:'item',id:k},push);
 }
 function openModalEntry(entry){if(entry.kind==='recipe')openRecipe(entry.id);else if(entry.kind==='enchantment')openEnchantment(entry.id);else openItem(entry.id)}
 function refreshModal(){if(modal)openModalEntry(modal)}
@@ -1270,9 +1340,9 @@ function labelRelevance(labels,query){
 }
 function itemRelevance(key,query){const item=items[key];return labelRelevance([key,...Object.values(item.name),...Object.values(item.gameName||{})],query)}
 function recipeRelevance(recipe,query){return itemRelevance(recipe.result,query)}
-function searchField(id,label,value=''){
+function searchField(id,label,value='',example=''){
  const title=id==='reference-search'?t(current.page==='trades'?'findTrade':current.params.get('view')==='effects'?'findEffect':'findBook'):label;
- return `<label class="search-control" for="${esc(id)}"><span class="search-label">${esc(title)}</span><input class="search-field" id="${esc(id)}" type="search" autocomplete="off" value="${esc(value)}" aria-label="${esc(title)}"></label>`;
+ return `<label class="search-control" for="${esc(id)}"><span class="search-label">${esc(title)}</span><input class="search-field" id="${esc(id)}" type="search" autocomplete="off" ${example?`placeholder="${esc(example)}"`:''} value="${esc(value)}" aria-label="${esc(title)}"></label>`;
 }
 function searchEmpty(){return `<div class="empty search-empty"><h2>${t('noResults')}</h2><p>${t('searchEmptyHint')}</p></div>`}
 function searchScope(){const scope=current.params.get('scope')||'all';return ['all','items','recipes','enchantments','guides','trades','advancements'].includes(scope)?scope:'all'}
@@ -1368,8 +1438,9 @@ function catalogueControls(kind,query,filters){
  const selected=['category','station','type','availability','rarity','kind'].some(key=>current.params.has(key));
  const sortOptions=[['',defaultSortLabel()],['az',t('nameAscending')],['za',t('nameDescending')]];
  const views=itemIndex?`<div class="index-view" role="group" aria-label="${t('indexView')}">${['grid','list'].map(view=>`<button type="button" data-index-view="${view}" aria-pressed="${indexView()===view}">${t(view+'View')}</button>`).join('')}</div>`:'';
+ const tools = `<div class="index-tools"><label class="index-sort-label" for="index-sort">${t('sortIndex')}<select id="index-sort">${selectOptions(sortOptions,indexSort())}</select></label>${views}</div>`;
  return `<header class="catalogue-heading">
-   <div><h1>${t(kind+'Title')}</h1><p id="index-result-count" role="status" aria-atomic="true"></p></div>
+   <div class="index-title"><h1>${t(kind+'Title')}</h1><p id="index-result-count" role="status" aria-atomic="true"></p></div>
    <form id="index-search-form" class="index-search-form" role="search" aria-label="${t(kind)}">
      ${searchField('catalogue-search',t(itemIndex?'findItem':'findRecipe'),query)}
      ${searchSubmit()}
@@ -1377,14 +1448,14 @@ function catalogueControls(kind,query,filters){
  </header>
  <div class="catalogue-options">
    <details class="index-refine" id="index-refine" ${selected?'open':''}>
-     <summary>${t('refineIndex')}</summary>
+     <summary>${t(itemIndex?'filtersShort':'refineIndex')}</summary>
      ${categoryNavigation()}
      <div class="filters index-refinements">${filters}</div>
    </details>
    ${itemIndex?indexAlphabet():''}
-   <div class="index-tools"><label class="index-sort-label" for="index-sort">${t('sortIndex')}<select id="index-sort">${selectOptions(sortOptions,indexSort())}</select></label>${views}</div>
+   ${itemIndex?`<details class="index-display"><summary>${t('sortAndView')}</summary>${tools}</details>`:tools}
  </div>
- <div class="index-applied"><div id="index-active-filters" class="index-active-filters" role="group" aria-label="${t('activeFilters')}" hidden></div><button class="text-button" id="reset-filters" hidden>${t('reset')}</button></div>`;
+ <div class="index-applied"><div id="index-active-filters" class="index-active-filters" role="group" aria-label="${t('activeFilters')}" hidden></div><button class="text-button" id="reset-filters" hidden>${t('reset')}</button>${itemIndex?`<a id="index-recipe-link" hidden>${t('recipeSearchLink')}</a>`:''}</div>`;
 }
 
 function catalogueEntries({ignoreCategory=false,ignoreLetter=false,ignoreQuery=false,ordered=true}={}){
@@ -1406,7 +1477,7 @@ function catalogueEntries({ignoreCategory=false,ignoreLetter=false,ignoreQuery=f
 
 function indexAlphabet(){
  const buttons=['',...'ABCDEFGHIJKLMNOPQRSTUVWXYZ','#'].map(letter=>`<button type="button" data-index-letter="${letter}">${letter||t('allCategories')}</button>`).join('');
- return `<details class="index-alphabet" ${selectedIndexLetter()?'open':''}><summary>${t('browseAlphabet')}</summary><div class="alphabet-links" role="group" aria-label="${t('browseAlphabet')}">${buttons}</div></details>`;
+ return `<details class="index-alphabet" ${selectedIndexLetter()?'open':''}><summary aria-label="${t('browseAlphabet')}">A–Z</summary><div class="alphabet-links" role="group" aria-label="${t('browseAlphabet')}">${buttons}</div></details>`;
 }
 
 function refreshIndexAlphabet(){
@@ -1444,9 +1515,18 @@ function refreshIndexControls(){
  sort.options[0].textContent=defaultSortLabel();
  sort.value=indexSort();
  const filters=indexFilterLabels(),node=$('index-active-filters');
- node.hidden=!filters.length;
- $('reset-filters').hidden=!filters.length;
- node.innerHTML=filters.map(({key,label})=>`<button type="button" data-remove-index-filter="${key}" aria-label="${esc(t('removeFilter')+': '+label)}">${esc(label)} <span aria-hidden="true">×</span></button>`).join('');
+ const recipeLink=$('index-recipe-link');
+ if(recipeLink){
+  const query=(current.params.get('q')||'').trim();
+  recipeLink.hidden=!query;
+  if(query)recipeLink.href=href('recipes',{q:query});else recipeLink.removeAttribute('href');
+ }
+ const queryOnly=recipeLink && filters.length===1 && filters[0].key==='q';
+ node.hidden=!filters.length||queryOnly;
+ const reset=$('reset-filters');
+ reset.hidden=!filters.length;
+ reset.textContent=t(queryOnly?'clearSearch':'reset');
+ node.innerHTML=(queryOnly?[]:filters).map(({key,label})=>`<button type="button" data-remove-index-filter="${key}" aria-label="${esc(t('removeFilter')+': '+label)}">${esc(label)} <span aria-hidden="true">×</span></button>`).join('');
 }
 function itemListRow(key){return `<button class="item-card item-list-row" data-item="${esc(key)}">${img(key)}<span class="item-list-name"><strong>${esc(name(key))}</strong>${lang==='fr'&&items[key].name.fr!==items[key].name.en?`<small lang="en">${esc(items[key].name.en)}</small>`:''}${rarityBadge(key)}</span><span class="item-list-description">${esc(itemSummary(key))}</span></button>`}
 function indexEntriesMarkup(slice,recipeIndex,list){

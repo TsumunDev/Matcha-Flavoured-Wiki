@@ -2,6 +2,12 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 15 November 2026 — recipe lookup from the overview and item index
+
+- Search by item or ingredient directly from the overview. Open the Mud Kiln recipe by selecting its crafting pattern, drawn from the documented pack.
+- Bring the first item results higher on phones. Filters, A–Z and display preferences are available in a single row of disclosures.
+- Carry an item search into the recipe index. On a craftable item's page, find its crafting recipes before equipment details.
+
 ## 15 November 2026 — advancement maps and search controls
 
 - Name each goal on the three branch maps and use the background tiles specified in the datapack. Keep conditions and rewards beside the map on wide screens.

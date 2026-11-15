@@ -12,7 +12,7 @@
 
 If you find the wiki useful, please leave a **⭐ on this repository**. Thank you for supporting the project!
 
-[![Matcha wiki search, showing original pack textures and English results](preview/wiki-search.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en)
+[![Matcha wiki overview with recipe lookup and the Mud Kiln crafting pattern](preview/wiki-home.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en)
 
 This repository preserves browsable wiki snapshots and a record of their development. It includes the standalone HTML, its images and an offline download. Separate development sources, tools and full pack archives are kept outside this repository.
 
@@ -72,17 +72,19 @@ The [metallurgy guide](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#metall
 
 ### Finding something faster
 
+- **Find a recipe from the overview.** Enter an item or ingredient in **Find a recipe**, or select the Mud Kiln diagram to open its recipe directly.
+- **Start with an item name.** On the item index, **Search recipes instead** carries your term into the recipe index. Opening a craftable item shows its crafting recipes at the top of its entry.
 - **Scroll naturally between sections.** Normal sections and guide articles follow each other in the same document. Scroll down or back up; the sidebar and address follow what you are reading. Forms, filters and article controls stay in place, including during a phone swipe.
 - **Search in either language.** Names, accents, technical identifiers and aliases work. Try [Steel Alloy](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&item=minecraft%3Aresin_brick) to open an item directly.
-- **Browse by letter.** Open **Browse A–Z** to pick an initial. Available letters and category counts update for your filters.
-- **Choose your view.** Use the grid for names and sprites, or the list for full descriptions. An empty item search starts in alphabetical order. Best match puts exact search matches first.
-- **Keep useful filters.** Open **Categories & filters** for workstations, item types or rarity. Remove one active filter at a time, or reset the filters while keeping your display choice.
+- **Browse by letter.** Open **A–Z** to pick an initial. Available letters and category counts update for your filters.
+- **Choose your view.** Open **Sort & view** in the item index. Use the grid for names and sprites, or the list for full descriptions. An empty item search starts in alphabetical order. Best match puts exact search matches first.
+- **Keep useful filters.** Open **Filters** in the item index for item types and rarity. The recipe index groups workstations under **Categories & filters**. Remove one active filter at a time, or reset the filters while keeping your display choice.
 - **Share the right entry.** Item and recipe details include a copy-link button. Item links can keep the current index filters and view.
 
 <details>
 <summary>Preview the item index</summary>
 
-[![The item index in list view, with A–Z navigation and sorting](preview/wiki-index.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&view=list&sort=az)
+[![The item index showing results for steel, original sprites and a link to matching recipes](preview/wiki-index.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&q=steel)
 
 </details>
 
