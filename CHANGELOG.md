@@ -2,6 +2,16 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 15 novembre 2026 — index et navigation
+
+- Recherche simplifiée : un seul champ visible par page d’index, un libellé permanent et les filtres secondaires dans « More filters ».
+- Ajout du parcours A–Z, d’une vue en liste et du tri par nom pour l’index d’objets.
+- Compteurs de catégories adaptés aux filtres courants, filtres actifs retirables individuellement et choix d’affichage conservé lors d’une remise à zéro.
+- Liens directs vers les fiches d’objets et copie de liens publics pour les objets et recettes, y compris depuis la version hors connexion.
+- Réduction des calculs répétés pendant la recherche, sans modifier les données documentaires du pack.
+- README anglais avec des accès directs aux rubriques, deux aperçus réels et un téléchargement versionné dans Releases.
+- Contrôles ajoutés pour les nouveaux filtres, le clavier, le mobile, les liens de partage et les paramètres invalides.
+
 ## 15 novembre 2026 — première sauvegarde GitHub
 
 Version documentée : **Matcha Flavoured 1.12.9 / Minecraft Java 26.3**.

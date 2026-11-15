@@ -6,13 +6,15 @@
 
 **New wiki created by Tsumun.** An independent community wiki to look up recipes, understand items and explore the gameplay changes in Matcha Flavoured. The wiki itself is available in **English and French**.
 
-**[Read the wiki](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en)** · **[Download the offline ZIP](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/raw/refs/heads/main/matcha-wiki-site.zip)** · **[Browse saved versions](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/commits/main/)**
+**[Read the wiki](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en)** · **[Download the offline ZIP](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/releases/latest/download/matcha-wiki-site.zip)** · **[Dated snapshots](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/releases)**
 
 If you find the wiki useful, please leave a **⭐ on this repository**. Thank you for supporting the project!
 
 [![Matcha wiki search, showing original pack textures and English results](preview/wiki-search.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en)
 
 This repository preserves browsable wiki snapshots and a record of their development. It includes the standalone HTML, its images and an offline download. Separate development sources, tools and full pack archives are kept outside this repository.
+
+[Browse the wiki](#browse-the-wiki) · [Read offline](#download-and-read-offline) · [Updates](#whats-next) · [Credits](#credits-and-reuse)
 
 ## The original project
 
@@ -34,31 +36,49 @@ To install or update Matcha, use the official project pages above. This reposito
 
 The content documents this specific release. Servers, addons and other pack versions may change recipes or gameplay rules.
 
-## What's inside
+## Browse the wiki
 
-| Section | Content |
-| --- | --- |
-| Recipes | **1,262 recipes** with ingredients, accepted alternatives, quantities, arrangements and workstations. |
-| Items | **1,405 public entries** with descriptions, crafting recipes and uses. |
-| Guides | **19 bilingual guides** covering first steps, cooking, equipment, health, death, creatures, the Nether, the End, farming and exploration. |
-| Enchantments | **74 active effects** and **28 books**, including crafted Blessings and traded Ofuda. |
-| Food | **191 foods and preparations**, with effects and conditional healing explained. |
-| Trading | **268 useful offers**, with costs, professions and biome conditions where applicable. |
-| Advancements and rarity | A tree of **69 public advancements**, star ratings for **47 fish** and documented item-name rarities. |
+| What you need | Open | What you'll find |
+| --- | --- | --- |
+| Start a world | [First steps](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#guide?id=first-steps&lang=en) | Progression help, alongside **19 bilingual guides**. |
+| Craft an item | [Recipe index](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#recipes?lang=en) | **1,262 recipes**, accepted alternatives, quantities and workstations. |
+| Look up an item | [Item index](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&view=list&sort=az) | **1,405 entries**, A–Z browsing, crafting recipes and uses. |
+| Understand healing | [Cooking and food](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#guide?id=cooking&lang=en) | **191 foods and preparations**, effects and healing conditions. |
+| Check an enchantment | [Books and effects](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#enchantments?lang=en) | **74 active effects** and **28 books**, including Blessings and Ofuda. |
+| Find a trade | [Villager offers](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#trades?lang=en) | **268 offers**, costs, professions and biome conditions. |
+| Follow progression | [Advancement tree](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#guide?id=advancements&lang=en) | **69 public advancements** and their original descriptions. |
+| Check rarity | [Rarity and stars](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#guide?id=rarities&lang=en) | Star ratings for **47 fish** and documented item-name rarities. |
 
-The wiki opens in English by default; use **FR** to switch to French. Search accepts English and French names, accents, technical identifiers and aliases. Categories and filters can be combined. Dark, Light and Claude appearances are available, and saved recipes stay in each reader's browser.
+### Finding something faster
+
+- **Search in either language.** Names, accents, technical identifiers and aliases work. Try [Steel Alloy](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&item=minecraft%3Aresin_brick) to open an item directly.
+- **Browse by letter.** The item index has an A–Z navigator. Available letters and category counts update for your filters.
+- **Choose your view.** Switch between the item grid and a compact list, or sort names A–Z / Z–A. Recommended order puts exact search matches first.
+- **Keep useful filters.** Open **More filters** for workstations, item types or rarity. Remove one active filter at a time, or reset the filters while keeping your display choice.
+- **Share the right entry.** Item and recipe details include a copy-link button. Item links can keep the current index filters and view.
+
+<details>
+<summary>Preview the item index</summary>
+
+[![The item index in list view, with A–Z navigation and sorting](preview/wiki-index.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&view=list&sort=az)
+
+</details>
+
+The wiki opens in English by default; use **FR** to switch to French. Dark, Light and Claude appearances are available, and saved recipes stay in each reader's browser. If a result seems missing, clear the selected letter and filters first.
 
 Explicit secrets and debug entries are excluded from this edition.
 
 ## Download and read offline
 
-1. Download **[matcha-wiki-site.zip](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/raw/refs/heads/main/matcha-wiki-site.zip)**.
+1. Download **[matcha-wiki-site.zip](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/releases/latest/download/matcha-wiki-site.zip)** from the latest published snapshot.
 2. Extract the archive into a folder.
 3. Open **`index.html`** in your browser.
 
 Data, images and search are bundled into the HTML. No server or account is needed to browse the wiki; only external reference links require an internet connection. Attribution files are included in the archive.
 
 GitHub's **Code → Download ZIP** button downloads the whole repository snapshot instead, including this README and the changelog.
+
+Published snapshots are kept in [Releases](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/releases), so you can return to a dated download. The [current repository copy](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/raw/refs/heads/main/matcha-wiki-site.zip) is also available directly.
 
 ## Follow the wiki's progress
 
