@@ -39,16 +39,38 @@
     "advancementCriteria": 279,
     "metallurgySourceFiles": 105,
     "alloySmithingRecipes": 65,
-    "sectionScrollChecks": 12
+    "sectionScrollChecks": 12,
+    "visualReview": {
+      "screenshots": 40,
+      "routes": [
+        "home",
+        "items",
+        "metallurgy",
+        "advancements",
+        "search"
+      ],
+      "languages": [
+        "en",
+        "fr"
+      ],
+      "themes": [
+        "matcha",
+        "light"
+      ],
+      "viewports": [
+        "1440x960",
+        "390x844 (emulated touch)"
+      ]
+    }
   },
   "files": {
     "index.html": {
-      "bytes": 7229748,
-      "sha256": "9e73a80379f82b68f32140419baa147304f951faeca46b9e0bd38327e49d79b8"
+      "bytes": 7229822,
+      "sha256": "3a2f131fd6292fd3a80f19f02b9e82fa62ee5faa458897583e63e2874bda065d"
     },
     "matcha-wiki-site.zip": {
-      "bytes": 3403202,
-      "sha256": "d65eb0ea8fc93c54c7a1ebd8183d2a62cf6fbe9a034b0c6f3846605c430a65db"
+      "bytes": 3403738,
+      "sha256": "deb8a63501b27945dc7b47978fa05e93aec6c27c8c2c6dcfdd849439e0dbb5d5"
     },
     "matcha-logo.png": {
       "bytes": 134070,
@@ -63,8 +85,8 @@
       "sha256": "feeab49ea223ec2b3a640f1b30f02cb00c9209de0fe9bbb603c8e80b20a242cc"
     },
     "CHANGELOG.md": {
-      "bytes": 6193,
-      "sha256": "03c225d17da5a7acb4c107a9328307d0f1b23eaac05cc48dd02215ef2cafa33c"
+      "bytes": 6899,
+      "sha256": "d42ff8f9479f086efab02a70d3bda4b165cd92656f08697f279847ad23817353"
     },
     "CONTENT-LICENSE.md": {
       "bytes": 1400,
@@ -75,8 +97,8 @@
       "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
     },
     "preview/wiki-search.png": {
-      "bytes": 88538,
-      "sha256": "f62e0b71ba04a6d2f09c62ba6a7c5add564ee0745ba745cde84a35506fdea083"
+      "bytes": 83760,
+      "sha256": "19fecb9c2186e04c2b9fba0ba4741394aa597830cdc03bc91999fca1228be18d"
     },
     ".nojekyll": {
       "bytes": 0,
@@ -91,17 +113,17 @@
       "sha256": "5557d6f869f8b61ec3257b0c8e6c47063fbb41ee1cebb6c5d0b68d23f0855144"
     },
     "preview/wiki-index.png": {
-      "bytes": 98745,
-      "sha256": "6b72bb319a1c513b736ba8213c2c52e58274c48d6cf47ee5db8940641329d323"
+      "bytes": 104461,
+      "sha256": "0724d61a4953c0e045034f819f5a4727580992264aac8a6cb06adceff4730560"
     },
     "preview/wiki-advancements.png": {
-      "bytes": 99533,
-      "sha256": "7aa000ce650cf82c7f26b8d2fa16b4338d0e3124ade988cd907ca34fe16da2a4"
+      "bytes": 96424,
+      "sha256": "957ea7c6781c656296b6d078284b839e89a1fefbaeaf78c0e777a83ee88f38df"
     }
   },
   "defaultLanguage": "en",
   "entryUrl": "https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en",
-  "releaseTag": "wiki-2026-11-15.5",
+  "releaseTag": "wiki-2026-11-15.6",
   "appearance": {
     "default": "matcha",
     "options": [

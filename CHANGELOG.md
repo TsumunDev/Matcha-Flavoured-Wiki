@@ -2,6 +2,14 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 15 November 2026 — reading layout and catalogue navigation
+
+- Put the original Matcha logo, the documented version and the recipe, item and gameplay links at the top of the overview.
+- Place guide contents beside the first chapter on wide screens. On a phone, the contents open on request above the article.
+- Give item names more room in the inventory grid, with two columns on phones. Keep search above the categories and pair the field with its submit button.
+- Group the advancement checklist count with its storage note. Keep the original frames, conditions and keyboard navigation.
+- Preserve the continuous document, bilingual search, verified pack data and images in the standalone download.
+
 ## 15 November 2026 — continuous sections and prototype contributions
 
 - Keep the complete normal sections and guide articles in the document, preserving their controls and native scrolling in both directions.
