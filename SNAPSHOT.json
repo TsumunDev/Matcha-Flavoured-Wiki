@@ -1,0 +1,81 @@
+{
+  "edition": "2026-11-15",
+  "author": "Tsumun",
+  "kind": "Browsable wiki snapshot, without separate development sources",
+  "matchaVersion": "1.12.9",
+  "minecraftVersion": "Java 26.3",
+  "languages": [
+    "fr",
+    "en"
+  ],
+  "website": "https://tsumundev.github.io/Matcha-Flavoured-Wiki/",
+  "upstream": {
+    "modrinth": "https://modrinth.com/datapack/matcha-flavoured",
+    "github": "https://github.com/kleiwright/matcha-flavoured"
+  },
+  "counts": {
+    "recipes": 1262,
+    "publicItems": 1405,
+    "guides": 19,
+    "activeEffects": 74,
+    "books": 28,
+    "foods": 191,
+    "tradeOffers": 268,
+    "publicAdvancements": 69
+  },
+  "verification": {
+    "browserChecks": 30,
+    "inGameValidation": false,
+    "snapshotRecheck": "Rebuilt from the reviewed edition; only site-origin metadata changed. ZIP CRC and file equality checked."
+  },
+  "files": {
+    "index.html": {
+      "bytes": 6973074,
+      "sha256": "5cc9bf0872556fb0fabedfa964df8a1e532bb63146d1f3f565d4de9341d8f353"
+    },
+    "matcha-wiki-site.zip": {
+      "bytes": 3356992,
+      "sha256": "accde2e9d4f8379d6099dec64db42ecda4eba8cdd55141e1096c36723123cb9b"
+    },
+    "matcha-logo.png": {
+      "bytes": 134070,
+      "sha256": "f80b5fdc282c0db52220f0586695b7626dce8c4722e1f74b467f076f358b4bc6"
+    },
+    "ATTRIBUTIONS.md": {
+      "bytes": 3775,
+      "sha256": "56451c7c9ff7f45c5d07fd093c48919ce9710e4db2e365184685a467d4abc848"
+    },
+    "README.md": {
+      "bytes": 6833,
+      "sha256": "3da25650322fadc10ca55ce4b32d37943061cf66d90c1a527ba007263bee8b51"
+    },
+    "CHANGELOG.md": {
+      "bytes": 1521,
+      "sha256": "938d7b2608486254f4b984794d992ede2704af2926d856d11ea762b51e77e0af"
+    },
+    "CONTENT-LICENSE.md": {
+      "bytes": 1400,
+      "sha256": "479dc87a1115ba92c1ac6d596a70fd035920b1b49a9070870d5669647d87234f"
+    },
+    "LICENSE": {
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    "preview/wiki-search.png": {
+      "bytes": 90242,
+      "sha256": "61284c91ee30000569e42a510bf6a1fdeb82b5c9b1fb18ca0de247b382ee1a10"
+    },
+    ".nojekyll": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    ".gitignore": {
+      "bytes": 292,
+      "sha256": "709e0b41428a39babc22d7363e4b2cb87bc3e77c9b37f147c2f0a844534a2eca"
+    },
+    ".gitattributes": {
+      "bytes": 59,
+      "sha256": "5557d6f869f8b61ec3257b0c8e6c47063fbb41ee1cebb6c5d0b68d23f0855144"
+    }
+  }
+}
