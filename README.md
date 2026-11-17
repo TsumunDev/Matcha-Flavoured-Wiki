@@ -66,7 +66,7 @@ The content documents this specific release. Servers, addons and other pack vers
 
 The [advancement page](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#advancements?lang=en) reproduces all three public branches with the original Matcha icons and frame textures. Select a node to see what actually completes it: crafting, inventory, fishing, trading or another trigger. Conditions distinguish **any one** alternative from **every** required step. Tree connections describe the layout, not automatic prerequisites.
 
-Search above the tree to find a goal across all three branches. Each icon has a name. With the tree in focus, use the arrow keys to move between goals. On a phone, choosing a search result takes you straight to its conditions. Follow a linked recipe or mark the goal complete. Checkmarks are saved in this browser, independently of your Minecraft world.
+Search above the tree to find a goal across all three branches. Each icon has a name. With the tree in focus, use the arrow keys to move between goals. On a phone, tap a goal on the map or choose a search result to read its conditions. **Back to the tree** returns to that goal. Follow a linked recipe or mark the goal complete. Checkmarks are saved in this browser, independently of your Minecraft world.
 
 [![The interactive advancement tree with original Matcha frames, exact conditions and a personal checklist](preview/wiki-advancements.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#advancements?lang=en&adv=matcha:tutorial/obtain_steel_tool)
 
@@ -74,10 +74,11 @@ The [metallurgy guide](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#metall
 
 ### Finding something faster
 
-- **Find a recipe from the overview.** Enter an item or ingredient in **Find a recipe**, or choose a step under **Getting started** to open the Kindling, Mud Kiln or Blast Furnace recipe.
-- **Start with an item name.** On the item index, **Search recipes instead** carries your term into the recipe index. Opening a craftable item shows the workstation and ingredients for each crafting method. On a recipe, select an ingredient to open its item entry.
+- **Find a recipe from the overview.** Type an item, ingredient or workstation. Open one of the first three matching recipes right there, or press Enter to browse the full recipe index. The three steps under **Getting started** also open their recipes.
+- **Start with an item name.** On the item index, **Search recipes instead** carries your term into the recipe index. Opening a craftable item shows the workstation and ingredients for each crafting method. Select an ingredient to open its item entry. **Back** returns to the same ingredient and reading position. **Close** stays within reach on long entries.
 - **Scroll naturally between sections.** Normal sections and guide articles follow each other in the same document. Scroll down or back up; the sidebar and address follow what you are reading. Forms, filters and article controls stay in place, including during a phone swipe.
 - **Search in either language.** The magnifier in the mobile header opens the search field ready for typing. Use the × inside a field to clear the term and keep typing. Names, accents, technical identifiers and aliases work. Try [Steel Alloy](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&item=minecraft%3Aresin_brick) to open an item directly.
+- **Choose food or armour.** The item index links directly to both comparisons. Opening either one keeps your index filters for the return trip.
 - **Compare a trade on a phone.** Each offer shows its cost and result together. The Books and Effects tabs also keep your search term when you switch between them.
 - **Browse by letter.** Open **A–Z** to pick an initial. Available letters and category counts update for your filters.
 - **Choose your view.** Open **Sort & view** in the item index. The grid shows names and sprites, with IDs for items that share a name. The list includes descriptions and English names when reading in French. An empty item search starts in alphabetical order. Best match puts exact search matches first.

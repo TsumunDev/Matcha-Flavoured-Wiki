@@ -115,6 +115,22 @@ html[data-theme="matcha"]{--paper:#202122;--canvas:#17191a;--ink:#e4e6e8;--muted
  gap:18px clamp(24px,5vw,72px); padding:18px 0 22px; margin-bottom:20px; border-bottom:1px solid var(--line);
 }
 .home-lookup { min-width:0; }
+.home-matches { max-width:560px; }
+.home-matches ul { list-style:none; padding:0; margin:0; }
+.home-matches li { border-bottom:1px solid var(--line); }
+.home-matches .recipe-card {
+ display:flex; align-items:center; gap:10px; min-height:48px; width:100%;
+ background:transparent; border:0; border-radius:0; padding:5px 2px; text-align:start;
+}
+.home-matches .recipe-card:hover { background:var(--hover); }
+.home-matches .recipe-card img { width:32px; height:32px; image-rendering:pixelated; }
+.home-matches .card-text { flex:1; display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+.home-matches .card-text small { text-align:end; font-size:12px; }
+.home-matches a { color:var(--leaf); text-decoration:underline; text-underline-offset:3px; }
+.home-matches .home-more { display:inline-flex; align-items:center; min-height:44px; font-size:14px; }
+.home-matches p { margin:12px 0; }
+.home-matches:not([hidden])+.home-browse { display:none; }
+@media(max-width:680px){ .home-desk:has(.home-matches:not([hidden])) .home-recipes { display:none; } }
 .wiki-heading { display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:6px 18px; padding:2px 0 22px; border-bottom:1px solid var(--line); }
 .wiki-heading img { width:clamp(54px,5.5vw,76px); height:auto; image-rendering:pixelated; }
 .wiki-heading h1 { font:650 clamp(32px,3.4vw,50px)/1.06 Cambria,Georgia,serif; letter-spacing:-.04em; margin:0 0 4px; }
@@ -310,9 +326,21 @@ footer{font-size:11px}
 .wiki-overview .pack-infobox { border:0; padding-top:0; }
 .wiki-article>section:first-child>.flow-h2 { margin-top:0; }
 .related-section h3 .related-index { font:inherit; color:var(--ink); text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:4px; }
-.dialog-tools:has(#dialog-back[hidden]) { position:relative; min-height:0; height:0; margin:0; }
-.dialog-tools:has(#dialog-back[hidden]) #close-dialog { position:absolute; top:0; inset-inline-end:0; z-index:1; }
-#detail-dialog:has(#dialog-back[hidden]) .dialog-heading { padding-inline-end:48px; }
+/* The sheet footer stays within reach while long item entries scroll. */
+#detail-dialog { padding:0; overflow:hidden; border-radius:5px; }
+#detail-dialog[open] { display:flex; flex-direction:column; }
+#dialog-body { min-height:0; overflow:auto; overscroll-behavior:contain; padding:clamp(16px,3vw,30px); }
+#dialog-title:focus { outline:none; }
+#detail-dialog .dialog-tools {
+ display:flex; flex:none; align-items:center; gap:12px; margin:0; padding:2px clamp(14px,3vw,26px);
+ border-top:1px solid var(--line); background:var(--sidebar);
+}
+#dialog-status { color:var(--leaf); font-size:13px; line-height:1.3; }
+#close-dialog { color:var(--ink); margin-inline-start:auto; }
+#dialog-back { color:var(--leaf); margin-inline-end:auto; }
+#dialog-body .dialog-bottom a { font-size:13px; }
+.dialog-heading>img { image-rendering:pixelated; }
+
 .dialog-heading>div { min-width:0; overflow-wrap:anywhere; }
 .dialog-heading>img { flex-shrink:0; }
 @media(max-width:680px) {
@@ -765,7 +793,11 @@ html { scroll-padding-top:calc(var(--header-height,81px) + 16px); }
  .compare-facts .link-button { min-height:44px; }
  .catalogue-options .compare-entry { font-size:13px; }
 }
-@media(max-width:360px) { .compare-filters { grid-template-columns:1fr; } }
+@media(max-width:360px) {
+ .compare-filters { grid-template-columns:1fr; }
+ .catalogue-heading .index-title { column-gap:8px; }
+ .flow-page[data-page] .index-title .flow-title { font-size:26px; }
+}
 
 .compare-context { display:flex; align-items:baseline; flex-wrap:wrap; gap:0 16px; }
 .compare-context .compare-total { margin:0; }
@@ -775,11 +807,14 @@ html { scroll-padding-top:calc(var(--header-height,81px) + 16px); }
 .compare-results .prep-note { margin:0 0 8px; }
 .compare-facts .link-button { text-align:start; overflow-wrap:anywhere; }
 
-.compare-short { display:none; }
+.compare-links { display:flex; align-items:baseline; gap:12px; font-size:14px; }
+.compare-links span { color:var(--muted); }
+.compare-links a { display:inline-flex; align-items:center; min-height:44px; color:var(--leaf); text-decoration:underline; text-underline-offset:3px; }
+.filters .section-search { flex:1 1 230px; min-width:0; }
+@media(max-width:680px){ .filters .section-search { flex-basis:100%; } }
 @media(max-width:680px) {
  [data-page="items"] .catalogue-options { column-gap:12px; }
- .compare-entry .compare-wide { display:none; }
- .compare-entry .compare-short { display:inline; }
+
 }
 
 /* Genuine pack advancement frames; typography and surrounding controls stay wiki-like. */
@@ -859,6 +894,10 @@ html { scroll-padding-top:calc(var(--header-height,81px) + 16px); }
 .metal-alloy p,.metal-alloy li{font-size:14px;line-height:1.8}
 .metal-alloy summary{cursor:pointer;font-size:14px;color:var(--green)}
 .metal-alloy .link-button{font-size:13px}
+.adv-back-to-tree { display:none; }
+@media(max-width:1000px){
+ .adv-back-to-tree { display:block; justify-self:start; min-height:44px; color:var(--leaf); text-decoration:underline; text-underline-offset:3px; }
+}
 .progression-links{margin-bottom:22px}
 .guide-related{display:flex;align-items:center;gap:10px 20px;flex-wrap:wrap;margin:12px 0 20px}
 .guide-related .link-button{display:inline-flex;align-items:center;gap:6px;font-size:13px;min-height:32px}
@@ -873,7 +912,7 @@ body.flow-document{overflow-anchor:none;padding-top:var(--header-height,81px)}
 body.flow-document .site-header{position:fixed;top:0;left:0;width:100%}
 .flow-page+.flow-page { margin-top:52px; padding-top:22px; border-top:2px solid var(--line); }
 .page-intro h1,.flow-page .flow-h1:not(.wiki-heading h1) {
- font:650 clamp(29px,2.7vw,40px)/1.15 var(--sans); letter-spacing:-.035em; margin:0 0 8px;
+ font:600 clamp(29px,3vw,42px)/1.12 Cambria,Georgia,serif; letter-spacing:-.035em; margin:0 0 8px;
 }
 .flow-page .flow-h2,.utility-page h2 {
  font:650 clamp(20px,1.6vw,25px)/1.25 var(--sans); letter-spacing:-.02em; margin-bottom:12px;
@@ -884,15 +923,55 @@ body.flow-document .site-header{position:fixed;top:0;left:0;width:100%}
 .flow-page .source-entry .flow-h2,.flow-page .flow-h3 { font:600 16px/1.4 var(--sans); letter-spacing:0; margin:0 0 8px; }
 .flow-page .guide-card .flow-h3,.adv-info .flow-h3 { font-size:18px; }
 .mobile-search-link{display:none}
-.sidebar{overscroll-behavior:contain}
+/* One contents column on desktop, a compact subject index on phones. */
+.sidebar {
+ overscroll-behavior:contain; top:var(--header-height); height:calc(100dvh - var(--header-height));
+ background:color-mix(in srgb,var(--sidebar) 95%,var(--leaf));
+}
+.brand-short { display:none; }
+.nav-label {
+ margin:0 0 4px; padding:0 8px 4px; border-bottom:1px solid var(--line);
+ color:var(--muted); font:normal 15px/1.4 Cambria,Georgia,serif;
+}
+.nav-group+.nav-group { margin-top:16px; }
+.sidebar .nav-link { padding:5px 8px; gap:9px; margin:1px 0; }
+.sidebar .nav-link.active { background:transparent; color:var(--leaf); box-shadow:inset 2px 0 var(--leaf); }
+.sidebar .nav-link:hover { background:var(--hover); }
+#nav-shade { display:none; }
+.menu-glyph,.menu-glyph::before,.menu-glyph::after {
+ display:block; width:18px; height:2px; margin:auto; background:currentColor;
+}
+.menu-glyph { position:relative; }
+.menu-glyph::before,.menu-glyph::after { content:""; position:absolute; inset-inline-start:0; }
+.menu-glyph::before { top:-6px; }
+.menu-glyph::after { top:6px; }
+#menu-button[aria-expanded=true] .menu-glyph { background:transparent; }
+#menu-button[aria-expanded=true] .menu-glyph::before { top:0; transform:rotate(45deg); }
+#menu-button[aria-expanded=true] .menu-glyph::after { top:0; transform:rotate(-45deg); }
+@media(max-width:680px){
+ .browsing-menu { overflow:hidden; }
+ #nav-shade:not([hidden]) { display:block; position:fixed; inset:var(--header-height) 0 0; z-index:6; background:#100e0aa8; touch-action:none; }
+ .sidebar { width:min(360px,calc(100% - 38px)); padding:16px 14px; box-shadow:none; }
+ .sidebar .nav-group { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 4px; }
+ .sidebar .nav-label { grid-column:1/-1; padding-inline:3px; }
+ .sidebar .nav-link { padding:4px 3px; font-size:14px; line-height:1.25; gap:7px; min-width:0; }
+ .sidebar .nav-link.active { box-shadow:none; text-decoration:underline; text-underline-offset:4px; }
+ .sidebar .nav-link .nav-item-icon { width:18px; height:18px; flex-basis:18px; }
+ .sidebar .sidebar-meta { padding:10px 3px 4px; }
+ .site-header .brand>span.brand-name { display:block; min-width:0; }
+ .site-header .brand-full,.site-header .brand-logo { display:none; }
+ .site-header .brand-short { display:block; font:600 20px/1.05 Cambria,Georgia,serif; }
+ .site-header .brand small { display:block; color:var(--muted); font:normal 11px/1.2 var(--sans); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+}
 @media(max-width:680px){
  .flow-page+.flow-page { margin-top:36px; padding-top:16px; }
+ .flow-page>.breadcrumb,.utility-page>.breadcrumb { display:none; }
  .site-header{height:67px;min-height:67px;flex-wrap:nowrap;row-gap:0;padding-top:8px;padding-bottom:8px}
  .site-header .header-search{display:none!important}
  .site-header .mobile-search-link{display:flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 44px;color:var(--ink)}
  .mobile-search-link svg{fill:none;stroke:currentColor;stroke-width:1.5}
 }
-@media(max-width:380px){.site-header .brand>span{display:none}.site-header .brand{flex:1}}
+
 
 .adv-board[data-branch="tutorial"] { --tile: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABV0lEQVQokV2SPW7DMAyFWdUQRVixHcOBkS1zT9Ar9P5LR29pkCC/dilp6vAAwqgmUXr8+Ejp7evzo5Yg7C/3Zy2BiE7XRxQeukZzISIiWjTVEk7XBxG5oWu2m6i5zJqJSNhHYSKCWtgLe1CQXNFqCfvgPREheeia4P3tNSMEyAXvUymIbY8chIumKHzY74BwqZTpeIbLVMrl/pw1A5ZK0VzQGJbmUmkuURhFF02mxjVAGABm44R9LQEiqIGMwqfro5aw3cTL/Qmc5uKAQYWxb4eusR4whttrNkuLJmfg9ZSQNvYtRIaYNTsMYdZszQl7NIaNVcNytQRIcY2h4bHg1qSH/W7sW4ejw34HM9PxHIXtU8DG2LdAEFFVSzCMsB/7FqHZ+DflCqkQCftF09A10/FsNr6nn/UXdOsvSUTWuj1I4HertmiqzI9Jgce7AheFF02X+y8R/QEKSvbNcse/BgAAAABJRU5ErkJggg=="); }
 .adv-board[data-branch="hell"] { --tile: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAWdJREFUOE9tk1GrgkAQhWdJM4sIUgh88MEXn/r/fyoEi9Ks8PINHNniLog6u3PmzDmzoSiKebfb2f1+tyzLbLPZ2DiOtt/vjfV6vfzddZ0dj0f/TtPU4+/320Jd13OSJL5BgOfxeNh2u3UwDt9uN3s+n/b5fBYQihALbdvOoMWo1+vVVqvVwkjAJBwOB2co8HA+n+dpmpySQDgAqzzPlzgMh2HwVmMQZ7Ber00gMTpxFkmAs2gHfRYNELEsyyXAYf6VDLDEFHgsZAAAShILAU+n0xd1qkk0nRVrb0G9oXKsPol93zsDsRQLrGeFpmnmuG9VY1Oqi7JaAVRMQlVVsyyJxWRwftlIyMvl4tUZPB+kX7tgIQAUF7BcQCcWBZYWCMgeCSZNFIe6YsyJj3LsgvqPE6ApPSSkBg7Af1sQZXoVABV5SI73v0SkEpsMk8ZZl4ubqMp6u424wIeckFD6Z0a4XLEjspP3H4jjVtcpVnP1AAAAAElFTkSuQmCC"); }
@@ -902,10 +981,10 @@ body.flow-document .site-header{position:fixed;top:0;left:0;width:100%}
     <svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><g id="lookup-glass" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="8" cy="8" r="5.5"/><path d="m12 12 5 5"/></g></defs></svg>
     <a class="skip" href="#main">Skip to content / Aller au contenu</a>
     <header class="site-header">
-      <button class="menu-button icon-button" id="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <button class="menu-button icon-button" id="menu-button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span class="menu-glyph" aria-hidden="true"></span></button>
       <a class="brand" href="#home" aria-label="Matcha Flavoured home">
         <img class="brand-logo" src="data:image/webp;base64,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" width="38" height="38" alt="">
-        <span>Matcha Flavoured<small id="brand-caption">Community wiki</small></span>
+        <span class="brand-name"><span class="brand-full">Matcha Flavoured</span><span class="brand-short">Matcha</span><small id="brand-caption">Community wiki</small></span>
       </a>
       <form class="header-search" id="global-search-form" role="search">
         <label class="visually-hidden" for="global-search">Search the wiki / Rechercher dans le wiki</label>
@@ -929,6 +1008,7 @@ body.flow-document .site-header{position:fixed;top:0;left:0;width:100%}
       </div>
     </header>
     <div class="site-layout">
+      <div id="nav-shade" hidden></div>
       <aside class="sidebar" id="sidebar">
         <nav id="navigation" aria-label="Wiki navigation"></nav>
         <div id="sidebar-meta"></div>
@@ -939,11 +1019,12 @@ body.flow-document .site-header{position:fixed;top:0;left:0;width:100%}
       </div>
     </div>
     <dialog id="detail-dialog" aria-labelledby="dialog-title">
+      <div id="dialog-body"></div>
       <div class="dialog-tools">
         <button id="dialog-back" class="text-button" hidden></button>
-        <button id="close-dialog" class="icon-button" aria-label="Close">×</button>
+        <span role="status" id="dialog-status"></span>
+        <button id="close-dialog" class="text-button">Close</button>
       </div>
-      <div id="dialog-body"></div>
     </dialog>
     <div id="toast" class="toast" role="status"></div>
     <noscript><p class="noscript">This interactive offline wiki requires JavaScript. / Ce wiki interactif hors connexion nécessite JavaScript.</p></noscript>
@@ -965,7 +1046,7 @@ let saved=new Set((Array.isArray(storedSaved)?storedSaved:[]).filter(x=>typeof x
 let theme=storage.get('theme','matcha');
 if(!['matcha','light'].includes(theme))theme='matcha';
 document.documentElement.dataset.theme=theme;
-let current={},modal=null,modalHistory=[],toastTimer;
+let current={},modal=null,modalHistory=[],modalOpener=null,toastTimer;
 const recipes=DATA.recipes,items=DATA.items;
 const recipeMap=new Map(recipes.map(r=>[r.id,r]));
 const sourceUrl='https://modrinth.com/datapack/matcha-flavoured/version/OyIxsD8l';
@@ -1115,7 +1196,16 @@ const navIcon=k=>img(navItemKeys[k]||'minecraft:book','nav-item-icon');
 function img(key,cls='',alt=''){key=DATA.reference.aliases[key]||key;const it=items[key],src=DATA.textures[it?.texture]||DATA.advancements.icons?.[key];return src?`<img src="${src}" width="48" height="48" class="${esc(cls)}" alt="${esc(alt)}" loading="lazy" decoding="async">`:`<span class="no-image" aria-hidden="true">◇</span>`}
 function href(page,params={}){const q=new URLSearchParams({...params,lang});return '#'+page+'?'+q.toString()}
 function go(page,params={}){const url=href(page,params);if(location.hash===url)render();else location.hash=url}
-function toast(msg){$('toast').textContent=msg;$('toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('visible'),2800)}
+function toast(msg){
+ clearTimeout(toastTimer);
+ if($('detail-dialog').open){
+  $('dialog-status').textContent=msg;
+  toastTimer=setTimeout(()=>{$('dialog-status').textContent=''},3600);
+ }else{
+  $('toast').textContent=msg;$('toast').classList.add('visible');
+  toastTimer=setTimeout(()=>$('toast').classList.remove('visible'),2800);
+ }
+}
 function stationName(id){return name(ST[id]?.key||id)}
 function iconItem(k){return img(k)}
 function breadcrumb(label){return `<div class="breadcrumb"><div class="trail"><a href="${href('home')}">${t('wiki')}</a><span aria-hidden="true">/</span><span>${esc(label)}</span></div><span class="updated">${t('updated')}</span></div>`}
@@ -1128,7 +1218,7 @@ function articleContents(sections){
 function scrollToArticleSection(id){const section=$(id);if(!section||!$('main').contains(section)||section.tagName!=='SECTION')return;const heading=section.querySelector('h2,h3');if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true})}section.scrollIntoView({block:'start',behavior:'instant'})}
 function shell(){
  document.documentElement.lang=lang;
- $('brand-caption').textContent=t('community');$('global-search').placeholder=t('globalSearch');$('global-search').setAttribute('aria-label',t('globalSearch'));
+ $('brand-caption').textContent=current.page==='home'?'Wiki':t(current.page==='guide'?'guides':current.page);$('global-search').placeholder=t('globalSearch');$('global-search').setAttribute('aria-label',t('globalSearch'));
  $('global-search-submit').setAttribute('aria-label',t('searchAction'));
  const localSearch=['search','items','recipes','enchantments','trades','advancements'].includes(current.page);
  $('global-search-form').hidden=localSearch;
@@ -1141,12 +1231,13 @@ function shell(){
  syncSearchClear($('global-search'));
  document.querySelector('.skip').textContent=lang==='fr'?'Aller au contenu':'Skip to content';
  document.querySelector('.brand').setAttribute('aria-label','Matcha Flavoured — '+t('home'));
- $('menu-button').setAttribute('aria-label',t('menu'));$('close-dialog').setAttribute('aria-label',t('close'));$('dialog-back').textContent='‹ '+t('back');
+ $('menu-button').setAttribute('aria-label',t('menu'));$('close-dialog').textContent=t('close');$('dialog-back').textContent='‹ '+t('back');
  ['en','fr'].forEach(l=>$('lang-'+l).setAttribute('aria-pressed',String(lang===l)));
  updateTheme();
  const currentGuide=DATA.guides.find(g=>g.id===current.params.get('id'));
  const page=current.page==='guide'?(currentGuide?.group==='gameplay'?'gameplay':'guides'):current.page;
- $('navigation').innerHTML=[['navigation',['home','search','recipes','items','stations','saved']],['reference',['gameplay','guides','metallurgy','advancements','enchantments','trades','roadmap','sources']]].map(([label,keys])=>`<div class="nav-group"><p class="nav-label">${navIcon(label)}<span>${t(label)}</span></p>${keys.map(k=>`<a class="nav-link ${page===k?'active':''}" ${page===k?'aria-current="page"':''} href="${href(k)}">${navIcon(k)}<span>${t(k)}</span>${k==='saved'&&saved.size?`<span class="nav-count">${fmt(saved.size)}</span>`:''}</a>`).join('')}</div>`).join('');
+ $('navigation').setAttribute('aria-label',lang==='fr'?'Rubriques du wiki':'Wiki sections');
+ $('navigation').innerHTML=[['navigation',['home','search','saved']],['catalogueGroup',['recipes','items','stations','enchantments','trades']],['fieldGuide',['guides','gameplay','metallurgy','advancements']],['aboutWiki',['roadmap','sources']]].map(([label,keys])=>`<div class="nav-group"><p class="nav-label">${t(label)}</p>${keys.map(k=>`<a class="nav-link ${page===k?'active':''}" ${page===k?'aria-current="page"':''} href="${href(k)}">${navIcon(k)}<span>${t(k)}</span>${k==='saved'&&saved.size?`<span class="nav-count">${fmt(saved.size)}</span>`:''}</a>`).join('')}</div>`).join('');
  $('sidebar-meta').className='sidebar-meta';$('sidebar-meta').innerHTML=`<strong>${t('release')}</strong>${t('edition')}<br>${t('offline')}<br><a href="https://modrinth.com/datapack/matcha-flavoured" target="_blank" rel="noopener noreferrer">${t('official')}</a>`;
  $('footer').innerHTML=`<p><strong>${t('wikiAuthorCredit')}</strong><br>${t('footer')}<br>${t('footerVersion')}</p><div class="footer-links"><a href="${href('sources')}">${t('sources')}</a><br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></div>`;
 }
@@ -1162,13 +1253,32 @@ function homeRecipe() {
    </button>
  </figure>`;
 }
+function updateHomeMatches(remember=false){
+ const field=$('home-recipe-query'),query=field.value.trim(),results=$('home-matches'),status=$('home-match-count');
+ if(remember){
+  if(query)current.params.set('q',field.value);else current.params.delete('q');
+  replaceWikiAddress(href('home',Object.fromEntries(current.params)));
+ }
+ results.hidden=!query;
+ if(!query){results.replaceChildren();status.textContent='';return}
+ const matches=searchWords(query).length?catalogueEntries({page:'recipes',params:new URLSearchParams({q:query})}):[];
+ const count=fmt(matches.length)+' '+t('results');
+ status.textContent=count;
+ if(!matches.length){
+  results.innerHTML=`<p>${t('noResults')} · <a href="${href('search',{q:query})}">${t('searchStart')}</a></p>`;
+  return;
+ }
+ results.innerHTML=`<ul>${matches.slice(0,3).map(recipe=>`<li>${recipeCard(recipe)}</li>`).join('')}</ul>`+
+  (matches.length>3?`<a class="home-more" href="${href('recipes',{q:query})}">${lang==='fr'?'Voir les':'Show all'} ${count}</a>`:'');
+}
 function home(){
  const sections=[['getting-started',t('startTitle')],['progression',t('progressionHeading')],['food-healing',t('foodHeading')],['workstations',t('workshop')]];
  const indexLinks=['recipes','items'].map(page=>`<a href="${href(page)}">${t(page)}</a>`).join('')+`<a href="${href('items',{compare:'food'})}">${comparisonText[lang].foodLink}</a>`;
  return `<header class="wiki-heading"><img src="${DATA.assets.logoLarge}" alt="${t('officialLogo')}" width="96" height="96"><div><h1>Matcha Flavoured</h1><p class="wiki-byline">${t('wikiByline')}</p></div><p class="wiki-edition">${t('homeDescription')}</p></header>
  <div class="home-desk"><div class="home-lookup"><form class="home-recipe-form index-search-form" id="home-recipe-form" role="search" aria-label="${t('findHomeRecipe')}">
-   ${searchField('home-recipe-query',t('findHomeRecipe'),'',t('recipeExample'))}${searchSubmit()}
+   ${searchField('home-recipe-query',t('findHomeRecipe'),current.params.get('q')||'',t('recipeExample'))}${searchSubmit()}
  </form>
+ <span class="visually-hidden" role="status" id="home-match-count"></span><div class="home-matches" id="home-matches" hidden></div>
  <div class="home-browse"><nav class="home-index" aria-label="${t('browseWiki')}">${indexLinks}</nav>${articleContents(sections)}</div>
  </div>${homeRecipe()}</div>
  <div class="wiki-overview"><aside class="overview-notes"><div class="pack-infobox"><dl class="facts">${[['packVersion','1.12.9'],['gameVersion','Java 26.3'],['languages',t('languageNames')],['scope',fmt(recipes.length)+' '+t('recipes').toLowerCase()]].map(([a,b])=>`<div><dt>${t(a)}</dt><dd>${b}</dd></div>`).join('')}</dl><p class="pack-source"><a href="https://modrinth.com/datapack/matcha-flavoured" target="_blank" rel="noopener noreferrer">Modrinth</a><a href="https://github.com/kleiwright/matcha-flavoured" target="_blank" rel="noopener noreferrer">GitHub</a></p></div></aside>
@@ -1224,6 +1334,9 @@ function sources(){return breadcrumb(t('sources'))+intro(t('sourcesTitle'),t('so
 function pageMarkup(){return current.page==='advancements'?advancementsPage():current.page==='metallurgy'?metallurgyPage():current.page==='home'?home():current.page==='recipes'||current.page==='items'?catalogue(current.page):current.page==='enchantments'?enchantmentsPage():current.page==='trades'?tradesPage():current.page==='search'?wikiSearchPage():current.page==='roadmap'?roadmapPage():current.page==='stations'?stations():current.page==='gameplay'?gameplayPage():current.page==='guides'?guides():current.page==='guide'?guide():current.page==='saved'?savedPage():sources()}
 function bindPageControls(){
  if(current.page==='home'){
+  if($('home-recipe-query').value)updateHomeMatches();
+  $('home-recipe-query').addEventListener('input',event=>{if(!event.isComposing)updateHomeMatches(true)});
+  $('home-recipe-query').addEventListener('compositionend',()=>updateHomeMatches(true));
   $('home-recipe-form').addEventListener('submit',event=>{
    event.preventDefault();
    const query=$('home-recipe-query').value.trim();
@@ -1247,20 +1360,63 @@ function ingLabel(ing){if(!ing)return t('noTemplate');const names=ing.keys.map(n
 function slot(ing,label=''){return `<div class="process-slot"><div class="slot">${ing?`<button data-item="${esc(ing.keys[0])}" title="${esc(ingLabel(ing))} — ${t('onePerSlot')}" aria-label="${esc(ingLabel(ing))}">${img(ing.keys[0])}</button>`:'<span aria-hidden="true">—</span>'}</div>${label?`<small>${esc(label)}</small>`:''}</div>`}
 function visual(r){let input;if(r.type==='crafting_shaped'||r.type==='crafting_shapeless')input=`<div class="crafting-grid">${r.grid.map(i=>slot(i)).join('')}</div>`;else if(r.station==='smithing')input=`<div class="process-slots">${r.ingredients.map((i,n)=>slot(i,t(['template','base','addition'][n]))).join('')}</div>`;else input=`<div class="process-slots">${r.ingredients.map(i=>slot(i)).join('')}</div>`;return `<div class="recipe-visual" role="group" aria-label="${t('recipeEntry')}">${input}<span class="recipe-arrow" aria-hidden="true">→</span><div class="slot result-slot"><button data-item="${esc(r.result)}" aria-label="${esc(name(r.result))}">${img(r.result)}</button><small>${r.count}</small></div></div>`}
 function ingredientRows(r){const groups=new Map();for(const ing of r.ingredients){if(!ing)continue;const k=JSON.stringify(ing);if(groups.has(k))groups.get(k).count++;else groups.set(k,{ing,count:1})}return [...groups.values()].map(({ing,count})=>`<li class="ingredient-row">${img(ing.keys[0])}<span><button class="link-button" data-item="${esc(ing.keys[0])}" title="${esc(ingLabel(ing))}">${esc(ingLabel(ing))}</button>${ing.keys.length>1?`<span class="alternatives"><details><summary>${t('moreAlternatives')}</summary><span class="alt-list">${ing.keys.map(k=>`<button class="link-button" data-item="${esc(k)}">${esc(name(k))}</button>`).join(', ')}</span></details></span>`:''}</span><span class="qty" aria-label="${t('totalQuantity')} : ${count}" title="${t('totalQuantity')}">× ${count}</span></li>`).join('')}
-function showDialog(content,entry,push){const d=$('detail-dialog');if(push&&modal)modalHistory.push(modal);else if(!d.open)modalHistory=[];modal=entry;$('dialog-body').innerHTML=content;$('dialog-back').hidden=modalHistory.length===0;if(!d.open)d.showModal();d.scrollTop=0;}
-function openRecipe(id,push=false){const r=recipeMap.get(id);if(!r)return;const it=items[r.result];const note=r.type==='crafting_shaped'?t('fixedGrid'):r.type==='crafting_shapeless'?t('freeGrid'):r.station==='smithing'&&!r.ingredients[0]?t('noTemplate'):'';
- showDialog(`<div class="recipe-detail"><header class="dialog-heading">${img(r.result)}<div><h2 id="dialog-title">${esc(name(r.result))}</h2><p>${esc(stationName(r.station))}${r.count>1?` · ${t('result')} × ${fmt(r.count)}`:''}</p>${lang==='fr'&&it.name.fr!==it.name.en?`<p lang="en">${esc(it.name.en)}</p>`:''}</div></header><div class="recipe-method"><div class="recipe-diagram">${visual(r)}</div><section class="recipe-ingredients"><h3>${t('ingredients')}</h3>${r.ingredients.some(i=>i?.keys.length>1)?`<p class="ingredient-help">${t('alternativesHelp')}</p>`:''}<ul class="ingredient-list">${ingredientRows(r)}</ul></section>${note?`<p class="recipe-note">${note}</p>`:''}</div>${r.time?`<p class="recipe-note">${t('time')} : ${r.time/20} ${t('seconds')} &nbsp; / &nbsp; ${t('xp')} : ${new Intl.NumberFormat(lang).format(r.xp)} XP</p>`:''}<p class="recipe-description">${esc(itemSummary(r.result))}</p>${Object.keys(itemProfile(r.result)?.storedEnchantments||{}).length?`<div class="enchantment-list">${enchantmentLinks(itemProfile(r.result).storedEnchantments)}</div>`:''}<div class="dialog-bottom"><button class="button ${saved.has(id)?'':'primary'}" data-save="${esc(id)}" aria-pressed="${saved.has(id)}">${saved.has(id)?t('unsave'):t('save')}</button><button class="text-button" data-copy-recipe="${esc(id)}">${t('copyLink')}</button><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">${t('recipeSource')} 1.12.9</a></div></div>`,{kind:'recipe',id},push);
+function syncSaveButton(button){
+ if(!button)return;
+ const stored=saved.has(button.dataset.save);
+ button.textContent=t(stored?'unsave':'save');
+ button.setAttribute('aria-pressed',String(stored));
+ button.classList.toggle('primary',!stored);
+}
+function showDialog(content,entry,push,trigger){
+ const dialog=$('detail-dialog'),body=$('dialog-body');
+ if(push&&modal){
+  const parent={entry:modal,content:document.createDocumentFragment(),address:location.hash,scroll:body.scrollTop,trigger};
+  parent.content.append(...body.childNodes);
+  modalHistory.push(parent);
+ }else if(!dialog.open){
+  modalHistory=[];
+  modalOpener=trigger;
+ }
+ modal=entry;body.innerHTML=content;
+ $('dialog-status').textContent='';
+ $('dialog-back').hidden=!modalHistory.length;
+ const title=$('dialog-title');title.tabIndex=-1;
+ if(!dialog.open)dialog.showModal();
+ body.scrollTop=0;title.focus({preventScroll:true});
+}
+function backToEntry(){
+ const parent=modalHistory.pop();
+ if(!parent)return;
+ modal=parent.entry;
+ if(location.hash!==parent.address){
+  replaceWikiAddress(parent.address);
+  current.params=sectionRoute().params;
+ }
+ const body=$('dialog-body');body.replaceChildren(parent.content);
+ syncSaveButton(body.querySelector('[data-save]'));
+ $('dialog-status').textContent='';
+ $('dialog-back').hidden=!modalHistory.length;
+ body.scrollTop=parent.scroll;
+ (parent.trigger?.isConnected?parent.trigger:$('dialog-title')).focus({preventScroll:true});
+}
+function openRecipe(id,push=false,trigger=null){const r=recipeMap.get(id);if(!r)return;const it=items[r.result];const note=r.type==='crafting_shaped'?t('fixedGrid'):r.type==='crafting_shapeless'?t('freeGrid'):r.station==='smithing'&&!r.ingredients[0]?t('noTemplate'):'';
+ showDialog(`<div class="recipe-detail"><header class="dialog-heading">${img(r.result)}<div><h2 id="dialog-title">${esc(name(r.result))}</h2><p>${esc(stationName(r.station))}${r.count>1?` · ${t('result')} × ${fmt(r.count)}`:''}</p>${lang==='fr'&&it.name.fr!==it.name.en?`<p lang="en">${esc(it.name.en)}</p>`:''}</div></header><div class="recipe-method"><div class="recipe-diagram">${visual(r)}</div><section class="recipe-ingredients"><h3>${t('ingredients')}</h3>${r.ingredients.some(i=>i?.keys.length>1)?`<p class="ingredient-help">${t('alternativesHelp')}</p>`:''}<ul class="ingredient-list">${ingredientRows(r)}</ul></section>${note?`<p class="recipe-note">${note}</p>`:''}</div>${r.time?`<p class="recipe-note">${t('time')} : ${r.time/20} ${t('seconds')} &nbsp; / &nbsp; ${t('xp')} : ${new Intl.NumberFormat(lang).format(r.xp)} XP</p>`:''}<p class="recipe-description">${esc(itemSummary(r.result))}</p>${Object.keys(itemProfile(r.result)?.storedEnchantments||{}).length?`<div class="enchantment-list">${enchantmentLinks(itemProfile(r.result).storedEnchantments)}</div>`:''}<div class="dialog-bottom"><button class="button ${saved.has(id)?'':'primary'}" data-save="${esc(id)}" aria-pressed="${saved.has(id)}">${saved.has(id)?t('unsave'):t('save')}</button><button class="text-button" data-copy-recipe="${esc(id)}">${t('copyLink')}</button><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">${t('recipeSource')} 1.12.9</a></div></div>`,{kind:'recipe',id},push,trigger);
 }
 function craftingMethodRow(recipe){
  return `<button class="recipe-card crafting-method" data-recipe="${esc(recipe.id)}">${img(ST[recipe.station].key)}<span class="card-text"><strong>${esc(stationName(recipe.station))}</strong><small>${esc(ingSummary(recipe))}</small></span></button>`;
 }
-function openItem(k,push=false){k=canonicalItemKey(k);if(!k)return;const it=items[k];const made=(outputIndex.get(k)||[]).slice().sort(sortRecipes),used=(useIndex.get(k)||[]).slice().sort(sortRecipes);
+function openItem(k,push=false,trigger=null){k=canonicalItemKey(k);if(!k)return;const it=items[k];const made=(outputIndex.get(k)||[]).slice().sort(sortRecipes),used=(useIndex.get(k)||[]).slice().sort(sortRecipes);
  const block=(list,title,type)=>`<section class="related-section"><h3>${list.length>0&&list.length<=8?`<a class="related-index" href="${href('recipes',{[type]:k})}" data-close-link>${t(title)}</a>`:t(title)} ${list.length>8?`<a href="${href('recipes',{[type]:k})}" data-close-link>${t('seeAll')} (${fmt(list.length)})</a>`:''}</h3>${list.length?`<div class="mini-recipes">${list.slice(0,8).map(type==='output'?craftingMethodRow:recipeCard).join('')}</div>`:`<p class="muted" style="font-size:12px">${t(type==='output'?'noRecipe':'noUse')}</p>${type==='output'?`<p class="muted" style="font-size:11px">${t('noRecipeBody')}</p>`:''}`}</section>`;
- showDialog(`<header class="dialog-heading">${img(k)}<div><h2 id="dialog-title">${esc(name(k))}</h2><p>${t('itemEntry')}${lang==='fr'&&it.name.fr!==it.name.en?` &nbsp; / &nbsp; <span lang="en">${esc(it.name.en)}</span>`:''}</p></div></header>${made.length?block(made,'sourceRecipes','output'):''}${itemReferenceDetails(k)}${rarityItemDetails(k)}${it.effects.length&&!DATA.food.items[k]?`<h3>${t('effects')}</h3><div class="effect-list">${it.effects.map(e=>`<span class="effect">${esc(L(e.label))} ${e.level} · ${e.seconds} ${t('seconds')}</span>`).join('')}</div>`:''}${it.durability?`<span class="tag">${t('durability')} : ${fmt(it.durability)}</span>`:''}${made.length?'':block(made,'sourceRecipes','output')}${block(used,'uses','use')}<div class="dialog-bottom"><button class="text-button" data-copy-item="${esc(k)}">${t('copyLink')}</button></div>`,{kind:'item',id:k},push);
+ showDialog(`<header class="dialog-heading">${img(k)}<div><h2 id="dialog-title">${esc(name(k))}</h2><p>${t('itemEntry')}${lang==='fr'&&it.name.fr!==it.name.en?` &nbsp; / &nbsp; <span lang="en">${esc(it.name.en)}</span>`:''}</p></div></header>${made.length?block(made,'sourceRecipes','output'):''}${itemReferenceDetails(k)}${rarityItemDetails(k)}${it.effects.length&&!DATA.food.items[k]?`<h3>${t('effects')}</h3><div class="effect-list">${it.effects.map(e=>`<span class="effect">${esc(L(e.label))} ${e.level} · ${e.seconds} ${t('seconds')}</span>`).join('')}</div>`:''}${it.durability?`<span class="tag">${t('durability')} : ${fmt(it.durability)}</span>`:''}${made.length?'':block(made,'sourceRecipes','output')}${block(used,'uses','use')}<div class="dialog-bottom"><button class="text-button" data-copy-item="${esc(k)}">${t('copyLink')}</button></div>`,{kind:'item',id:k},push,trigger);
 }
-function openModalEntry(entry){if(entry.kind==='recipe')openRecipe(entry.id);else if(entry.kind==='enchantment')openEnchantment(entry.id);else openItem(entry.id)}
-function refreshModal(){if(modal)openModalEntry(modal)}
-function closeModal(clearLink=true){$('detail-dialog').close();modal=null;modalHistory=[];if(clearLink!==false)clearEntryLink()}
+function closeModal(clearLink=true){
+ const opener=modalOpener;
+ $('detail-dialog').close();modal=null;modalHistory=[];modalOpener=null;
+ if(clearLink===false)return;
+ clearEntryLink();
+ const target=opener?.isConnected?opener:sectionHeading(current);
+ if(target){if(!opener?.isConnected)target.tabIndex=-1;target.focus({preventScroll:true})}
+}
 function updateTheme(){
  document.documentElement.dataset.theme=theme;
  document.querySelector('meta[name="theme-color"]').content={matcha:'#292018',light:'#fbf7ef'}[theme];
@@ -1271,25 +1427,30 @@ function updateTheme(){
 document.addEventListener('click',async e=>{
  const choice=e.target.closest('[data-theme]');if(choice&&choice.tagName==='BUTTON'){theme=choice.dataset.theme;storage.set('theme',theme);updateTheme();$('theme-menu').hidden=true;$('theme-toggle').setAttribute('aria-expanded','false');$('theme-toggle').focus();return}
  if(!e.target.closest('.theme-control')){$('theme-menu').hidden=true;$('theme-toggle').setAttribute('aria-expanded','false')}
- const recipe=e.target.closest('[data-recipe]');if(recipe){openRecipe(recipe.dataset.recipe,$('detail-dialog').open);return}
- const item=e.target.closest('[data-item]');if(item){openItem(item.dataset.item,$('detail-dialog').open);return}
- const saver=e.target.closest('[data-save]');if(saver){const id=saver.dataset.save;const removing=saved.has(id);removing?saved.delete(id):saved.add(id);const ok=storage.set('saved',[...saved]);refreshModal();if(current.page==='saved')current.root.innerHTML=savedPage();shell();toast(ok?t(removing?'removedToast':'savedToast'):t('noStorage'));return}
- const pager=e.target.closest('[data-pager]');if(pager){updateFilter('page',pager.dataset.pager);$('results').scrollIntoView({block:'start'});return}
+ const recipe=e.target.closest('[data-recipe]');if(recipe){openRecipe(recipe.dataset.recipe,$('detail-dialog').open,recipe);return}
+ const item=e.target.closest('[data-item]');if(item){openItem(item.dataset.item,$('detail-dialog').open,item);return}
+ const saver=e.target.closest('[data-save]');if(saver){const id=saver.dataset.save;const removing=saved.has(id);removing?saved.delete(id):saved.add(id);const ok=storage.set('saved',[...saved]);syncSaveButton(saver);saver.focus({preventScroll:true});if(current.page==='saved')current.root.innerHTML=savedPage();shell();toast(ok?t(removing?'removedToast':'savedToast'):t('noStorage'));return}
+ const pager=e.target.closest('[data-pager]');if(pager){updateFilter('page',pager.dataset.pager);focusSearchResult($('results'),'.item-card,.recipe-card');return}
  if(e.target.closest('#reset-filters')){resetIndexFilters();return}
- const lng=e.target.closest('[data-lang]');if(lng){const focus=document.activeElement;lang=lng.dataset.lang;storage.set('language',lang);current.params.set('lang',lang);replaceWikiAddress(href(current.page,Object.fromEntries(current.params)));render();if($('detail-dialog').open)refreshModal();focus?.focus();return}
+ const lng=e.target.closest('[data-lang]');if(lng){if(lang===lng.dataset.lang)return;const focus=document.activeElement;lang=lng.dataset.lang;storage.set('language',lang);current.params.set('lang',lang);replaceWikiAddress(href(current.page,Object.fromEntries(current.params)));render();focus?.focus({preventScroll:true});return}
  const copy=e.target.closest('[data-copy-recipe]');if(copy){await copyEntryLink('recipe',copy.dataset.copyRecipe);return}
  if(e.target.closest('[data-close-link]'))closeModal();
  if(e.target.closest('.nav-link,.browse-card,.guide-card,.brand,.footer-links a')){if($('detail-dialog').open)closeModal()}
 });
 $('close-dialog').addEventListener('click',closeModal);
 $('detail-dialog').addEventListener('click',e=>{if(e.target===$('detail-dialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeModal()}});
-$('detail-dialog').addEventListener('cancel',()=>{modal=null;modalHistory=[];clearEntryLink()});
-$('dialog-back').addEventListener('click',()=>{const entry=modalHistory.pop();if(entry)openModalEntry(entry)});
-$('menu-button').addEventListener('click',()=>{const open=$('sidebar').classList.toggle('open');$('menu-button').setAttribute('aria-expanded',String(open))});
+$('detail-dialog').addEventListener('cancel',event=>{event.preventDefault();closeModal()});
+$('dialog-back').addEventListener('click',backToEntry);
+$('menu-button').addEventListener('click',()=>setNavigationOpen(!$('sidebar').classList.contains('open')));
+$('nav-shade').addEventListener('click',()=>setNavigationOpen(false,true));
+matchMedia('(max-width:680px)').addEventListener('change',()=>setNavigationOpen(false));
+document.addEventListener('focusin',event=>{
+ if($('sidebar').classList.contains('open')&&!event.target.closest('#sidebar,#menu-button'))setNavigationOpen(false);
+});
 document.addEventListener('keydown',e=>{
  if(e.key==='Tab'&&$('detail-dialog').open){const focusable=[...$('detail-dialog').querySelectorAll('button:not([disabled]),a[href],input,select,summary,[tabindex="0"]')].filter(el=>el.getClientRects().length&&!el.hidden);const first=focusable[0],last=focusable.at(-1),active=document.activeElement;if(e.shiftKey&&(active===first||!$('detail-dialog').contains(active))){e.preventDefault();last?.focus()}else if(!e.shiftKey&&(active===last||!$('detail-dialog').contains(active))){e.preventDefault();first?.focus()}}
  if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)&&!$('detail-dialog').open){e.preventDefault();focusWikiSearch()}
- if(e.key==='Escape'){if($('sidebar').classList.contains('open'))$('menu-button').focus();$('sidebar').classList.remove('open');$('menu-button').setAttribute('aria-expanded','false');if(!$('theme-menu').hidden){$('theme-menu').hidden=true;$('theme-toggle').setAttribute('aria-expanded','false');$('theme-toggle').focus()}}
+ if(e.key==='Escape'){if($('sidebar').classList.contains('open'))setNavigationOpen(false,true);if(!$('theme-menu').hidden){$('theme-menu').hidden=true;$('theme-toggle').setAttribute('aria-expanded','false');$('theme-toggle').focus()}}
 });
 $('theme-toggle').addEventListener('click',()=>{const open=$('theme-menu').hidden;$('theme-menu').hidden=!open;$('theme-toggle').setAttribute('aria-expanded',String(open));if(open)$('theme-menu').querySelector('[aria-pressed="true"]').focus()});
 $('global-search-form').addEventListener('submit',e=>{e.preventDefault();const q=$('global-search').value.trim();openWikiSearch(q)});
@@ -1433,7 +1594,7 @@ function columnLabel(title){return `<span class="mobile-column" aria-hidden="tru
 function referenceTabs(selected){return `<nav class="reference-tabs" aria-label="${t('enchantments')}">${[['books',t('booksTab')+' ('+DATA.enchantments.books.length+')'],['effects',t('effectsTab')+' ('+DATA.enchantments.entries.length+')']].map(([value,label])=>`<a data-reference-view="${value}" href="${href('enchantments',{view:value,...(current.params.get('q')?{q:current.params.get('q')}:{})})}" ${selected===value?'aria-current="page"':''}>${esc(label)}</a>`).join('')}</nav>`}
 function enchantmentsPage(){
  const view=current.params.get('view')==='effects'?'effects':'books';
- return breadcrumb(t('enchantments'))+intro(t('enchantmentsTitle'),t('enchantmentsIntro'))+`<p class="reference-guide-link"><a href="${href('guide',{id:'xp-enchantments-and-trades'})}">${t('enchantingGuide')}</a></p>`+referenceTabs(view)+`<div class="filters">${searchField('reference-search',t('referenceSearch'),current.params.get('q')||'')}<select id="reference-kind" aria-label="${t('referenceKind')}">${selectOptions(view==='books'?[['',t('allBooks')],['crafted',t('craftedBooks')],['traded',t('tradedBooks')]]:[['',t('allEnchantments')],['custom',t('customEnchantments')],['vanilla-id-overridden',t('changedEnchantments')]],current.params.get('kind')||'')}</select></div><div id="reference-results" aria-live="polite">${enchantmentResults()}</div>`;
+ return breadcrumb(t('enchantments'))+intro(t('enchantmentsTitle'),t('enchantmentsIntro'))+`<p class="reference-guide-link"><a href="${href('guide',{id:'xp-enchantments-and-trades'})}">${t('enchantingGuide')}</a></p>`+referenceTabs(view)+`<div class="filters">${sectionSearchForm('reference-search',t('referenceSearch'),current.params.get('q')||'')}<select id="reference-kind" aria-label="${t('referenceKind')}">${selectOptions(view==='books'?[['',t('allBooks')],['crafted',t('craftedBooks')],['traded',t('tradedBooks')]]:[['',t('allEnchantments')],['custom',t('customEnchantments')],['vanilla-id-overridden',t('changedEnchantments')]],current.params.get('kind')||'')}</select></div><div id="reference-results" aria-live="polite">${enchantmentResults()}</div>`;
 }
 function enchantmentResults(){
  const view=current.params.get('view')==='effects'?'effects':'books',query=current.params.get('q')||'',kind=current.params.get('kind')||'';
@@ -1446,15 +1607,15 @@ function enchantmentResults(){
  if(!list.length)return searchEmpty();
  return `<p class="reference-result-count">${fmt(list.length)} ${t('effectsFound')}</p><div class="table-scroll"><table role="table" class="wiki-table enchantments-table"><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">${t('enchantment')}</th><th role="columnheader" scope="col">${t('maximumLevel')}</th><th role="columnheader" scope="col">${t('whatItDoes')}</th></tr></thead><tbody role="rowgroup">${list.map(entry=>`<tr role="row"><td role="cell"><button class="link-button" data-enchantment="${esc(entry.id)}">${esc(L(entry.name))}</button></td><td role="cell">${columnLabel('maximumLevel')}${romanLevel(entry.maxLevel)}</td><td role="cell">${esc(L(entry.description))}</td></tr>`).join('')}</tbody></table></div>`;
 }
-function openEnchantment(id,push=false){
+function openEnchantment(id,push=false,trigger=null){
  const entry=enchantmentEntry(id);if(!entry)return;
  const compatible=entry.supportedKeys.map(key=>`<button class="link-button" data-item="${esc(key)}">${esc(name(key))}</button>`).join(' · ');
  const exclusions=entry.exclusiveWith.map(id=>enchantmentName(id)).filter(Boolean);
  const books=DATA.enchantments.books.filter(book=>Object.hasOwn(book.enchantments,id));
- showDialog(`<header class="dialog-heading">${img('minecraft:enchanted_book')}<div><h2 id="dialog-title">${esc(L(entry.name))}</h2><p>${t('maximumLevel')} : ${romanLevel(entry.maxLevel)}</p></div></header><div class="enchantment-detail"><p class="item-description">${esc(L(entry.description))}</p>${entry.notes?.length?`<ul>${entry.notes.map(note=>`<li>${esc(L(note))}</li>`).join('')}</ul>`:''}<section><h3>${t('compatibleEquipment')}</h3>${compatible?`<p class="compatible-items">${compatible}</p>`:`<p>${t('intrinsicOnly')}</p>`}</section>${exclusions.length?`<section><h3>${t('incompatibleWith')}</h3><p>${exclusions.map(esc).join(', ')}</p></section>`:''}${books.length?`<section><h3>${t('availableOnBooks')}</h3><ul>${books.map(book=>`<li><button class="link-button" data-item="${esc(book.key)}">${esc(name(book.key))}</button> · ${romanLevel(book.enchantments[id])}</li>`).join('')}</ul></section>`:''}<p class="article-source"><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Matcha Flavoured 1.12.9</a></p></div>`,{kind:'enchantment',id},push);
+ showDialog(`<header class="dialog-heading">${img('minecraft:enchanted_book')}<div><h2 id="dialog-title">${esc(L(entry.name))}</h2><p>${t('maximumLevel')} : ${romanLevel(entry.maxLevel)}</p></div></header><div class="enchantment-detail"><p class="item-description">${esc(L(entry.description))}</p>${entry.notes?.length?`<ul>${entry.notes.map(note=>`<li>${esc(L(note))}</li>`).join('')}</ul>`:''}<section><h3>${t('compatibleEquipment')}</h3>${compatible?`<p class="compatible-items">${compatible}</p>`:`<p>${t('intrinsicOnly')}</p>`}</section>${exclusions.length?`<section><h3>${t('incompatibleWith')}</h3><p>${exclusions.map(esc).join(', ')}</p></section>`:''}${books.length?`<section><h3>${t('availableOnBooks')}</h3><ul>${books.map(book=>`<li><button class="link-button" data-item="${esc(book.key)}">${esc(name(book.key))}</button> · ${romanLevel(book.enchantments[id])}</li>`).join('')}</ul></section>`:''}<p class="article-source"><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Matcha Flavoured 1.12.9</a></p></div>`,{kind:'enchantment',id},push,trigger);
 }
 function tradeConditionLabel(trade){return L(trade.conditionsText)||''}
-function tradesPage(){return breadcrumb(t('trades'))+intro(t('tradesTitle'),t('tradesIntro'))+`<p class="reference-guide-link"><a href="${href('guide',{id:'villagers-and-trading'})}">${t('villagerGuide')}</a></p><div class="filters">${searchField('reference-search',t('tradeSearch'),current.params.get('q')||'')}<select id="trade-profession" aria-label="${t('profession')}">${selectOptions([['',t('allProfessions')],...[...new Set(DATA.reference.trades.map(trade=>trade.profession))].sort((a,b)=>professionName(a).localeCompare(professionName(b),lang)).map(id=>[id,professionName(id)])],current.params.get('profession')||'')}</select></div><div id="reference-results" aria-live="polite">${tradeResults()}</div>`}
+function tradesPage(){return breadcrumb(t('trades'))+intro(t('tradesTitle'),t('tradesIntro'))+`<p class="reference-guide-link"><a href="${href('guide',{id:'villagers-and-trading'})}">${t('villagerGuide')}</a></p><div class="filters">${sectionSearchForm('reference-search',t('tradeSearch'),current.params.get('q')||'')}<select id="trade-profession" aria-label="${t('profession')}">${selectOptions([['',t('allProfessions')],...[...new Set(DATA.reference.trades.map(trade=>trade.profession))].sort((a,b)=>professionName(a).localeCompare(professionName(b),lang)).map(id=>[id,professionName(id)])],current.params.get('profession')||'')}</select></div><div id="reference-results" aria-live="polite">${tradeResults()}</div>`}
 function tradeResults(){
  const query=current.params.get('q')||'',profession=current.params.get('profession')||'';
  const offer=current.params.get('offer');
@@ -1489,8 +1650,8 @@ function roadmapPage(){
  return breadcrumb(t('roadmap'))+intro(t('roadmap'),L(DATA.roadmap.intro))+`<div class="roadmap-list">${entries.map(entry=>`<section><span class="roadmap-status">${esc(L(entry.status))}</span><h2>${esc(L(entry.title))}</h2><p>${esc(L(entry.description))}</p></section>`).join('')}</div>`;
 }
 document.addEventListener('click',event=>{
- const enchantment=event.target.closest('[data-enchantment]');if(enchantment){openEnchantment(enchantment.dataset.enchantment,$('detail-dialog').open);return;}
- const pager=event.target.closest('[data-reference-page]');if(pager){updateReferenceFilter('page',pager.dataset.referencePage);$('reference-results').scrollIntoView({block:'start'});}
+ const enchantment=event.target.closest('[data-enchantment]');if(enchantment){openEnchantment(enchantment.dataset.enchantment,$('detail-dialog').open,enchantment);return;}
+ const pager=event.target.closest('[data-reference-page]');if(pager){updateReferenceFilter('page',pager.dataset.referencePage);focusSearchResult($('reference-results'),'tbody button,tbody a');}
 });
 
 /* Shared bilingual search. Data remains local; queries are never HTML. */
@@ -1587,6 +1748,17 @@ function searchSubmit(){
  const label=esc(t('searchAction'));
  return `<button class="lookup-submit" type="submit" aria-label="${label}" title="${label}"><svg class="lookup-icon" viewBox="0 0 20 20" aria-hidden="true"><use href="#lookup-glass"></use></svg></button>`;
 }
+function sectionSearchForm(id,label,query){
+ return `<form class="index-search-form section-search" role="search" aria-label="${esc(label)}">${searchField(id,label,query)}${searchSubmit()}</form>`;
+}
+document.addEventListener('submit',event=>{
+ if(!event.target.matches('.section-search'))return;
+ event.preventDefault();
+ if(current.page==='advancements'){
+  $('adv-directory-panel').open=true;
+  focusSearchResult($('adv-search-results'),'[data-adv-jump]');
+ }else focusSearchResult($('reference-results'),'tbody button,tbody a');
+});
 function wikiSearchPage(){
  const query=current.params.get('q')||'';
  return breadcrumb(t('search'))+`<header class="lookup-heading"><h1>${t('searchStart')}</h1><form class="wiki-search-form" id="wiki-search-form" role="search" aria-label="${t('searchStart')}">${searchField('wiki-search-input',t('searchTerm'),query)}${searchSubmit()}</form></header><div id="wiki-search-results">${wikiSearchResults()}</div>`;
@@ -1614,16 +1786,25 @@ function updateWikiQuery(){
  syncSearchClear($('global-search'));
  $('wiki-search-results').innerHTML=wikiSearchResults();
 }
+function focusSearchResult(container,selector){
+ const target=container.querySelector(selector)||container.querySelector('.empty h2,.empty [data-flow-level],.adv-result-count,.search-hint')||container;
+ if(!target.matches('button,a[href]'))target.tabIndex=-1;
+ target.focus({preventScroll:true});
+ const rect=target.getBoundingClientRect(),header=document.querySelector('.site-header').getBoundingClientRect();
+ if(rect.top<header.bottom||rect.bottom>innerHeight)target.scrollIntoView({block:'center',behavior:'instant'});
+}
 function bindWikiSearch(){
  const input=$('wiki-search-input');
  input.addEventListener('input',event=>{if(!event.isComposing)updateWikiQuery()});
  input.addEventListener('compositionend',updateWikiQuery);
- $('wiki-search-form').addEventListener('submit',event=>{event.preventDefault();updateWikiQuery()});
+ $('wiki-search-form').addEventListener('submit',event=>{event.preventDefault();
+  if(!input.value.trim()){input.focus();return}
+  updateWikiQuery();focusSearchResult($('wiki-search-results'),'.search-result')});
 }
 document.addEventListener('click',event=>{
  const pager=event.target.closest('[data-search-page]');if(!pager)return;
  current.params.set('page',pager.dataset.searchPage);replaceWikiAddress(href('search',Object.fromEntries(current.params)));
- $('wiki-search-results').innerHTML=wikiSearchResults();$('wiki-search-results').scrollIntoView({block:'start'});
+ $('wiki-search-results').innerHTML=wikiSearchResults();focusSearchResult($('wiki-search-results'),'.search-result');
 });
 new ResizeObserver(entries=>{document.documentElement.style.setProperty('--header-height',entries[0].target.getBoundingClientRect().height+'px')}).observe(document.querySelector('.site-header'));
 
@@ -1653,13 +1834,13 @@ function itemIdHint(key){
  return duplicateItemNames[lang].has(name(key))?`<small class="item-id">${esc(key)}</small>`:'';
 }
 function indexView(){return current.params.get('view')==='list'?'list':'grid'}
-function indexSort(){return ['az','za'].includes(current.params.get('sort'))?current.params.get('sort'):''}
+function indexSort(params=current.params){return ['az','za'].includes(params.get('sort'))?params.get('sort'):''}
 function defaultSortLabel(){
  if(current.params.get('q'))return t('bestMatch');
  return t(current.page==='recipes'?'starterOrder':'defaultNameOrder');
 }
 function indexLetter(key){const first=searchNorm(name(key)).charAt(0).toUpperCase();return /^[A-Z]$/.test(first)?first:'#'}
-function selectedIndexLetter(){const value=current.params.get('letter')||'';return /^[A-Z#]$/.test(value)?value:''}
+function selectedIndexLetter(params=current.params){const value=params.get('letter')||'';return /^[A-Z#]$/.test(value)?value:''}
 function catalogueControls(kind,query,filters){
  const itemIndex=kind==='items';
  const selected=['category','station','type','availability','rarity','kind'].some(key=>current.params.has(key));
@@ -1681,20 +1862,20 @@ function catalogueControls(kind,query,filters){
    </details>
    ${itemIndex?indexAlphabet():''}
    ${itemIndex?`<details class="index-display"><summary>${t('sortAndView')}</summary>${tools}</details>`:tools}
-   ${itemIndex?`<a class="compare-entry" href="${href('items',comparisonParams('food'))}" aria-label="${comparisonText[lang].entry}"><span class="compare-wide">${comparisonText[lang].entry}</span><span class="compare-short">${lang==='fr'?'Comparer':'Compare'}</span></a>`:''}
+   ${itemIndex?`<nav class="compare-links" aria-label="${comparisonText[lang].entry}"><span>${lang==='fr'?'Comparer':'Compare'}</span> ${['food','armour'].map(kind=>`<a ${kind==='food'?'class="compare-entry" ':''}data-compare-kind="${kind}" href="${href('items',comparisonParams(kind))}">${comparisonText[lang][kind]}</a>`).join('')}</nav>`:''}
  </div>
  <div class="index-applied"><div id="index-active-filters" class="index-active-filters" role="group" aria-label="${t('activeFilters')}" hidden></div><button class="text-button" id="reset-filters" hidden>${t('reset')}</button>${itemIndex?`<a id="index-recipe-link" hidden>${t('recipeSearchLink')}</a>`:''}</div>`;
 }
 
-function catalogueEntries({ignoreCategory=false,ignoreLetter=false,ignoreQuery=false,ordered=true}={}){
- const q=ignoreQuery?'':current.params.get('q')||'',station=current.params.get('station')||'',type=current.params.get('type')||'',cat=ignoreCategory?'':current.params.get('category')||'';
- const output=current.params.get('output'),use=current.params.get('use'),letter=ignoreLetter?'':selectedIndexLetter();
- const recipeIndex=current.page==='recipes';
+function catalogueEntries({ignoreCategory=false,ignoreLetter=false,ignoreQuery=false,ordered=true,page=current.page,params=current.params}={}){
+ const q=ignoreQuery?'':params.get('q')||'',station=params.get('station')||'',type=params.get('type')||'',cat=ignoreCategory?'':params.get('category')||'';
+ const output=params.get('output'),use=params.get('use'),letter=ignoreLetter?'':selectedIndexLetter(params);
+ const recipeIndex=page==='recipes';
  const words=searchWords(q),matching=text=>words.every(word=>text.includes(word));
  const entries=recipeIndex?recipes.filter(recipe=>matchesCategory(recipe.result,cat)&&(!station||recipe.station===station)&&(!type||(type==='heat'?['campfire','furnace','smoking','blasting'].includes(recipe.station):recipe.type===type))&&(!output||recipe.result===output)&&(!use||usesIngredient(recipe,use))&&matching(recipeSearchMap.get(recipe.id))):
-  visibleItemKeys().filter(key=>matching(itemSearchText(key))&&matchesCategory(key,cat)&&(current.params.get('availability')!=='craftable'||outputIndex.has(key))&&matchesRarity(key,current.params.get('rarity'))&&matchesItemKind(key,current.params.get('kind'))&&(!letter||indexLetter(key)===letter));
+  visibleItemKeys().filter(key=>matching(itemSearchText(key))&&matchesCategory(key,cat)&&(params.get('availability')!=='craftable'||outputIndex.has(key))&&matchesRarity(key,params.get('rarity'))&&matchesItemKind(key,params.get('kind'))&&(!letter||indexLetter(key)===letter));
  if(!ordered)return entries;
- const collator=new Intl.Collator(lang,{numeric:true,sensitivity:'base'}),order=indexSort();
+ const collator=new Intl.Collator(lang,{numeric:true,sensitivity:'base'}),order=indexSort(params);
  const ranks=new Map(!order&&q?entries.map(entry=>[entry,itemRelevance(recipeIndex?entry.result:entry,q)]):[]);
  return entries.sort((a,b)=>{
   const aKey=recipeIndex?a.result:a,bKey=recipeIndex?b.result:b;
@@ -1743,8 +1924,7 @@ function refreshIndexControls(){
  sort.options[0].textContent=defaultSortLabel();
  sort.value=indexSort();
  const filters=indexFilterLabels(),node=$('index-active-filters');
- const compareLink=pageNode('.compare-entry');
- if(compareLink)compareLink.href=href('items',comparisonParams('food'));
+ for(const link of pageNodes('[data-compare-kind]'))link.href=href('items',comparisonParams(link.dataset.compareKind));
  const recipeLink=$('index-recipe-link');
  if(recipeLink){
   const query=(current.params.get('q')||'').trim();
@@ -1783,7 +1963,7 @@ function renderIndexResults(){
 function resetIndexFilters(){go(current.page,{...(indexView()==='list'&&current.page==='items'?{view:'list'}:{}),...(indexSort()?{sort:indexSort()}:{})})}
 function bindIndexControls(){
  $('index-sort').addEventListener('change',event=>updateFilter('sort',event.target.value));
- $('index-search-form').addEventListener('submit',event=>{event.preventDefault();updateFilter('q',$('catalogue-search').value)});
+ $('index-search-form').addEventListener('submit',event=>{event.preventDefault();updateFilter('q',$('catalogue-search').value);focusSearchResult($('results'),'.item-card,.recipe-card')});
  const labels={'availability-filter':t('availability'),'rarity-filter':t('indexRarity'),'item-kind-filter':t('indexItemType'),'station-filter':t('station'),'type-filter':t('indexRecipeType')};
  for(const [id,title] of Object.entries(labels)){const select=$(id);if(!select)continue;const label=document.createElement('label');label.className='index-select-label';label.htmlFor=id;const text=document.createElement('span');text.textContent=title;select.before(label);label.append(text,select)}
 }
@@ -2020,7 +2200,7 @@ function advancementRequirements(node){
 }
 function advancementInfo(node){
  const parent=publicAdvancementMap.get(node.parent),children=publicAdvancements.filter(n=>n.parent===node.id),frame={task:'advTask',goal:'advGoal',challenge:'advChallenge'}[node.frame]||'advTask';
- return `<div class="adv-detail-heading">${img(node.iconKey)}<div><span class="adv-kind">${t(frame)}</span><h3>${esc(L(node.title))}</h3><p>${esc(L(node.description)||t('advRoot'))}</p></div></div><label class="adv-completion"><input type="checkbox" data-adv-complete="${esc(node.id)}" ${completedAdvancements.has(node.id)?'checked':''}>${t('advMark')}</label><p class="adv-checklist-note">${t('advChecklistNote')}</p>${advancementRequirements(node)}${node.rewards?.length?`<h4>${t('advRewards')}</h4><ul>${node.rewards.map(reward=>`<li>${reward.kind==='item'&&reward.itemKey&&items[reward.itemKey]?`${reward.count?esc(reward.count)+' × ':''}<button class="link-button" data-item="${esc(reward.itemKey)}">${esc(name(reward.itemKey))}</button>`:esc(L(reward.label))}</li>`).join('')}</ul>`:''}${node.notes?.length?`<h4>${t('advNotes')}</h4>${node.notes.map(note=>`<p>${esc(L(note))}</p>`).join('')}`:''}<div class="adv-neighbours">${parent?`<p>${t('advParent')}<br><button class="link-button" data-adv-jump="${esc(parent.id)}">${esc(L(parent.title))}</button></p>`:`<p>${t('advNoParent')}</p>`}${children.length?`<p>${t('advChildren')}<br>${children.map(n=>`<button class="link-button" data-adv-jump="${esc(n.id)}">${esc(L(n.title))}</button>`).join(' · ')}</p>`:''}</div>${items[node.iconKey]&&!items[node.iconKey].hiddenAlias?`<button class="link-button" data-item="${esc(node.iconKey)}">${t('advItem')}</button>`:''}${node.sourceRefs?.[0]?`<details class="adv-source"><summary>${t('advSource')}</summary><code>${esc(node.sourceRefs[0])}</code></details>`:''}`;
+ return `<div class="adv-detail-heading">${img(node.iconKey)}<div><span class="adv-kind">${t(frame)}</span><h3>${esc(L(node.title))}</h3><p>${esc(L(node.description)||t('advRoot'))}</p></div></div><button type="button" class="adv-back-to-tree link-button" data-back-to-tree>${lang==='fr'?'Retour à l’arbre':'Back to the tree'}</button><label class="adv-completion"><input type="checkbox" data-adv-complete="${esc(node.id)}" ${completedAdvancements.has(node.id)?'checked':''}>${t('advMark')}</label><p class="adv-checklist-note">${t('advChecklistNote')}</p>${advancementRequirements(node)}${node.rewards?.length?`<h4>${t('advRewards')}</h4><ul>${node.rewards.map(reward=>`<li>${reward.kind==='item'&&reward.itemKey&&items[reward.itemKey]?`${reward.count?esc(reward.count)+' × ':''}<button class="link-button" data-item="${esc(reward.itemKey)}">${esc(name(reward.itemKey))}</button>`:esc(L(reward.label))}</li>`).join('')}</ul>`:''}${node.notes?.length?`<h4>${t('advNotes')}</h4>${node.notes.map(note=>`<p>${esc(L(note))}</p>`).join('')}`:''}<div class="adv-neighbours">${parent?`<p>${t('advParent')}<br><button class="link-button" data-adv-jump="${esc(parent.id)}">${esc(L(parent.title))}</button></p>`:`<p>${t('advNoParent')}</p>`}${children.length?`<p>${t('advChildren')}<br>${children.map(n=>`<button class="link-button" data-adv-jump="${esc(n.id)}">${esc(L(n.title))}</button>`).join(' · ')}</p>`:''}</div>${items[node.iconKey]&&!items[node.iconKey].hiddenAlias?`<button class="link-button" data-item="${esc(node.iconKey)}">${t('advItem')}</button>`:''}${node.sourceRefs?.[0]?`<details class="adv-source"><summary>${t('advSource')}</summary><code>${esc(node.sourceRefs[0])}</code></details>`:''}`;
 }
 function advancementList(query=''){
  const nodes=publicAdvancements.filter(n=>matches([n.id,bilingualText([n.title,n.description,n.criteria?.map(c=>c.instruction)])].join(' '),query));
@@ -2030,7 +2210,7 @@ function advancementsPage(){
  const query=current.params.get('q')||'';
  return breadcrumb(t('advancements'))+`<header class="adv-heading">
   <div><h1>${t('advancements')}</h1><p>${t('advIntro')}</p></div>
-  ${searchField('adv-search',t('advFind'),query)}
+  ${sectionSearchForm('adv-search',t('advFind'),query)}
  </header>
  <details class="adv-directory-section" id="adv-directory-panel" ${query?'open':''}>
   <summary>${t('advAll')}</summary><div id="adv-search-results">${advancementList(query)}</div>
@@ -2067,7 +2247,19 @@ document.addEventListener('input',e=>{
 });
 document.addEventListener('click',e=>{
  const categoryButton=e.target.closest('[data-category]');if(categoryButton){updateFilter('category',categoryButton.dataset.category);return}
- const node=e.target.closest('[data-adv-id]');if(node)selectAdvancement(node.dataset.advId);
+ const node=e.target.closest('[data-adv-id]');
+ if(node){
+  selectAdvancement(node.dataset.advId);
+  if(matchMedia('(max-width:1000px)').matches){
+   $('adv-info').focus({preventScroll:true});
+   $('adv-info').scrollIntoView({block:'start',behavior:'instant'});
+  }
+ }
+ if(e.target.closest('[data-back-to-tree]')){
+  centerAdvancementSelection();
+  pageNode('.adv-node[aria-pressed="true"]').focus({preventScroll:true});
+  pageNode('.adv-viewport').scrollIntoView({block:'start',behavior:'instant'});
+ }
  const jump=e.target.closest('[data-adv-jump]');if(jump)selectAdvancement(jump.dataset.advJump,true);
 });
 document.addEventListener('change',e=>{
@@ -2104,8 +2296,8 @@ function metallurgyReference(){
 }
 
 /* Persistent normal sections. Scrolling only changes the active context and URL. */
-Object.assign(T.en,{wikiByline:'Community wiki prototype · Tsumun',prototypeNote:'Wiki prototype by Tsumun.',prototypeContribute:'Contribute on GitHub.'});
-Object.assign(T.fr,{wikiByline:'Prototype du wiki communautaire · Tsumun',prototypeNote:'Ce wiki est un prototype de Tsumun.',prototypeContribute:'Contribuer sur GitHub.'});
+Object.assign(T.en,{catalogueGroup:'Catalogue',fieldGuide:'Field guide',aboutWiki:'About the wiki',wikiByline:'Community wiki prototype · Tsumun',prototypeNote:'Wiki prototype by Tsumun.',prototypeContribute:'Contribute on GitHub.'});
+Object.assign(T.fr,{catalogueGroup:'Catalogue',fieldGuide:'Guides de jeu',aboutWiki:'À propos du wiki',wikiByline:'Prototype du wiki communautaire · Tsumun',prototypeNote:'Ce wiki est un prototype de Tsumun.',prototypeContribute:'Contribuer sur GitHub.'});
 const sectionOrder=['home','recipes','items','stations','metallurgy','advancements','gameplay','enchantments','trades','guides','roadmap','sources'];
 const sectionParameters=new Map();
 let sectionDocument=null,sectionRecords=[],sectionActive=null,sectionLanguage=null,sectionFrame=0,sectionUtility=null,sectionRestoring=false,sectionRestoreFrame=0;
@@ -2193,6 +2385,18 @@ function restoreSectionPosition(record,position){
  const anchor=[...record.root.querySelectorAll('[data-flow-level],p')][position.index]||record.root;
  window.scrollTo({top:scrollY+anchor.getBoundingClientRect().top-position.offset,behavior:'instant'});
 }
+function setNavigationOpen(open,returnFocus=false){
+ const sidebar=$('sidebar'),toggle=$('menu-button');
+ sidebar.classList.toggle('open',open);
+ toggle.setAttribute('aria-expanded',String(open));
+ toggle.setAttribute('aria-label',open?t('close'):t('menu'));
+ $('nav-shade').hidden=!open;
+ document.querySelector('.main-wrap').inert=open;
+ document.body.classList.toggle('browsing-menu',open);
+ if(open)(sidebar.querySelector('[aria-current]')||sidebar.querySelector('a')).focus({preventScroll:true});
+ else if(returnFocus)toggle.focus({preventScroll:true});
+}
+let focusAfterNavigation=false;
 function renderSectionDocument(){
  renderedHash=location.hash;
  cancelAnimationFrame(sectionFrame);cancelAnimationFrame(sectionRestoreFrame);sectionFrame=0;sectionRestoring=true;
@@ -2216,7 +2420,11 @@ function renderSectionDocument(){
   else if(record.params.has('section'))scrollToArticleSection(record.params.get('section'));
   else record.root.scrollIntoView({block:'start',behavior:'instant'});
  }
- $('sidebar').classList.remove('open');$('menu-button').setAttribute('aria-expanded','false');
+ setNavigationOpen(false);
+ if(focusAfterNavigation){
+  const heading=sectionHeading(current);heading.tabIndex=-1;heading.focus({preventScroll:true});
+  focusAfterNavigation=false;
+ }
  if(current.params.has('recipe')&&recipeMap.has(current.params.get('recipe')))openRecipe(current.params.get('recipe'));
  else if(current.params.has('item')&&canonicalItemKey(current.params.get('item')))openItem(current.params.get('item'));
  if(current.page==='advancements'||current.page==='guide'&&current.params.get('id')==='advancements')centerAdvancementSelection();
@@ -2248,8 +2456,14 @@ function sectionEventContext(event){
 for(const event of ['pointerdown','click','focusin','input','change','submit','keydown'])document.addEventListener(event,sectionEventContext,true);
 document.addEventListener('click',event=>{
  const link=event.target instanceof Element?event.target.closest('a[href^="#"]'):null;
- if(!link||!$('detail-dialog').contains(link)||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
- event.preventDefault();event.stopImmediatePropagation();const destination=link.getAttribute('href');sectionRestoring=true;closeModal(false);
+ if(!link||event.defaultPrevented||event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+ const destination=link.getAttribute('href');
+ const fromDetail=$('detail-dialog').contains(link);
+ const fromNavigation=$('sidebar').contains(link);
+ if(!fromDetail&&!fromNavigation)return;
+ if(fromNavigation){setNavigationOpen(false);focusAfterNavigation=true}
+ if(fromDetail){event.stopImmediatePropagation();sectionRestoring=true;closeModal(false)}
+ event.preventDefault();
  if(location.hash===destination)render();else location.hash=destination;
 },true);
 function openWikiSearch(query=''){

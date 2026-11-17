@@ -2,6 +2,14 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 17 November 2026 — recipe lookup and navigation fixes
+
+- The overview shows the first three matching recipes as you type. Each opens in place. Enter opens all matches in the recipe index.
+- The phone menu groups destinations by subject. Selecting the current section, tapping the shaded area or pressing Escape closes it. Selecting the active language keeps the current reading position.
+- Submitting a search moves to the first result or the empty state. The item index now links straight to either food or armour comparisons.
+- A recipe's Save button updates in place. Back restores the ingredient or method that opened the next entry. The detail footer keeps Back and Close within reach as the entry scrolls.
+- On narrow screens, selecting an advancement opens its conditions. Back to the tree focuses the selected goal.
+
 ## 17 November 2026 — comparing meals and armour, finding recipes
 
 - Find everyday meals by healing or a specific benefit. One-ingredient cooking uses an explicit list of everyday ingredients and excludes dishes with harmful effects. Each result links to the exact recipe.
