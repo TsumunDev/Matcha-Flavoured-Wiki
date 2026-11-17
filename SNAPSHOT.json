@@ -45,16 +45,16 @@
         "overview",
         "items",
         "recipes",
+        "food comparison",
+        "armour comparison",
         "workstations",
-        "guide directory",
-        "guide chapter",
+        "guides",
         "gameplay",
         "metallurgy",
         "books",
         "trades",
         "advancements",
         "global search",
-        "food comparison",
         "saved recipes",
         "sources",
         "roadmap",
@@ -69,9 +69,10 @@
         "light"
       ],
       "viewports": [
-        "320x844",
+        "320x568",
+        "375x667",
         "390x844",
-        "1024x960",
+        "412x915",
         "1440x960"
       ],
       "engines": [
@@ -83,30 +84,33 @@
       "searchBarChecks": 252,
       "comparisonConfigurations": 24,
       "comparisonGoalAndSlotCombinationsPerEngine": 50,
-      "screenshotsPerEditionInReadingReview": 68,
-      "readingJourneyConfigurations": 8,
-      "phoneFirstScreen": {
-        "viewport": "390x844",
+      "recipeAndFoodJourneyConfigurations": 12,
+      "mobileRecipeReview": {
+        "viewport": "320x568",
         "language": "fr",
         "theme": "matcha",
-        "visibleGuideTitles": [
-          4,
-          9
+        "firstFoodRecipeTopPixels": [
+          603,
+          371
         ],
-        "visibleWorkstationNames": [
-          3,
-          5
+        "firstFoodRecipeBottomPixels": [
+          647,
+          415
         ],
-        "visibleTradeOutputs": [
-          3,
-          5
+        "firstItemTopPixels": [
+          348,
+          304
+        ],
+        "mudKilnTopPixels": [
+          402,
+          358
         ],
         "order": [
           "previous",
           "current"
         ]
       },
-      "mobileDialogChecks": 10964
+      "deviceScope": "Emulated phone viewports in Chromium and WebKit. Touch and swipe exercised in Chromium. WebKit navigation uses clicks because native taps can inherit host modifier keys."
     },
     "searchAliases": {
       "items": 118,
@@ -115,12 +119,12 @@
   },
   "files": {
     "index.html": {
-      "bytes": 7311523,
-      "sha256": "7cfde96c5f936d71607cddcba30a6f9492155396b242fd790628b67310b8f096"
+      "bytes": 7315706,
+      "sha256": "6865e5e40eab9757bfbbae78a0a05e4934e056979717f829606661a23c6026db"
     },
     "matcha-wiki-site.zip": {
-      "bytes": 3424814,
-      "sha256": "261341c13d5fed2ee0d4e705b434d08d6ca4faca2ac8ccd07db2a55b95168e18"
+      "bytes": 3425571,
+      "sha256": "07f127e917b079d5bfe1155f816bfeb1863b7a1c5013583c30af887830c8e88b"
     },
     "matcha-logo.png": {
       "bytes": 134070,
@@ -131,12 +135,12 @@
       "sha256": "ae8f780befbefa63c73dc682f48df9c49817920c6696a66d9cf1075e6e26ab61"
     },
     "README.md": {
-      "bytes": 13773,
-      "sha256": "93b3cb87d2f1003135ff0348daab3c209171a79503d3152e0e80cff049bb4e02"
+      "bytes": 14191,
+      "sha256": "66a6437e1b0997710d8c6d54a7e1ed7de9877bcf5fc65d819341a51d98a2c2c1"
     },
     "CHANGELOG.md": {
-      "bytes": 12749,
-      "sha256": "2c3236a1171a4edba7bd58291ae0ebee42e79711149e93f809cd3662867c8c73"
+      "bytes": 13596,
+      "sha256": "77db282c7a84091f5356635354c54994da11a0378fe2c658e63749f55b35c24b"
     },
     "CONTENT-LICENSE.md": {
       "bytes": 1400,
@@ -163,25 +167,25 @@
       "sha256": "5557d6f869f8b61ec3257b0c8e6c47063fbb41ee1cebb6c5d0b68d23f0855144"
     },
     "preview/wiki-index.png": {
-      "bytes": 103314,
-      "sha256": "6ae63488463e8e21e07c4e1940f11162493f6c6f02ec55fee019150d72568815"
+      "bytes": 101511,
+      "sha256": "60b6f3973dd8f07a9f227e7aff27bbe2477d96c80b03e0800352adf2ba965424"
     },
     "preview/wiki-advancements.png": {
-      "bytes": 111212,
-      "sha256": "2254d89bd0c30442d36f0f4cc0710ad83ec9c8571a0c1e7a8b583adb5606e104"
+      "bytes": 111187,
+      "sha256": "1d234de2a877cf1a5b9b1a15d7d27640bcb8f0aeccedfca9e722af7f1cc83779"
     },
     "preview/wiki-home.png": {
-      "bytes": 135356,
-      "sha256": "7cdbf8754ad8302691ea36bee63ac3884f0800beab16d8b082b3b9954051cc1d"
+      "bytes": 137549,
+      "sha256": "38821e67466ed84333b2e91c7045e980c4f8f68ff71e35bf86f8cca643b0e4a6"
     },
     "preview/wiki-cooking.png": {
-      "bytes": 83418,
-      "sha256": "60ca168f6b0c3d7e477ed1c33ba5fbb2a47a6923defbb960d9ccc7082554c53d"
+      "bytes": 83792,
+      "sha256": "3ce5f6a96c912b4830297261308c02a6b4328ce869352609dff581a5d92e5e39"
     }
   },
   "defaultLanguage": "en",
   "entryUrl": "https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en",
-  "releaseTag": "wiki-2026-11-17.4",
+  "releaseTag": "wiki-2026-11-17.5",
   "appearance": {
     "default": "matcha",
     "options": [

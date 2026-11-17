@@ -2,6 +2,15 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 17 November 2026 — mobile recipe and food navigation
+
+- The overview puts What can I cook? beside recipe search, with a genuine food sprite. Article contents sit with Getting started so the Mud Kiln pattern appears earlier on small screens.
+- The item index gathers categories, sorting, list/grid and A–Z controls under Filters. Food and armour remain visible beside that disclosure.
+- Exact item searches offer a direct recipe action. Items with several public methods open a filtered recipe index.
+- Food comparisons show a Recipe action beside each dish. Preparation and priority controls take less vertical space, and ranking details follow the list.
+- Native section scrolling keeps its existing behaviour.
+- Mobile journeys cover 320–412 px widths in Chromium and WebKit, both languages and both appearances, plus a desktop check.
+
 ## 17 November 2026 — recipes, guides and villager offers
 
 - The recipe index shows the ingredients, output quantity and workstation on each row. A crafting slot with several valid ingredients opens their list in the recipe. Returning from an item keeps the selected variant in view.
