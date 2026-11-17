@@ -42,7 +42,7 @@ To install or update Matcha, use the official project pages above. This reposito
 | Matcha Flavoured | **1.12.9** |
 | Minecraft | **Java Edition 26.3** |
 | Wiki languages | **English and French** |
-| Edition date | **15 November 2026** |
+| Edition date | **17 November 2026** |
 
 The content documents this specific release. Servers, addons and other pack versions may change recipes or gameplay rules.
 
@@ -50,6 +50,8 @@ The content documents this specific release. Servers, addons and other pack vers
 
 | What you need | Open | What you'll find |
 | --- | --- | --- |
+| Cook for a specific effect | [Food comparison](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&compare=food) | Look up everyday, one-ingredient dishes by healing, Strength, Haste and other benefits. Each dish links to its recipe. |
+| Choose armour | [Armour comparison](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&compare=armour) | Compare pieces for the same slot by base defence, durability, movement or a specific protection. |
 | Start a world | [First steps](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#guide?id=first-steps&lang=en) | Progression help, alongside **19 bilingual guides**. |
 | Craft an item | [Recipe index](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#recipes?lang=en) | **1,262 recipes**, accepted alternatives, quantities and workstations. |
 | Look up an item | [Item index](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&view=list&sort=az) | **1,405 entries**, A–Z browsing, crafting recipes and uses. |
@@ -72,13 +74,13 @@ The [metallurgy guide](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#metall
 
 ### Finding something faster
 
-- **Find a recipe from the overview.** Enter an item or ingredient in **Find a recipe**, or select the Mud Kiln diagram to open its recipe directly.
-- **Start with an item name.** On the item index, **Search recipes instead** carries your term into the recipe index. Opening a craftable item shows its crafting recipes at the top of its entry.
+- **Find a recipe from the overview.** Enter an item or ingredient in **Find a recipe**, or choose a step under **Getting started** to open the Kindling, Mud Kiln or Blast Furnace recipe.
+- **Start with an item name.** On the item index, **Search recipes instead** carries your term into the recipe index. Opening a craftable item shows the workstation and ingredients for each crafting method. On a recipe, select an ingredient to open its item entry.
 - **Scroll naturally between sections.** Normal sections and guide articles follow each other in the same document. Scroll down or back up; the sidebar and address follow what you are reading. Forms, filters and article controls stay in place, including during a phone swipe.
 - **Search in either language.** The magnifier in the mobile header opens the search field ready for typing. Use the × inside a field to clear the term and keep typing. Names, accents, technical identifiers and aliases work. Try [Steel Alloy](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&item=minecraft%3Aresin_brick) to open an item directly.
 - **Compare a trade on a phone.** Each offer shows its cost and result together. The Books and Effects tabs also keep your search term when you switch between them.
 - **Browse by letter.** Open **A–Z** to pick an initial. Available letters and category counts update for your filters.
-- **Choose your view.** Open **Sort & view** in the item index. Use the grid for names and sprites, or the list for full descriptions. An empty item search starts in alphabetical order. Best match puts exact search matches first.
+- **Choose your view.** Open **Sort & view** in the item index. The grid shows names and sprites, with IDs for items that share a name. The list includes descriptions and English names when reading in French. An empty item search starts in alphabetical order. Best match puts exact search matches first.
 - **Keep useful filters.** Open **Filters** in the item index for item types and rarity. The recipe index groups workstations under **Categories & filters**. Remove one active filter at a time, or reset the filters while keeping your display choice.
 - **Share the right entry.** Item and recipe details include a copy-link button. Item links can keep the current index filters and view.
 
@@ -112,6 +114,15 @@ Published snapshots are kept in [Releases](https://github.com/TsumunDev/Matcha-F
 - The [Git history](https://github.com/TsumunDev/Matcha-Flavoured-Wiki/commits/main/) preserves successive file versions.
 
 The 15 November 2026 review parsed all **6,570 JSON files** in the two pinned archives, compared **1,262 published recipes** with their sources and checked the public advancement criteria. The metallurgy review traced **65 alloy smithing recipes** and 105 source files. **67 browser checks and five default-language checks passed**, including every public item, recipe, effect and advancement detail, search, local checklists, mobile layouts, continuous scrolling and offline use. The scroll checks verify that a section boundary causes no forced scrolling or content replacement, including with an emulated mobile swipe. The interface audit also exercised 34 views in Chromium and WebKit, in both languages and appearances. Ten search and navigation journeys passed in each engine. Mobile checks use emulated viewports and touch. Gameplay was checked against the pack files.
+
+The 17 November edition adds food and armour comparisons. **Everyday cooking** covers a single campfire or oven step with a common ingredient. **All dishes** also includes recipes that use prepared ingredients. Initial healing depends on missing health and regeneration conditions. The armour comparison uses the attributes and built-in enchantments of each piece.
+
+<details>
+<summary>Preview the cooking comparison</summary>
+
+[![Meals compared by beneficial effects, ingredients and workstation](preview/wiki-cooking.png)](https://tsumundev.github.io/Matcha-Flavoured-Wiki/#items?lang=en&compare=food)
+
+</details>
 
 ## What's next
 

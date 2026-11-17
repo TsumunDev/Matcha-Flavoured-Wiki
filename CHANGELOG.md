@@ -2,6 +2,16 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 17 November 2026 — comparing meals and armour, finding recipes
+
+- Find everyday meals by healing or a specific benefit. One-ingredient cooking uses an explicit list of everyday ingredients and excludes dishes with harmful effects. Each result links to the exact recipe.
+- Compare armour and accessories in the same equipment slot by defence, durability, speed or type of protection. The results show the pack's recorded stats and built-in enchantments.
+
+- Open the Kindling, Mud Kiln and Blast Furnace recipes from the getting-started steps. The overview contents now sit beside its browse links.
+- Compare the crafting pattern with the ingredient list side by side on desktop, or in reading order on a phone. Craftable items list the workstation and materials for each method.
+- Use the same heading and search layout across both indexes. The item grid uses the selected language, showing IDs for entries with the same name. The list and detail views keep alternate names.
+- Search results start directly after the field and category links. Categories with no matches stay out of the way unless selected.
+
 ## 15 November 2026 — site audit and search fixes
 
 - Keep typed terms, result counts and addresses in sync when clearing filters, reopening an index, switching between Books and Effects, or changing languages.
