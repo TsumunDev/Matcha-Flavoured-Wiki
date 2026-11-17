@@ -348,10 +348,93 @@ footer{font-size:11px}
  .home-desk { margin-bottom:20px; }
 }
 
+/* The opening spread pairs first crafts with the two things players compare. */
+.home-reading { display:grid; max-width:none; grid-template-columns:minmax(0,1.4fr) minmax(240px,1fr); gap:16px clamp(24px,4vw,68px); align-items:start; }
+.home-reading .start-workshop { grid-row:span 2; }
+.home-reading .home-food,.home-reading .home-progression { grid-column:2; }
+.home-reading .home-footnotes { grid-column:1/-1; max-width:76ch; }
+.home-reading .home-footnotes .pack-source { font-size:14px; }
+.home-reading .progression-links { margin:0; }
+.home-reading .progression-links .guide-card { padding:7px 0; gap:12px; align-items:center; border:0; }
+.home-reading .progression-links .guide-card img { width:30px; height:30px; }
+.home-reading .article-links { gap:5px 16px; margin:8px 0 0; }
+.home-reading .start-list { padding-inline-start:24px; }
+.home-reading .start-list li { padding-inline-start:4px; margin-block:0 16px; }
+.flow-page .home-reading>section>.flow-h2 { margin:0 0 12px; }
+.home-reading .home-food>p { font-size:15px; }
+.home-reading .prototype-note { margin:10px 0 0; }
+.home-reading .home-footnotes { margin-top:8px; }
+.wiki-heading { border-bottom:2px solid var(--leaf); }
+.home-recipes figcaption { font-weight:400; }
+
+/* A subject index fits the subject and chapter title on one short entry. */
+.guide-section,.gameplay-section { display:grid; grid-template-columns:minmax(145px,20%) minmax(0,1fr); gap:8px 28px; align-items:start; margin:22px 0 30px; padding-top:14px; border-top:1px solid var(--line); }
+.guide-section>.guide-list,.gameplay-section>.guide-list { max-width:70ch; width:100%; }
+.guide-list .directory-entry { display:flex; align-items:center; gap:12px; padding:9px 3px; min-height:54px; border:0; }
+.guide-list .directory-entry img { width:30px; height:30px; margin:0; }
+.guide-list .directory-entry :is(h3,.flow-h3) { margin:0; font:600 16px/1.35 var(--sans); }
+.guide-list .directory-entry p { margin:2px 0 0; color:var(--muted); font-size:14px; line-height:1.4; }
+.guide-list .directory-entry:hover :is(h3,.flow-h3),.guide-list .directory-entry:focus-visible :is(h3,.flow-h3) { text-decoration:underline; text-underline-offset:3px; }
+.guide-section>:is(h2,.flow-h2),.gameplay-section>:is(h2,.flow-h2) { margin:8px 0 0; color:var(--leaf); }
+.article-header { margin:0 0 16px; padding:0 0 14px; gap:8px 12px; }
+.article-header>.guide-parent { grid-column:1/-1; grid-row:1; color:var(--leaf); text-decoration:underline; text-underline-offset:3px; font-size:14px; }
+.article-header>img { grid-column:1; grid-row:2; }
+.article-header>.flow-title { grid-column:2; grid-row:2; }
+.guide-layout .article-toc { margin:0; }
+.guide-layout .article-body { padding-top:0; }
+.station-directory { list-style:none; padding:0; margin:8px 0 16px; max-width:88ch; }
+.station-entry { display:grid; grid-template-columns:42px minmax(0,1fr) auto; gap:4px 16px; align-items:start; border-top:1px solid var(--line); padding:15px 0; margin:0; }
+.station-entry>img { width:40px; height:40px; image-rendering:pixelated; }
+.flow-page .station-entry :is(h2,.flow-h2) { margin:0; font:600 18px/1.35 var(--sans); }
+.station-name { text-align:start; font:inherit; padding:0; color:var(--ink); text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:3px; }
+.station-entry p { margin:3px 0 0; font-size:14px; line-height:1.5; }
+.station-entry .station-original { color:var(--muted); font-size:13px; }
+.station-recipes { align-self:center; color:var(--leaf); font-size:14px; text-decoration:underline; text-underline-offset:3px; }
+.empty { text-align:start; border:0; border-inline-start:2px solid var(--line); padding:8px 0 8px 16px; margin:22px 0; }
+.empty :is(h2,.flow-h2) { margin:0 0 6px; }
+.empty p { margin:0 0 8px; }
+.saved-empty { position:relative; padding-inline-start:50px; border:0; }
+.saved-empty>img { position:absolute; inset-inline-start:0; top:8px; width:34px; height:34px; image-rendering:pixelated; }
+.saved-empty>a { border:0; padding-inline:0; color:var(--leaf); background:transparent; text-decoration:underline; text-underline-offset:3px; }
+@media(max-width:900px) {
+ .home-reading { display:block; }
+ .home-reading>section+section { margin-block-start:24px; }
+ .home-reading .home-footnotes { margin-top:22px; }
+ .guide-section,.gameplay-section { display:block; margin:18px 0 24px; padding-top:10px; }
+ .guide-layout .article-toc { margin:0 0 14px; }
+ .guide-layout .article-toc summary { padding-inline:0; }
+ .guide-layout .article-toc ol { margin-inline-start:10px; }
+}
+@media(max-width:680px) {
+ .station-entry { grid-template-columns:34px minmax(0,1fr); column-gap:12px; padding:12px 0 5px; }
+ .station-entry>img { width:32px; height:32px; margin-top:4px; }
+ .station-recipes { grid-column:2; justify-self:start; display:inline-flex; align-items:center; min-height:44px; }
+ .station-name { min-height:32px; }
+ .guide-list .directory-entry { min-height:50px; padding:7px 0; }
+ .article-header>.guide-parent { min-height:36px; display:inline-flex; align-items:center; }
+ .article-header { margin-bottom:2px; padding-bottom:12px; }
+ .home-reading .progression-links .guide-card { min-height:44px; }
+}
+
+/* A grouped ingredient opens the list of valid choices in the recipe sheet. */
+.ingredient-row>.link-button,.ingredient-row>.alternatives { flex:1; min-width:0; text-align:start; }
+.ingredient-row .alternatives { margin:0; color:var(--body); font-size:14px; }
+.ingredient-row .alternatives details { display:block; }
+.ingredient-row .alternatives summary { color:var(--leaf); font:inherit; cursor:pointer; padding-block:5px; }
+.ingredient-row .alternatives summary small { display:block; color:var(--muted); font:normal 12px/1.5 var(--sans); }
+.ingredient-row .alt-list { display:grid; max-height:none; overflow:visible; grid-template-columns:repeat(auto-fit,minmax(min(135px,100%),1fr)); gap:0 12px; margin:5px 0; }
+.ingredient-row .alt-list .link-button { padding:5px 0; font-size:14px; overflow-wrap:anywhere; }
+.ingredient-row:has(details[open]) { align-items:start; }
+.ingredient-row:has(details[open])>.qty { padding-top:5px; }
+@media(max-width:680px){
+ .ingredient-row .alternatives summary,.ingredient-row .alt-list .link-button { min-height:44px; }
+}
+
 /* Palette sampled from Matcha 1.12.9 inventory and crafting GUI textures. */
 :root,
 html[data-theme="light"] {
   --leaf: #466239;
+  --navigation-surface: #eeefe3;
   --canvas: #e9e0d2;
   --paper: #fbf7ef;
   --ink: #30261d;
@@ -374,6 +457,7 @@ html[data-theme="light"] {
 
 html[data-theme="matcha"] {
   --leaf: #b8d49a;
+  --navigation-surface: #21251c;
   --canvas: #1b1511;
   --paper: #292018;
   --ink: #f0e5d2;
@@ -527,6 +611,29 @@ select:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Each offer belongs to the profession, level and condition in its table caption. */
+.trade-group { max-width:82ch; margin:18px 0 26px; }
+.trade-group .trades-table { display:table; table-layout:fixed; border-collapse:collapse; min-width:0; }
+.trades-table caption { text-align:start; padding:0 0 7px; font:600 20px/1.3 Cambria,Georgia,serif; color:var(--ink); }
+.trades-table caption span,.trades-table .trade-condition { font:400 14px/1.45 var(--sans); color:var(--muted); }
+.trades-table .trade-condition { display:block; margin-top:2px; }
+.trade-group .trades-table thead { display:table-header-group; position:static; width:auto; height:auto; clip-path:none; overflow:visible; }
+.trade-group .trades-table tbody { display:table-row-group; }
+.trade-group .trades-table tr { display:table-row; }
+.trade-group .trades-table th { width:50%; text-align:start; background:transparent; border-block:1px solid var(--line); padding:6px 5px; font-size:13px; }
+.trade-group .trades-table td { display:table-cell; width:50%; padding:2px 5px; border-bottom:1px solid var(--line); vertical-align:middle; font-weight:400; }
+.trade-group .trade-item { min-height:40px; color:var(--ink); }
+.trade-group .trade-item:hover { color:var(--leaf); }
+.trade-group .trade-costs { display:flex; flex-flow:row wrap; align-items:center; gap:0 5px; }
+.trade-group .trade-plus { padding:0; }
+[data-page="trades"] .filters,[data-page="enchantments"] .filters { align-items:flex-end; }
+[data-page="trades"] .filters select,[data-page="enchantments"] .filters select { height:44px; }
+@media(max-width:680px){
+ .trade-group { margin:14px 0 22px; }
+ .trade-group .trades-table td { padding:1px 4px; }
+ .trade-group .trade-item { min-height:44px; }
 }
 
 /* Small inventory sprites carry the identity; the controls stay quiet. */
@@ -819,6 +926,30 @@ html { scroll-padding-top:calc(var(--header-height,81px) + 16px); }
 
 }
 
+/* One recipe per line keeps its input and workstation beside its output. */
+.recipe-columns,.catalogue-entries .recipe-index-row { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1.55fr) minmax(95px,.55fr); column-gap:18px; align-items:center; }
+.recipe-columns { margin-top:8px; border-block:1px solid var(--line); color:var(--muted); font-size:13px; padding:7px 6px; }
+.catalogue-entries.recipe-grid { display:block; }
+.catalogue-entries .recipe-index-row { position:relative; padding:8px 6px; min-height:54px; border:0; border-bottom:1px solid var(--line); background:transparent; }
+.recipe-index-row>img { position:absolute; inset-inline-start:6px; width:32px; height:32px; top:50%; transform:translateY(-50%); }
+.recipe-index-row>.recipe-output { padding-inline-start:44px; overflow-wrap:anywhere; }
+.recipe-index-row .recipe-output strong { display:inline; }
+.recipe-output>span { color:var(--muted); font-size:13px; white-space:nowrap; }
+.recipe-index-row .recipe-materials { font-size:14px; line-height:1.4; color:var(--body); overflow-wrap:anywhere; }
+.recipe-index-row>small { margin:0; font-size:13px; }
+.catalogue-entries .recipe-index-row:hover,.catalogue-entries .recipe-index-row:focus-visible { background:var(--hover); }
+.compare-links img { width:20px; height:20px; image-rendering:pixelated; }
+.compare-links a { gap:5px; }
+@media(max-width:800px) {
+ .recipe-columns { display:none; }
+ .catalogue-entries .recipe-index-row { grid-template-columns:minmax(0,1fr) minmax(58px,27%); grid-template-areas:"name station" "materials materials"; gap:2px 10px; min-height:62px; padding:9px 2px 9px 44px; }
+ .recipe-index-row>.recipe-output { grid-area:name; padding:0; }
+ .catalogue-entries .recipe-index-row>img { inset-inline-start:0; width:32px; height:32px; }
+ .recipe-index-row>small { grid-area:station; text-align:end; overflow-wrap:anywhere; }
+ .recipe-index-row .recipe-materials { grid-area:materials; font-size:13px; color:var(--muted); }
+}
+@media(max-width:360px) { .compare-links { column-gap:9px; } }
+
 /* Genuine pack advancement frames; typography and surrounding controls stay wiki-like. */
 .adv-workspace{display:grid;grid-template-columns:minmax(0,3fr) minmax(260px,2fr);gap:clamp(18px,2vw,32px);align-items:start}
 .adv-workspace .adv-viewport{height:clamp(290px,48vh,445px);background:var(--canvas);border:1px solid var(--line);border-radius:0}
@@ -907,6 +1038,16 @@ html { scroll-padding-top:calc(var(--header-height,81px) + 16px); }
 @media(max-width:1000px){.adv-workspace{grid-template-columns:minmax(0,1fr)}.adv-workspace .adv-viewport{height:360px}.adv-workspace .adv-info{max-height:none;overflow:visible}}
 @media(max-width:680px){.adv-directory,.metal-alloy-list{grid-template-columns:1fr}.adv-directory button{min-height:60px}.adv-workspace{gap:20px}.adv-controls select{min-height:44px}.adv-completion{min-height:44px}.adv-related .link-button{min-height:44px}.adv-node{touch-action:manipulation}.adv-detail-heading h3{font-size:17px}}
 
+.adv-map-help { color:var(--muted); font-size:14px; }
+.adv-map-help summary { cursor:pointer; min-height:40px; padding:9px 0; width:fit-content; }
+.adv-map-help[open] { padding-bottom:8px; }
+.adv-map-help .adv-instructions { margin-top:0; }
+.adv-workspace .adv-info { border-bottom:0; border-top:1px solid var(--line); }
+.adv-info .adv-neighbours .link-button { min-height:38px; }
+@media (max-width:680px) {
+ .adv-map-help summary,.adv-info .adv-neighbours .link-button { min-height:44px; }
+}
+
 .flow-page{min-width:0}
 .prototype-note{font-size:13px;line-height:1.8;color:var(--muted)}
 .prototype-note a{text-decoration:underline;text-underline-offset:3px}
@@ -928,12 +1069,13 @@ body.flow-document .site-header{position:fixed;top:0;left:0;width:100%}
 /* One contents column on desktop, a compact subject index on phones. */
 .sidebar {
  overscroll-behavior:contain; top:var(--header-height); height:calc(100dvh - var(--header-height));
- background:color-mix(in srgb,var(--sidebar) 95%,var(--leaf));
+ background:var(--navigation-surface);
 }
+.site-header { background:var(--navigation-surface); }
 .brand-short { display:none; }
 .nav-label {
- margin:0 0 4px; padding:0 8px 4px; border-bottom:1px solid var(--line);
- color:var(--muted); font:normal 15px/1.4 Cambria,Georgia,serif;
+ margin:0 0 4px; padding:0 8px 2px;
+ color:var(--leaf); font:600 14px/1.4 Cambria,Georgia,serif;
 }
 .nav-group+.nav-group { margin-top:16px; }
 .sidebar .nav-link { padding:5px 8px; gap:9px; margin:1px 0; }
@@ -1149,7 +1291,7 @@ Object.assign(T.en,{
  creature:'Creature',mobChanges:'Changes in Matcha',guidesIntro:'Installation, survival, creatures, dimensions and crafting.'
 });
 Object.assign(T.fr,{
- gameplay:'Gameplay',gameplayTitle:'Le gameplay de Matcha',gameplayIntro:'Les règles de survie, les créatures et les dimensions dans Matcha Flavoured 1.12.9.',
+ gameplay:'Mécaniques de jeu',gameplayTitle:'Les mécaniques de Matcha',gameplayIntro:'Les règles de survie, les créatures et les dimensions dans Matcha Flavoured 1.12.9.',
  gettingStartedGuides:'Bien débuter',activityGuides:'Cuisine, équipement et construction',helpGuides:'Aide',
  survivalWorld:'Survie et monde',creaturesDimensions:'Créatures, Nether et End',equipmentProgression:'Équipement et progression',
  creature:'Créature',mobChanges:'Changements dans Matcha',guidesIntro:'Installation, survie, créatures, dimensions et fabrication.'
@@ -1210,7 +1352,7 @@ function toast(msg){
 }
 function stationName(id){return name(ST[id]?.key||id)}
 function iconItem(k){return img(k)}
-function breadcrumb(label){return `<div class="breadcrumb"><div class="trail"><a href="${href('home')}">${t('wiki')}</a><span aria-hidden="true">/</span><span>${esc(label)}</span></div><span class="updated">${t('updated')}</span></div>`}
+function breadcrumb(label){return `<div class="breadcrumb"><div class="trail"><a href="${href('home')}">${t('wiki')}</a><span aria-hidden="true">/</span><span>${esc(label)}</span></div></div>`}
 function intro(title,body){return `<header class="page-intro"><h1>${esc(title)}</h1><p>${esc(body)}</p></header>`}
 function articleContents(sections){
  const links=sections.map(([id,label])=>`<li><a href="${href(current.page,{...Object.fromEntries(current.params),section:id})}" ${current.params.get('section')===id?'aria-current="location"':''}>${esc(label)}</a></li>`).join('');
@@ -1241,7 +1383,7 @@ function shell(){
  $('navigation').setAttribute('aria-label',lang==='fr'?'Rubriques du wiki':'Wiki sections');
  $('navigation').innerHTML=[['navigation',['home','search','saved']],['catalogueGroup',['recipes','items','stations','enchantments','trades']],['fieldGuide',['guides','gameplay','metallurgy','advancements']],['aboutWiki',['roadmap','sources']]].map(([label,keys])=>`<div class="nav-group"><p class="nav-label">${t(label)}</p>${keys.map(k=>`<a class="nav-link ${page===k?'active':''}" ${page===k?'aria-current="page"':''} href="${href(k)}">${navIcon(k)}<span>${t(k)}</span>${k==='saved'&&saved.size?`<span class="nav-count">${fmt(saved.size)}</span>`:''}</a>`).join('')}</div>`).join('');
  $('sidebar-meta').className='sidebar-meta';$('sidebar-meta').innerHTML=`<strong>${t('release')}</strong>${t('edition')}<br>${t('offline')}<br><a href="https://modrinth.com/datapack/matcha-flavoured" target="_blank" rel="noopener noreferrer">${t('official')}</a>`;
- $('footer').innerHTML=`<p><strong>${t('wikiAuthorCredit')}</strong><br>${t('footer')}<br>${t('footerVersion')}</p><div class="footer-links"><a href="${href('sources')}">${t('sources')}</a><br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></div>`;
+ $('footer').innerHTML=`<p><strong>${t('wikiAuthorCredit')}</strong><br>${t('footer')}<br>${t('footerVersion')} · ${t('updated')}</p><div class="footer-links"><a href="${href('sources')}">${t('sources')}</a><br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></div>`;
 }
 function homeRecipe() {
  const recipe = recipeMap.get('matcha:crafting/mudkiln');
@@ -1283,12 +1425,11 @@ function home(){
  <span class="visually-hidden" role="status" id="home-match-count"></span><div class="home-matches" id="home-matches" hidden></div>
  <div class="home-browse"><nav class="home-index" aria-label="${t('browseWiki')}">${indexLinks}</nav>${articleContents(sections)}</div>
  </div>${homeRecipe()}</div>
- <div class="wiki-overview"><aside class="overview-notes"><div class="pack-infobox"><dl class="facts">${[['packVersion','1.12.9'],['gameVersion','Java 26.3'],['languages',t('languageNames')],['scope',fmt(recipes.length)+' '+t('recipes').toLowerCase()]].map(([a,b])=>`<div><dt>${t(a)}</dt><dd>${b}</dd></div>`).join('')}</dl><p class="pack-source"><a href="https://modrinth.com/datapack/matcha-flavoured" target="_blank" rel="noopener noreferrer">Modrinth</a><a href="https://github.com/kleiwright/matcha-flavoured" target="_blank" rel="noopener noreferrer">GitHub</a></p></div></aside>
- <article class="wiki-article">
- <section id="getting-started"><h2>${t('startTitle')}</h2><ol class="start-list">${[1,2,3].map(n=>`<li><strong>${img(['minecraft:campfire','minecraft:smoker','minecraft:copper_pickaxe'][n-1],'step-item')}<button type="button" class="starter-link" data-recipe="${['matcha:crafting/campfire','matcha:crafting/mudkiln','matcha:crafting/blast_furnace'][n-1]}">${t('step'+n)}</button></strong><p>${t('step'+n+'Body')}</p></li>`).join('')}</ol><p class="article-link"><a href="${href('guide',{id:'first-steps'})}">${t('readGuide')}</a></p></section>
- <section id="progression"><h2>${t('progressionHeading')}</h2><div class="guide-list progression-links"><a class="guide-card" href="${href('metallurgy')}">${img('minecraft:resin_brick')}<div><h3>${t('metallurgy')}</h3><p>${t('metalIntro')}</p></div></a><a class="guide-card" href="${href('advancements')}">${img('matcha:heart')}<div><h3>${t('advancements')}</h3><p>${t('advIntroShort')}</p></div></a></div><p class="article-links"><a href="${href('items',{compare:'armour'})}">${comparisonText[lang].armourLink}</a><a href="${href('gameplay')}">${t('gameplay')}</a></p></section><section id="food-healing"><h2>${t('foodHeading')}</h2><p>${t('foodBody')}</p><p class="article-links"><a href="${href('items',{compare:'food'})}">${comparisonText[lang].foodLink}</a><a href="${href('guide',{id:'cooking'})}">${t('foodLink')}</a><a href="${href('recipes',{category:'meals'})}">${t('mealRecipes')}</a></p></section>
- <p class="formats-explanation">${t('homeFormats')}</p><p class="article-links"><a href="${href('guide',{id:'installation'})}">${t('installationLink')}</a><a href="${href('guide',{id:'troubleshooting'})}">${t('troubleshootingLink')}</a></p>
- <p class="prototype-note">${t('prototypeNote')} <a href="https://github.com/TsumunDev/Matcha-Flavoured-Wiki#prototype-and-contributions" target="_blank" rel="noopener noreferrer">${t('prototypeContribute')}</a></p></article></div>
+ <article class="wiki-article home-reading">
+ <section id="getting-started" class="start-workshop"><h2>${t('startTitle')}</h2><ol class="start-list">${[1,2,3].map(n=>`<li><strong>${img(['minecraft:campfire','minecraft:smoker','minecraft:blast_furnace'][n-1],'step-item')}<button type="button" class="starter-link" data-recipe="${['matcha:crafting/campfire','matcha:crafting/mudkiln','matcha:crafting/blast_furnace'][n-1]}">${t('step'+n)}</button></strong><p>${t('step'+n+'Body')}</p></li>`).join('')}</ol><p class="article-link"><a href="${href('guide',{id:'first-steps'})}">${t('readGuide')}</a></p></section>
+ <section id="progression" class="home-progression"><h2>${t('progressionHeading')}</h2><div class="guide-list progression-links"><a class="guide-card" href="${href('metallurgy')}">${img('minecraft:resin_brick')}<div><h3>${t('metallurgy')}</h3></div></a><a class="guide-card" href="${href('advancements')}">${img('matcha:heart')}<div><h3>${t('advancements')}</h3></div></a></div><p class="article-links"><a href="${href('items',{compare:'armour'})}">${comparisonText[lang].armourLink}</a><a href="${href('gameplay')}">${t('gameplay')}</a></p></section><section id="food-healing" class="home-food"><h2>${t('foodHeading')}</h2><p>${t('foodBody')}</p><p class="article-links"><a href="${href('items',{compare:'food'})}">${comparisonText[lang].foodLink}</a><a href="${href('guide',{id:'cooking'})}">${t('foodLink')}</a><a href="${href('recipes',{category:'meals'})}">${t('mealRecipes')}</a></p></section>
+ <div class="home-footnotes"><p class="formats-explanation">${t('homeFormats')}</p><p class="article-links"><a href="${href('guide',{id:'installation'})}">${t('installationLink')}</a><a href="${href('guide',{id:'troubleshooting'})}">${t('troubleshootingLink')}</a></p>
+ <p class="prototype-note">${t('prototypeNote')} <a href="https://github.com/TsumunDev/Matcha-Flavoured-Wiki#prototype-and-contributions" target="_blank" rel="noopener noreferrer">${t('prototypeContribute')}</a></p><p class="pack-source"><a href="https://modrinth.com/datapack/matcha-flavoured" target="_blank" rel="noopener noreferrer">Modrinth</a><a href="https://github.com/kleiwright/matcha-flavoured" target="_blank" rel="noopener noreferrer">GitHub</a></p></div></article>
  <section class="workshop-section" id="workstations"><div class="section-head"><h2>${t('workshop')}</h2><a href="${href('stations')}">${t('allStations')}</a></div><p>${t('workstationIntro')}</p>${stationTable(['campfire','smoking','furnace','blasting'])}</section>`;
 }
 function stationTable(ids){return `<div class="table-scroll"><table class="wiki-table"><thead><tr><th scope="col">${t('station')}</th><th scope="col">${t('replaces')}</th><th scope="col">${t('purpose')}</th></tr></thead><tbody>${ids.map(id=>`<tr><td><a href="${href('recipes',{station:id})}" class="table-item">${img(ST[id].key)}<strong>${stationName(id)}</strong></a></td><td>${esc(L(ST[id].vanilla))}</td><td>${esc(L(ST[id].purpose))}</td></tr>`).join('')}</tbody></table></div>`}
@@ -1321,10 +1462,23 @@ function guide(){
  const backPage=g.group==='gameplay'?'gameplay':'guides',backLabel=g.group==='gameplay'?t('gameplay'):t('backGuides');
  const hasTree=g.id==='advancements';const sections=g.sections.map((s,i)=>['section-'+i,L(s.title)]);if(g.id==='cooking'&&Object.keys(DATA.food.items).length)sections.push(['food-reference',t('foodReference')]);if(g.rarityReference)sections.push(['fishing-rarity',t('rarityFishTitle')],['name-rarity',t('rarityNameTitle')]);if(g.id==='alloys')sections.push(['metal-processing',t('metalProcessing')],['metal-alloys',t('metalAlloys')],['metal-tools',t('metalTools')]);if(hasTree)sections.push(['advancement-tree',t('advTreeTitle')]);if(g.entries?.length)sections.push(['creature-reference',t('creatureReference')]);if(g.difficultyTable)sections.push(['creature-health',L(g.difficultyTable.title)]);
  const browseUrl=g.itemFilter?href('items',g.itemFilter):g.itemSearch?href('items',{q:g.itemSearch}):href('recipes',g.recipeSearch?{q:g.recipeSearch}:{});
- return breadcrumb(t(backPage))+`<article class="${hasTree?'advancement-guide':''}"><header class="article-header">${img(g.iconKey)}<h1>${esc(L(g.title))}</h1><p class="lead">${esc(L(g.intro))}</p><a href="${href(backPage)}" class="text-button">‹ ${backLabel}</a></header><div class="guide-layout">${articleContents(sections)}<div class="article-body">${g.sections.map((s,i)=>`<section id="section-${i}"><h2>${esc(L(s.title))}</h2><p>${esc(L(s.body))}</p>${s.bullets?.length?`<ul>${s.bullets.map(b=>`<li>${esc(L(b))}</li>`).join('')}</ul>`:''}${guideSectionLinks(s)}</section>`).join('')}${g.id==='alloys'?metallurgyReference():''}${mobReferenceTable(g)}${g.id==='cooking'?foodReference():''}${g.rarityReference?rarityReference():''}${hasTree?`<section id="advancement-tree"><h2>${t('advTreeTitle')}</h2>${advancementExplorer()}</section>`:`<div class="actions guide-action"><a class="button" href="${browseUrl}">${g.browseLabel?esc(L(g.browseLabel)):t('browseRecipes')}</a></div>`}<p class="article-source">${t('guideSource')} : <a href="${esc(g.source.url)}" target="_blank" rel="noopener noreferrer">Matcha Flavoured</a> · 1.12.9</p></div></div></article>`;
+ return `<article class="${hasTree?'advancement-guide':''}"><header class="article-header"><a href="${href(backPage)}" class="guide-parent">‹ ${backLabel}</a>${img(g.iconKey)}<h1>${esc(L(g.title))}</h1><p class="lead">${esc(L(g.intro))}</p></header><div class="guide-layout">${articleContents(sections)}<div class="article-body">${g.sections.map((s,i)=>`<section id="section-${i}"><h2>${esc(L(s.title))}</h2><p>${esc(L(s.body))}</p>${s.bullets?.length?`<ul>${s.bullets.map(b=>`<li>${esc(L(b))}</li>`).join('')}</ul>`:''}${guideSectionLinks(s)}</section>`).join('')}${g.id==='alloys'?metallurgyReference():''}${mobReferenceTable(g)}${g.id==='cooking'?foodReference():''}${g.rarityReference?rarityReference():''}${hasTree?`<section id="advancement-tree"><h2>${t('advTreeTitle')}</h2>${advancementExplorer()}</section>`:`<div class="actions guide-action"><a class="button" href="${browseUrl}">${g.browseLabel?esc(L(g.browseLabel)):t('browseRecipes')}</a></div>`}<p class="article-source">${t('guideSource')} : <a href="${esc(g.source.url)}" target="_blank" rel="noopener noreferrer">Matcha Flavoured</a> · 1.12.9</p></div></div></article>`;
 }
-function stations(){return breadcrumb(t('stations'))+intro(t('stationsTitle'),t('stationsIntro'))+Object.entries(ST).map(([id,s])=>`<article class="station-card">${img(s.key)}<div><span class="tag">${esc(L(s.vanilla))}</span><h2>${esc(stationName(id))}</h2><p>${esc(L(s.purpose))}</p><button class="link-button" style="font-size:11px;margin-top:8px" data-item="${s.key}">${t('viewCraft')}</button></div><a class="button" href="${href('recipes',{station:id})}">${t('viewRecipes')} (${fmt(recipes.filter(r=>r.station===id).length)})</a></article>`).join('')}
-function savedPage(){const list=recipes.filter(r=>saved.has(r.id)).sort(sortRecipes);return breadcrumb(t('saved'))+intro(t('savedTitle'),t('savedIntro'))+(list.length?`<div class="result-line"><strong>${fmt(list.length)} ${t('recipes').toLowerCase()}</strong><span>${t('localOnly')}</span></div><div class="recipe-grid">${list.map(recipeCard).join('')}</div>`:`<div class="empty"><h2>${t('savedEmpty')}</h2><p>${t('savedEmptyHint')}</p><a class="button" href="${href('recipes')}">${t('browseRecipes')}</a></div>`)}
+function stations(){
+ const entries=Object.entries(ST).map(([id,station])=>{
+  const title=stationName(id),original=L(station.vanilla);
+  const count=recipes.filter(recipe=>recipe.station===id).length;
+  return `<li class="station-entry">
+   ${img(station.key)}
+   <div><h2><button class="station-name" data-item="${esc(station.key)}">${esc(title)}</button></h2>
+   ${original!==title?`<p class="station-original">${t('replaces')} · ${esc(original)}</p>`:''}
+   <p class="station-purpose">${esc(L(station.purpose))}</p></div>
+   <a class="station-recipes" href="${href('recipes',{station:id})}" aria-label="${esc(title+' · '+fmt(count)+' '+t('recipes').toLowerCase())}">${fmt(count)} ${t('recipes').toLowerCase()}</a>
+  </li>`;
+ });
+ return breadcrumb(t('stations'))+`<header class="page-intro"><h1>${t('stationsTitle')}</h1></header>`+`<ul class="station-directory" role="list">${entries.join('')}</ul>`;
+}
+function savedPage(){const list=recipes.filter(r=>saved.has(r.id)).sort(sortRecipes);return breadcrumb(t('saved'))+intro(t('savedTitle'),t('savedIntro'))+(list.length?`<div class="result-line"><strong>${fmt(list.length)} ${t('recipes').toLowerCase()}</strong><span>${t('localOnly')}</span></div><div class="recipe-grid">${list.map(recipeCard).join('')}</div>`:`<div class="empty saved-empty">${img('minecraft:paper')}<h2>${t('savedEmpty')}</h2><p>${t('savedEmptyHint')}</p><a class="button" href="${href('recipes')}">${t('browseRecipes')}</a></div>`)}
 function sources(){return breadcrumb(t('sources'))+intro(t('sourcesTitle'),t('sourcesIntro'))+`<div class="source-list">${[
  ['wikiAuthorHeading','wikiAuthorCredit'],
  ['primarySource','primaryBody','https://modrinth.com/datapack/matcha-flavoured/version/OyIxsD8l','Matcha Flavoured 1.12.9'],
@@ -1359,9 +1513,42 @@ function bindPageControls(){
 function render(){renderSectionDocument()}
 
 function ingLabel(ing){if(!ing)return t('noTemplate');const names=ing.keys.map(name);if(ing.tag&&DATA.tagNames[ing.tag])return L(DATA.tagNames[ing.tag]);if(names.length<=2)return names.join(' '+t('or')+' ');return names[0]+' '+t('orAnotherVariant')}
-function slot(ing,label=''){return `<div class="process-slot"><div class="slot">${ing?`<button data-item="${esc(ing.keys[0])}" title="${esc(ingLabel(ing))} — ${t('onePerSlot')}" aria-label="${esc(ingLabel(ing))}">${img(ing.keys[0])}</button>`:'<span aria-hidden="true">—</span>'}</div>${label?`<small>${esc(label)}</small>`:''}</div>`}
-function visual(r){let input;if(r.type==='crafting_shaped'||r.type==='crafting_shapeless')input=`<div class="crafting-grid">${r.grid.map(i=>slot(i)).join('')}</div>`;else if(r.station==='smithing')input=`<div class="process-slots">${r.ingredients.map((i,n)=>slot(i,t(['template','base','addition'][n]))).join('')}</div>`;else input=`<div class="process-slots">${r.ingredients.map(i=>slot(i)).join('')}</div>`;return `<div class="recipe-visual" role="group" aria-label="${t('recipeEntry')}">${input}<span class="recipe-arrow" aria-hidden="true">→</span><div class="slot result-slot"><button data-item="${esc(r.result)}" aria-label="${esc(name(r.result))}">${img(r.result)}</button><small>${r.count}</small></div></div>`}
-function ingredientRows(r){const groups=new Map();for(const ing of r.ingredients){if(!ing)continue;const k=JSON.stringify(ing);if(groups.has(k))groups.get(k).count++;else groups.set(k,{ing,count:1})}return [...groups.values()].map(({ing,count})=>`<li class="ingredient-row">${img(ing.keys[0])}<span><button class="link-button" data-item="${esc(ing.keys[0])}" title="${esc(ingLabel(ing))}">${esc(ingLabel(ing))}</button>${ing.keys.length>1?`<span class="alternatives"><details><summary>${t('moreAlternatives')}</summary><span class="alt-list">${ing.keys.map(k=>`<button class="link-button" data-item="${esc(k)}">${esc(name(k))}</button>`).join(', ')}</span></details></span>`:''}</span><span class="qty" aria-label="${t('totalQuantity')} : ${count}" title="${t('totalQuantity')}">× ${count}</span></li>`).join('')}
+function recipeIngredientGroups(recipe){
+ const groups=new Map();
+ for(const ing of recipe.ingredients){
+  if(!ing)continue;
+  const key=JSON.stringify(ing);
+  if(!groups.has(key))groups.set(key,{ing,count:0,index:groups.size});
+  groups.get(key).count++;
+ }
+ return groups;
+}
+function slot(ing,groups,label=''){
+ let content='<span aria-hidden="true">—</span>';
+ if(ing){
+  const title=esc(ingLabel(ing)),multiple=ing.keys.length>1;
+  const group=multiple?groups.get(JSON.stringify(ing)):null;
+  const target=multiple?`data-show-variants aria-controls="recipe-options-${group.index}"`:`data-item="${esc(ing.keys[0])}"`;
+  const action=multiple?esc(t('moreAlternatives')+' · '+ingLabel(ing)):title;
+  content=`<button ${target} title="${action}" aria-label="${action}">${img(ing.keys[0])}</button>`;
+ }
+ return `<div class="process-slot"><div class="slot">${content}</div>${label?`<small>${label}</small>`:''}</div>`;
+}
+function visual(recipe,groups){
+ const crafting=recipe.type==='crafting_shaped'||recipe.type==='crafting_shapeless';
+ const inputs=crafting?recipe.grid:recipe.ingredients;
+ const slots=inputs.map((ing,i)=>slot(ing,groups,recipe.station==='smithing'?t(['template','base','addition'][i]):'')).join('');
+ return `<div class="recipe-visual" role="group" aria-label="${t('recipeEntry')}"><div class="${crafting?'crafting-grid':'process-slots'}">${slots}</div><span class="recipe-arrow" aria-hidden="true">→</span><div class="slot result-slot"><button data-item="${esc(recipe.result)}" aria-label="${esc(name(recipe.result))}">${img(recipe.result)}</button><small>${recipe.count}</small></div></div>`;
+}
+function ingredientRows(groups){
+ return [...groups.values()].map(({ing,count,index})=>{
+  const label=esc(ingLabel(ing));
+  const item=ing.keys.length===1?`<button class="link-button" data-item="${esc(ing.keys[0])}">${label}</button>`:
+   `<div class="alternatives"><details id="recipe-options-${index}"><summary>${label}<small>${t('moreAlternatives')} (${fmt(ing.keys.length)})</small></summary>
+    <div class="alt-list">${ing.keys.map(k=>`<button class="link-button" data-item="${esc(k)}">${esc(name(k))}</button>`).join('')}</div></details></div>`;
+  return `<li class="ingredient-row">${img(ing.keys[0])}${item}<span class="qty" aria-label="${t('totalQuantity')} · ${count}" title="${t('totalQuantity')}">× ${count}</span></li>`;
+ }).join('');
+}
 function syncSaveButton(button){
  if(!button)return;
  const stored=saved.has(button.dataset.save);
@@ -1401,8 +1588,8 @@ function backToEntry(){
  body.scrollTop=parent.scroll;
  (parent.trigger?.isConnected?parent.trigger:$('dialog-title')).focus({preventScroll:true});
 }
-function openRecipe(id,push=false,trigger=null){const r=recipeMap.get(id);if(!r)return;const it=items[r.result];const note=r.type==='crafting_shaped'?t('fixedGrid'):r.type==='crafting_shapeless'?t('freeGrid'):r.station==='smithing'&&!r.ingredients[0]?t('noTemplate'):'';
- showDialog(`<div class="recipe-detail"><header class="dialog-heading">${img(r.result)}<div><h2 id="dialog-title">${esc(name(r.result))}</h2><p>${esc(stationName(r.station))}${r.count>1?` · ${t('result')} × ${fmt(r.count)}`:''}</p>${lang==='fr'&&it.name.fr!==it.name.en?`<p lang="en">${esc(it.name.en)}</p>`:''}</div></header><div class="recipe-method"><div class="recipe-diagram">${visual(r)}</div><section class="recipe-ingredients"><h3>${t('ingredients')}</h3>${r.ingredients.some(i=>i?.keys.length>1)?`<p class="ingredient-help">${t('alternativesHelp')}</p>`:''}<ul class="ingredient-list">${ingredientRows(r)}</ul></section>${note?`<p class="recipe-note">${note}</p>`:''}</div>${r.time?`<p class="recipe-note">${t('time')} : ${r.time/20} ${t('seconds')} &nbsp; / &nbsp; ${t('xp')} : ${new Intl.NumberFormat(lang).format(r.xp)} XP</p>`:''}<p class="recipe-description">${esc(itemSummary(r.result))}</p>${Object.keys(itemProfile(r.result)?.storedEnchantments||{}).length?`<div class="enchantment-list">${enchantmentLinks(itemProfile(r.result).storedEnchantments)}</div>`:''}<div class="dialog-bottom"><button class="button ${saved.has(id)?'':'primary'}" data-save="${esc(id)}" aria-pressed="${saved.has(id)}">${saved.has(id)?t('unsave'):t('save')}</button><button class="text-button" data-copy-recipe="${esc(id)}">${t('copyLink')}</button><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">${t('recipeSource')} 1.12.9</a></div></div>`,{kind:'recipe',id},push,trigger);
+function openRecipe(id,push=false,trigger=null){const r=recipeMap.get(id);if(!r)return;const it=items[r.result],groups=recipeIngredientGroups(r);const note=r.type==='crafting_shaped'?t('fixedGrid'):r.type==='crafting_shapeless'?t('freeGrid'):r.station==='smithing'&&!r.ingredients[0]?t('noTemplate'):'';
+ showDialog(`<div class="recipe-detail"><header class="dialog-heading">${img(r.result)}<div><h2 id="dialog-title">${esc(name(r.result))}</h2><p>${esc(stationName(r.station))}${r.count>1?` · ${t('result')} × ${fmt(r.count)}`:''}</p>${lang==='fr'&&it.name.fr!==it.name.en?`<p lang="en">${esc(it.name.en)}</p>`:''}</div></header><div class="recipe-method"><div class="recipe-diagram">${visual(r,groups)}</div><section class="recipe-ingredients"><h3>${t('ingredients')}</h3>${r.ingredients.some(i=>i?.keys.length>1)?`<p class="ingredient-help">${t('alternativesHelp')}</p>`:''}<ul class="ingredient-list">${ingredientRows(groups)}</ul></section>${note?`<p class="recipe-note">${note}</p>`:''}</div>${r.time?`<p class="recipe-note">${t('time')} : ${r.time/20} ${t('seconds')} &nbsp; / &nbsp; ${t('xp')} : ${new Intl.NumberFormat(lang).format(r.xp)} XP</p>`:''}<p class="recipe-description">${esc(itemSummary(r.result))}</p>${Object.keys(itemProfile(r.result)?.storedEnchantments||{}).length?`<div class="enchantment-list">${enchantmentLinks(itemProfile(r.result).storedEnchantments)}</div>`:''}<div class="dialog-bottom"><button class="button ${saved.has(id)?'':'primary'}" data-save="${esc(id)}" aria-pressed="${saved.has(id)}">${saved.has(id)?t('unsave'):t('save')}</button><button class="text-button" data-copy-recipe="${esc(id)}">${t('copyLink')}</button><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">${t('recipeSource')} 1.12.9</a></div></div>`,{kind:'recipe',id},push,trigger);
 }
 function craftingMethodRow(recipe){
  return `<button class="recipe-card crafting-method" data-recipe="${esc(recipe.id)}">${img(ST[recipe.station].key)}<span class="card-text"><strong>${esc(stationName(recipe.station))}</strong><small>${esc(ingSummary(recipe))}</small></span></button>`;
@@ -1429,6 +1616,12 @@ function updateTheme(){
 document.addEventListener('click',async e=>{
  const choice=e.target.closest('[data-theme]');if(choice&&choice.tagName==='BUTTON'){theme=choice.dataset.theme;storage.set('theme',theme);updateTheme();$('theme-menu').hidden=true;$('theme-toggle').setAttribute('aria-expanded','false');$('theme-toggle').focus();return}
  if(!e.target.closest('.theme-control')){$('theme-menu').hidden=true;$('theme-toggle').setAttribute('aria-expanded','false')}
+ const variants=e.target.closest('[data-show-variants]');
+ if(variants){
+  const list=document.getElementById(variants.getAttribute('aria-controls'));
+  if(list && $('dialog-body').contains(list)){list.open=true;list.querySelector('summary').focus();}
+  return;
+ }
  const recipe=e.target.closest('[data-recipe]');if(recipe){openRecipe(recipe.dataset.recipe,$('detail-dialog').open,recipe);return}
  const item=e.target.closest('[data-item]');if(item){openItem(item.dataset.item,$('detail-dialog').open,item);return}
  const saver=e.target.closest('[data-save]');if(saver){const id=saver.dataset.save;const removing=saved.has(id);removing?saved.delete(id):saved.add(id);const ok=storage.set('saved',[...saved]);syncSaveButton(saver);saver.focus({preventScroll:true});if(current.page==='saved')current.root.innerHTML=savedPage();shell();toast(ok?t(removing?'removedToast':'savedToast'):t('noStorage'));return}
@@ -1531,8 +1724,31 @@ function refreshCategoryNavigation(){
  const counts=new Map();for(const entry of entries){const id=category(current.page==='recipes'?entry.result:entry);counts.set(id,(counts.get(id)||0)+1)}
  pageNodes('[data-category]').forEach(button=>{const id=button.dataset.category,count=id?counts.get(id)||0:entries.length;button.setAttribute('aria-pressed',String(id===selected));button.querySelector('small').textContent=fmt(count);button.disabled=!!id&&count===0&&id!==selected});
 }
-function guideRow(g,heading='h3'){
- return `<a class="guide-card" href="${href('guide',{id:g.id})}">${img(g.iconKey)}<div><${heading}>${esc(L(g.title))}</${heading}><p>${esc(L(g.intro))}</p></div></a>`;
+// Subject lines are navigation copy. The complete introduction stays with the article.
+const guideSubjects={
+ installation:['Mod, datapack and resource pack','Mod, datapack et pack de ressources'],
+ 'first-steps':['Kindling, the Mud Kiln and copper tools','Petit bois, four en terre cuite et outils en cuivre'],
+ heat:['Drying, cooking and smelting','Séchage, cuisson et fonte'],
+ advancements:['Branches, requirements and rewards','Branches, conditions et récompenses'],
+ cooking:['Healing, Hunger and food effects','Soins, Faim et effets des aliments'],
+ alloys:['Ore processing, alloy recipes and tool upgrades','Transformation du minerai, alliages et outils'],
+ building:['Stonecutter yields and salvage','Rendement du tailleur de pierre et récupération'],
+ fishing:['Habitats, star ratings and catches','Habitats, étoiles et prises'],
+ rarities:['Fishing stars and item-name colours','Étoiles des poissons et couleurs des noms'],
+ troubleshooting:['Missing textures, names and failed crafts','Textures manquantes, noms et recettes bloquées'],
+ 'health-and-death':['Regeneration, lost hearts and death','Régénération, cœurs perdus et mort'],
+ 'environment-and-sleep':['Freezing, daylight and sleeping','Gel, durée du jour et sommeil'],
+ 'xp-enchantments-and-trades':['Blessings, Ofuda and the anvil','Bénédictions, Ofuda et enclume'],
+ nether:['Portals, structures and water','Portails, structures et eau'],
+ end:['Eyes of Ender, drops and the dragon','Yeux de l’Ender, butin et dragon'],
+ creatures:['Combat, spawning and loot','Combat, apparition et butin'],
+ 'villagers-and-trading':['Recruitment, food requests and professions','Recrutement, plats demandés et métiers'],
+ 'farming-and-animals':['Grain, tomatoes and livestock','Graines, tomates et élevage'],
+ exploration:['Treasure maps, ruins and clay fetishes','Cartes, ruines et fétiches en argile']
+};
+function guideRow(g){
+ const subject=guideSubjects[g.id]?.[lang==='fr'?1:0];
+ return `<a class="guide-card directory-entry" href="${href('guide',{id:g.id})}">${img(g.iconKey)}<div><h3>${esc(L(g.title))}</h3>${subject?`<p>${esc(subject)}</p>`:''}</div></a>`;
 }
 function groupedGuideIndex(){
  const groups=[['gettingStartedGuides',g=>g.group==='getting-started'],['gameplay',g=>g.group==='gameplay'],['activityGuides',g=>g.group==='activities'],['helpGuides',g=>g.group==='help']];
@@ -1624,8 +1840,29 @@ function tradeResults(){
  const offer=current.params.get('offer'),matching=searchMatcher(query);
  const list=DATA.reference.trades.filter(trade=>(!offer||trade.id===offer)&&(!profession||trade.profession===profession)&&matching(tradeSearchMap.get(trade.id)));
  if(!list.length)return searchEmpty();
- const pages=Math.max(1,Math.ceil(list.length/40)),page=Math.max(1,Math.min(pages,Number(current.params.get('page'))||1));
- return `<p class="reference-result-count">${fmt(list.length)} ${t('offersFound')}${offer?` · <a href="${href('trades')}">${t('allTradeOffers')}</a>`:''}</p><div class="table-scroll"><table role="table" class="wiki-table trades-table"><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">${t('profession')}</th><th role="columnheader" scope="col">${t('tradeCost')}</th><th role="columnheader" scope="col">${t('result')}</th></tr></thead><tbody role="rowgroup">${list.slice((page-1)*40,page*40).map(trade=>`<tr role="row"><td role="cell">${esc(professionName(trade.profession))}${trade.tier?`<small>${t('level')} ${trade.tier}</small>`:''}${tradeConditionLabel(trade)?`<small class="trade-condition">${esc(tradeConditionLabel(trade))}</small>`:''}</td><td role="cell">${columnLabel('tradeCost')}<div class="trade-costs">${trade.costs.map(cost=>tradeItem(cost.key,cost.count)).join('<span class="trade-plus">+</span>')}</div></td><td role="cell">${columnLabel('result')}${tradeItem(trade.result,trade.count)}</td></tr>`).join('')}</tbody></table></div><div class="pagination"><button class="button" data-reference-page="${page-1}" ${page===1?'disabled':''}>${t('previous')}</button><span>${page} / ${pages}</span><button class="button" data-reference-page="${page+1}" ${page===pages?'disabled':''}>${t('next')}</button></div>`;
+ const pages=Math.ceil(list.length/40),page=Math.max(1,Math.min(pages,parseInt(current.params.get('page'),10)||1));
+ const visible=list.slice((page-1)*40,page*40);
+ const groups=[];
+ for(const trade of visible){
+  const prior=groups.at(-1),condition=tradeConditionLabel(trade);
+  if(!prior||prior.profession!==trade.profession||prior.tier!==trade.tier||prior.condition!==condition){
+   groups.push({profession:trade.profession,tier:trade.tier,condition,offers:[]});
+  }
+  groups.at(-1).offers.push(trade);
+ }
+ const count=`<p class="reference-result-count">${fmt(list.length)} ${t('offersFound')}${offer?` · <a href="${href('trades')}">${t('allTradeOffers')}</a>`:''}</p>`;
+ const pagination=pages>1?`<div class="pagination"><button class="button" data-reference-page="${page-1}" ${page===1?'disabled':''}>${t('previous')}</button><span>${page} / ${pages}</span><button class="button" data-reference-page="${page+1}" ${page===pages?'disabled':''}>${t('next')}</button></div>`:'';
+ return count+groups.map(tradeGroupTable).join('')+pagination;
+}
+function tradeGroupTable(group){
+ const caption=esc(professionName(group.profession))+(group.tier?` <span>· ${t('level')} ${esc(group.tier)}</span>`:'');
+ const rows=group.offers.map(trade=>`<tr role="row">
+  <td role="cell"><div class="trade-costs">${trade.costs.map(cost=>tradeItem(cost.key,cost.count)).join('<span class="trade-plus">+</span>')}</div></td>
+  <td role="cell">${tradeItem(trade.result,trade.count)}</td></tr>`).join('');
+ return `<div class="trade-group"><table role="table" class="wiki-table trades-table">
+  <caption>${caption}${group.condition?`<small class="trade-condition">${esc(group.condition)}</small>`:''}</caption>
+  <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">${t('tradeCost')}</th><th role="columnheader" scope="col">${t('result')}</th></tr></thead>
+  <tbody role="rowgroup">${rows}</tbody></table></div>`;
 }
 function focusReferenceResult(){
  const selector=current.page==='trades'?'tbody td:last-child [data-item]':'tbody button,tbody a';
@@ -1810,7 +2047,10 @@ function searchRow(scope,entry,query){
  const element=asLink?'a':'button';
  return `<li><${element} class="search-result" ${asLink?'':'type="button"'} ${attributes}>${img(key)}<span><strong>${esc(title+tag)}</strong><span class="search-excerpt">${esc(excerpt(description))}</span></span></${element}></li>`;
 }
-function ingSummary(recipe){const groups=new Map();for(const ingredient of recipe.ingredients){if(!ingredient)continue;const label=ingLabel(ingredient);groups.set(label,(groups.get(label)||0)+1)}return [...groups].map(([label,count])=>label+(count>1?' × '+count:'')).join(', ')}
+function ingSummary(recipe){
+ return [...recipeIngredientGroups(recipe).values()]
+  .map(({ing,count})=>ingLabel(ing)+(count>1?' × '+fmt(count):'')).join(', ');
+}
 function searchSubmit(){
  const label=esc(t('searchAction'));
  return `<button class="lookup-submit" type="submit" aria-label="${label}" title="${label}"><svg class="lookup-icon" viewBox="0 0 20 20" aria-hidden="true"><use href="#lookup-glass"></use></svg></button>`;
@@ -1929,7 +2169,7 @@ function catalogueControls(kind,query,filters){
    </details>
    ${itemIndex?indexAlphabet():''}
    ${itemIndex?`<details class="index-display"><summary>${t('sortAndView')}</summary>${tools}</details>`:tools}
-   ${itemIndex?`<nav class="compare-links" aria-label="${comparisonText[lang].entry}"><span>${lang==='fr'?'Comparer':'Compare'}</span> ${['food','armour'].map(kind=>`<a ${kind==='food'?'class="compare-entry" ':''}data-compare-kind="${kind}" href="${href('items',comparisonParams(kind))}">${comparisonText[lang][kind]}</a>`).join('')}</nav>`:''}
+   ${itemIndex?`<nav class="compare-links" aria-label="${comparisonText[lang].entry}"><span>${lang==='fr'?'Comparer':'Compare'}</span> ${['food','armour'].map(kind=>`<a ${kind==='food'?'class="compare-entry" ':''}data-compare-kind="${kind}" href="${href('items',comparisonParams(kind))}">${img(kind==='food'?'minecraft:carrot':'minecraft:iron_chestplate')}${comparisonText[lang][kind]}</a>`).join('')}</nav>`:''}
  </div>
  <div class="index-applied"><div id="index-active-filters" class="index-active-filters" role="group" aria-label="${t('activeFilters')}" hidden></div><button class="text-button" id="reset-filters" hidden>${t('reset')}</button>${itemIndex?`<a id="index-recipe-link" hidden>${t('recipeSearchLink')}</a>`:''}</div>`;
 }
@@ -2007,11 +2247,19 @@ function refreshIndexControls(){
  node.innerHTML=(queryOnly?[]:filters).map(({key,label})=>`<button type="button" data-remove-index-filter="${key}" aria-label="${esc(t('removeFilter')+': '+label)}">${esc(label)} <span aria-hidden="true">×</span></button>`).join('');
 }
 function itemListRow(key){return `<button class="item-card item-list-row" data-item="${esc(key)}">${img(key)}<span class="item-list-name"><strong>${esc(name(key))}</strong>${lang==='fr'&&items[key].name.fr!==items[key].name.en?`<small lang="en">${esc(items[key].name.en)}</small>`:''}${itemIdHint(key)}${rarityBadge(key)}</span><span class="item-list-description">${esc(itemSummary(key))}</span></button>`}
+function recipeIndexRow(recipe){
+ const quantity=recipe.count>1?` <span>× ${fmt(recipe.count)}</span>`:'';
+ return `<button class="recipe-card recipe-index-row" data-recipe="${esc(recipe.id)}">
+  ${img(recipe.result)}<span class="recipe-output"><strong>${esc(name(recipe.result))}</strong>${quantity}</span>
+  <span class="recipe-materials">${esc(ingSummary(recipe))}</span><small>${esc(stationName(recipe.station))}</small>
+ </button>`;
+}
 function indexEntriesMarkup(slice,recipeIndex,list){
  const className=recipeIndex?'recipe-grid':list?'item-list':'item-grid';
- const renderEntry=recipeIndex?recipeCard:list?itemListRow:itemCard;
+ const renderEntry=recipeIndex?recipeIndexRow:list?itemListRow:itemCard;
  const listMarkup=entries=>`<ul class="catalogue-entries ${className}" role="list">${entries.map(entry=>`<li>${renderEntry(entry)}</li>`).join('')}</ul>`;
- if(recipeIndex || (!indexSort() && current.params.get('q')))return listMarkup(slice);
+ if(recipeIndex)return `<div class="recipe-columns" aria-hidden="true"><span>${t('result')}</span><span>${t('ingredients')}</span><span>${t('station')}</span></div>`+listMarkup(slice);
+ if(!indexSort() && current.params.get('q'))return listMarkup(slice);
  const groups=[];
  for(const key of slice){
   const letter=indexLetter(key);
@@ -2252,7 +2500,7 @@ function advancementExplorerContent(){
  const selected=nodes.find(n=>n.id===current.params.get('adv'))||nodes.find(n=>n.id===tab.rootId)||nodes[0];
  const layout=advancementLayout(nodes),edges=nodes.filter(n=>layout.positions.has(n.parent));
  const graph=`<div class="adv-viewport" tabindex="0" role="group" aria-label="${t('advTreeTitle')}"><div class="adv-board" data-branch="${esc(tab.id)}" style="width:${layout.width}px;height:${layout.height}px"><svg width="${layout.width}" height="${layout.height}" aria-hidden="true">${edges.map(n=>{const a=layout.positions.get(n.parent),b=layout.positions.get(n.id),middle=(a.x+b.x)/2;return `<path d="M${a.x+26} ${a.y+26}H${middle+26}V${b.y+26}H${b.x+26}"/>`}).join('')}</svg>${nodes.map(n=>advancementNode(n,layout.positions.get(n.id),selected)).join('')}</div></div>`;
- return `<div class="adv-controls"><label for="adv-branch">${t('advBranch')}<select id="adv-branch">${selectOptions(DATA.advancements.tabs.map(tab=>[tab.id,L(tab.title)+' ('+tab.nodes.length+')']),tab.id)}</select></label><label for="adv-view">${t('advView')}<select id="adv-view">${selectOptions([['all',t('advFull')],['preview',t('advPreview')]],all?'all':'preview')}</select></label></div><div class="adv-workspace"><div class="adv-map">${graph}<p class="adv-instructions">${t('advHelp')}</p><p class="adv-caption">${t('advBranchHint')}</p></div><div id="adv-info" class="adv-info" role="region" tabindex="-1" aria-label="${t('advDetails')}" aria-live="polite">${advancementInfo(selected)}</div></div>`;
+ return `<div class="adv-controls"><label for="adv-branch">${t('advBranch')}<select id="adv-branch">${selectOptions(DATA.advancements.tabs.map(tab=>[tab.id,L(tab.title)+' ('+tab.nodes.length+')']),tab.id)}</select></label><label for="adv-view">${t('advView')}<select id="adv-view">${selectOptions([['all',t('advFull')],['preview',t('advPreview')]],all?'all':'preview')}</select></label></div><div class="adv-workspace"><div class="adv-map">${graph}<details class="adv-map-help"><summary>${lang==='fr'?'Comment lire l’arbre':'Reading the tree'}</summary><p class="adv-instructions">${t('advHelp')}</p><p class="adv-caption">${t('advBranchHint')}</p></details></div><div id="adv-info" class="adv-info" role="region" tabindex="-1" aria-label="${t('advDetails')}" aria-live="polite">${advancementInfo(selected)}</div></div>`;
 }
 function advancementCriterion(criterion){
  const recipeIds=(criterion.recipeIds||[]).filter(id=>recipeMap.has(id)),itemKeys=(criterion.itemKeys||[]).filter(key=>items[key]&&!items[key].hiddenAlias);

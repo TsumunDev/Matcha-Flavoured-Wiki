@@ -2,6 +2,13 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 17 November 2026 — recipes, guides and villager offers
+
+- The recipe index shows the ingredients, output quantity and workstation on each row. A crafting slot with several valid ingredients opens their list in the recipe. Returning from an item keeps the selected variant in view.
+- The guide directory gives each chapter a short subject line. Workstation names open their item entries, and recipe counts lead to the filtered index.
+- Villager offers share a heading for the profession, level and any conditions. Each row keeps the cost beside the offered item on phones.
+- Getting started, metallurgy and food now share the overview. The advancement tree keeps its controls and reading instructions together. Both appearances use a separate colour for navigation.
+
 ## 17 November 2026 — bilingual search fixes
 
 - Item and recipe names rank ahead of incidental matches. In French, `pioche diamant` finds the Diamond Pickaxe first.
