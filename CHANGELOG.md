@@ -2,6 +2,13 @@
 
 Ce fichier décrit les évolutions des sauvegardes consultables du wiki de Tsumun. Les versions détaillées des fichiers restent accessibles dans l’historique Git du dépôt.
 
+## 17 November 2026 — bilingual search fixes
+
+- Item and recipe names rank ahead of incidental matches. In French, `pioche diamant` finds the Diamond Pickaxe first.
+- Recipes match verified food effects and ingredient groups. Original Minecraft names also find 118 renamed items and seven renamed professions across the English and French indexes.
+- Searches for enchantment levels accept Roman and Arabic numerals. A punctuation-only query shows no matches. Empty results can take the same term into wiki-wide search.
+- The mobile magnifier keeps the current term. The / shortcut focuses the recipe field on the overview. Clearing wiki search resets its category, and submitting a trade search focuses the offered item.
+
 ## 17 November 2026 — recipe lookup and navigation fixes
 
 - The overview shows the first three matching recipes as you type. Each opens in place. Enter opens all matches in the recipe index.

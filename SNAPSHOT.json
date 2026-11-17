@@ -41,12 +41,10 @@
     "alloySmithingRecipes": 65,
     "sectionScrollChecks": 12,
     "visualReview": {
-      "screenshots": 88,
+      "searchBarScreenshots": 16,
       "routes": [
-        "home",
-        "home recipe lookup",
-        "mobile navigation",
-        "recipe detail"
+        "home recipe search",
+        "item search ranking"
       ],
       "languages": [
         "en",
@@ -57,8 +55,9 @@
         "light"
       ],
       "viewports": [
-        "320x800",
-        "390x800",
+        "320x844",
+        "390x844",
+        "1024x960",
         "1440x960"
       ],
       "engines": [
@@ -67,22 +66,23 @@
       ],
       "routeChecks": 816,
       "searchJourneysPerEngine": 10,
-      "mobileDialogChecks": 10964,
+      "searchBarChecks": 252,
       "comparisonConfigurations": 24,
-      "comparisonGoalAndSlotCombinationsPerEngine": 50,
-      "interactionConfigurations": 24,
-      "interfaceAssertions": 352,
-      "drawerDestinationsPerEngine": 14
+      "comparisonGoalAndSlotCombinationsPerEngine": 50
+    },
+    "searchAliases": {
+      "items": 118,
+      "professions": 7
     }
   },
   "files": {
     "index.html": {
-      "bytes": 7283622,
-      "sha256": "8b4e5487692520f56b214ac84a2567f5b1d327cc21c6cbfc624609dbc737c53b"
+      "bytes": 7297043,
+      "sha256": "8fdbf22d19ef0a942cd9460c0559ccddf3e9b695fa1416325cee5fb6c28fe447"
     },
     "matcha-wiki-site.zip": {
-      "bytes": 3417916,
-      "sha256": "54e52127c333ae2a0c4d20eefbeef85af8e62ee83dbffe348442f64ca3e1d9d0"
+      "bytes": 3421678,
+      "sha256": "4f0a5d5d631d273e401c37da4841851d625e7a49004b3656bd65c16e0a9d77fd"
     },
     "matcha-logo.png": {
       "bytes": 134070,
@@ -93,12 +93,12 @@
       "sha256": "ae8f780befbefa63c73dc682f48df9c49817920c6696a66d9cf1075e6e26ab61"
     },
     "README.md": {
-      "bytes": 13402,
-      "sha256": "c5532269a662a51de157ceaf7ca80d9e5266ae3468ff27ecdafc71679cd20510"
+      "bytes": 13607,
+      "sha256": "0af9bb8a359fd01753390ce9317c9daee0954cd5a8643df818aac9ad5a878d9b"
     },
     "CHANGELOG.md": {
-      "bytes": 11254,
-      "sha256": "40009a9f8980dbcfa5ad28542108e45d5132dc11d012fc6b8f5d8474489afe0b"
+      "bytes": 11978,
+      "sha256": "4d0bdba9565d20660df3e6ca48e9231dd40bf493501bcbc32e16e58d780505bd"
     },
     "CONTENT-LICENSE.md": {
       "bytes": 1400,
@@ -109,8 +109,8 @@
       "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
     },
     "preview/wiki-search.png": {
-      "bytes": 89365,
-      "sha256": "4fc7b2a8082d925b9789a9469da9c251399a9e5edb7f7b07a1ff8d5fef5ca860"
+      "bytes": 89368,
+      "sha256": "f1d529da7b79b331fe4a3618dae873b852d7ca86bc6f60902b10a3f14271fea4"
     },
     ".nojekyll": {
       "bytes": 0,
@@ -125,25 +125,25 @@
       "sha256": "5557d6f869f8b61ec3257b0c8e6c47063fbb41ee1cebb6c5d0b68d23f0855144"
     },
     "preview/wiki-index.png": {
-      "bytes": 103874,
-      "sha256": "17dd6d85a72112c9fec7af3368588e69918ebbd9bcbc763e652564df0c844cb6"
+      "bytes": 103871,
+      "sha256": "a93ac06f4fb6bef42e14ce56d0fb702f5a7fb02885946005fc707c2898e162e3"
     },
     "preview/wiki-advancements.png": {
-      "bytes": 114357,
-      "sha256": "f76930d310d33a1944b1ddcb4d4b8518b27394d3e1791fcee58ab9fc13d3f35d"
+      "bytes": 114358,
+      "sha256": "5cb73290365292c8e7f330fef8522588dfc01802dbe3362f43aac3e64093c4a9"
     },
     "preview/wiki-home.png": {
-      "bytes": 123660,
-      "sha256": "513e0308449415307863fb307f3f49fa152cbbdb77a88e62b669585ec7f82ad2"
+      "bytes": 123657,
+      "sha256": "aec0c9cdcd4fadee07478f351d8bd8a24acf599791e69bc41fce716cefbf25c1"
     },
     "preview/wiki-cooking.png": {
-      "bytes": 79856,
-      "sha256": "f447298dbeb216ae34a8f70214988315cd49d5d74d087b48871df227342fe4da"
+      "bytes": 81560,
+      "sha256": "2d8aabbaad7363ded0a38a236548d564331a4e1aa0ab431589a72109bbe5480e"
     }
   },
   "defaultLanguage": "en",
   "entryUrl": "https://tsumundev.github.io/Matcha-Flavoured-Wiki/#home?lang=en",
-  "releaseTag": "wiki-2026-11-17.2",
+  "releaseTag": "wiki-2026-11-17.3",
   "appearance": {
     "default": "matcha",
     "options": [
